@@ -4,9 +4,10 @@ filmaluco/
 
 
 # User-specific stuff
-.idea/workspace.xml
-.idea/tasks.xml
-.idea/dictionaries
+
+workspace.xml
+tasks.xml
+dictionaries
 
 # Sensitive or high-churn files
 .idea/dataSources/
