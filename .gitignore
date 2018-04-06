@@ -1,13 +1,15 @@
 #Directories
 
 filmaluco/
-
+.idea/
+.idea/*
 
 # User-specific stuff
+*.DS_Store
 misc.xml
 workspace.xml
 tasks.xml
-dictionaries
+vcs.xml
 
 # Sensitive or high-churn files
 .idea/dataSources/
