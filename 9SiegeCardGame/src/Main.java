@@ -1,7 +1,10 @@
+import UI.Text.SampleText;
+
 public class Main {
 
     public static void main(String[] args) {
 
-        System.out.println("Hello World!");
+        SampleText UI = new SampleText();
+        UI.start();
     }
 }

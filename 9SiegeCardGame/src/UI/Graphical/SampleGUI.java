@@ -1,4 +1,4 @@
-package GUI;
+package UI.Graphical;
 
 public class SampleGUI {
 }
