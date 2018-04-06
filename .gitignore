@@ -1,26 +1,52 @@
 #Directories
 
 filmaluco/
-9SiegeCardGame/9SiegeCardGame/.idea/
-9SiegeCardGame/9SiegeCardGame/out/
 
 
-# Compiled class file
+# User-specific stuff
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/dictionaries
 
+# Sensitive or high-churn files
+.idea/**/dataSources/
+.idea/**/dataSources.ids
+.idea/**/dataSources.local.xml
+.idea/**/sqlDataSources.xml
+.idea/**/dynamic.xml
+.idea/**/uiDesigner.xml
 
-# Log file
-*.log
+# Gradle
+.idea/**/gradle.xml
+.idea/**/libraries
 
-# BlueJ files
-*.ctxt
+# CMake
+cmake-build-debug/
+cmake-build-release/
 
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
+# Mongo Explorer plugin
+.idea/**/mongoSettings.xml
 
-# Package Files #
-*.war
-*.ear
-*.tar.gz
+# File-based project format
+*.iws
 
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
+# IntelliJ
+out/
+
+# mpeltonen/sbt-idea plugin
+.idea_modules/
+
+# JIRA plugin
+atlassian-ide-plugin.xml
+
+# Cursive Clojure plugin
+.idea/replstate.xml
+
+# Crashlytics plugin (for Android Studio and IntelliJ)
+com_crashlytics_export_strings.xml
+crashlytics.properties
+crashlytics-build.properties
+fabric.properties
+
+# Editor-based Rest Client
+.idea/httpRequests
