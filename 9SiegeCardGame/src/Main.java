@@ -1,4 +1,4 @@
-import UI.Text.SampleText;
+import UI.Text.*;
 
 public class Main {
 
