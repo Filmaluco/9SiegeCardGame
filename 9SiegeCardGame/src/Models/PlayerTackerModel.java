@@ -1,4 +1,4 @@
 package Models;
 
-public class PlayerTackerModel {
+public class PlayerTackerModel{
 }
