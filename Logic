@@ -1,0 +1,34 @@
+//Controller:
+// most methods in Controller's are boolean, those o return for printing like the map! dont return the object!!!
+// they return the status, like a int array! that need's to be document
+
+bool Controller.CanAttack(var sample);
+bool Controller.Attack(var sample);
+
+int[] Controller.getPlayerTracker();
+//avoid returning PlayerTrackerModel the view does the conversion!!!! But for this to work DOCUMENTATION IS REQUIRED!
+
+// -------------------------------------------------------------------------------
+//Views:
+//
+
+if(Controller.CanAttack(sample)){ System.out.print(sample + "Can be attacked");}
+if(SelectedOption == var){System.out.print(sample + "Was attacked");}
+//printing map
+
+int map[3] = Controller.getPlayerTracker();
+for (int i = 0; map.length; i++) {
+  if(map[i]==0){System.out.print("Vazio");}
+  if(map[i]==1){System.out.print("SiegeTower");}
+  if(map[i]==2){System.out.print("Ladder");}
+}
+
+//No que toca a UI:
+// cada "estado" do menu tem o seu metodo/funcao, pode chamar outras, mas SAO INDEPENDENTES UMAS DAS OUTRAS!!!
+
+
+// -------------------------------------------------------------------------------
+//Models:
+//
+
+// bitch please these are self explanatory!!!!
