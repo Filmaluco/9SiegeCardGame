@@ -18,14 +18,13 @@ public class Dice {
 
     private int modifier;
 
-    public Dice(int target_rule, int modifier){
+    public Dice(int target_rule){
 
-        this.modifier = modifier;
         //The next piece of code is a sample:
         //one target can change only a flag
-        if(target_rule == rule.REPAIRED_TREBUCHET){ coupure = true;}
+        if(target_rule == rule.IRON_SHIELDS){ this.modifier = -1; siege_tower = true};
         // or multiple
-        if(target_rule == rule.COVER_OF_DARKNESS){ raid = true; sabotage = true;}
+        if(target_rule == rule.COVER_OF_DARKNESS){ this.modifier = 1; raid = true; sabotage = true;}
         //....
 
         //TODO: comple for all rules
@@ -36,7 +35,7 @@ public class Dice {
         int roll = r.nextInt(6);
 
         //TODO: Apply same logic to all others
-        if(target_roll == roll_for.COUPURE_ROLL && coupure) {roll += modifier;}
+        if(target_roll == roll_for.BOILING_ATTACK_SIEGETOWER && siege_tower) {roll += modifier;}
 
 
 
