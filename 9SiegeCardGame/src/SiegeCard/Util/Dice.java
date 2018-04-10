@@ -22,7 +22,7 @@ public class Dice {
 
         //The next piece of code is a sample:
         //one target can change only a flag
-        if(target_rule == rule.IRON_SHIELDS){ this.modifier = -1; siege_tower = true};
+        if(target_rule == rule.IRON_SHIELDS){ this.modifier = -1; siege_tower = true;}
         // or multiple
         if(target_rule == rule.COVER_OF_DARKNESS){ this.modifier = 1; raid = true; sabotage = true;}
         //....
