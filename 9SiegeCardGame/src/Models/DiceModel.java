@@ -1,8 +1,11 @@
-package SiegeCard.Util;
+package Models;
+
+import SiegeCard.Util.roll_for;
+import SiegeCard.Util.rule;
 
 import java.util.Random;
 
-public class Dice {
+public class DiceModel {
 
     private boolean close_combat_attack = false,
                     normal_attack = false,
@@ -18,7 +21,7 @@ public class Dice {
 
     private int modifier;
 
-    public Dice(int target_rule){
+    public DiceModel(int target_rule){
 
         //The next piece of code is a sample:
         //one target can change only a flag

@@ -1,14 +1,24 @@
 package Controllers;
 
-import Models.EnemyTrackerModel;
+import Controllers.states.IState;
+import Controllers.states.SampleState;
+import Models.GameDataModel;
 
 public class GameController {
 
-    EnemyTrackerModel battlefield = new EnemyTrackerModel();
-    // protected Map<Integer, CardModel> Deck;
-    // cant use shuffle, maybe create DeckModel?
+    GameDataModel gameData;
+    private IState state;
 
+    public GameController()
+    {
+        gameData = new GameDataModel();
+        setState(new SampleState(gameData));
+    }
 
+    private void setState(IState state)
+    {
+        this.state = state;
+    }
 
 
 }
