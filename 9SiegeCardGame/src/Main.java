@@ -1,10 +1,9 @@
-import UI.Text.*;
+import UI.Text;
 
 public class Main {
 
     public static void main(String[] args) {
-
-        SampleText UI = new SampleText();
-        UI.start();
+        Text menu = new Text();
+        menu.mainMenu();
     }
 }
