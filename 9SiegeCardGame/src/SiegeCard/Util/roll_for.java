@@ -5,9 +5,9 @@ public class roll_for {
     public static int NORMAL_ATTACK_BATTERING_RAM   = 10;
     public static int NORMAL_ATTACK_LADDER          = 11;
     public static int NORMAL_ATTACK_SIEGETOWER      = 12;
-    public static int CIRCLE_ATTACK_BATTERING_RAM   = 10;
-    public static int CIRCLE_ATTACK_LADDER          = 11;
-    public static int CIRCLE_ATTACK_SIEGETOWER      = 12;
+    public static int CIRCLE_ATTACK_BATTERING_RAM   = 20;
+    public static int CIRCLE_ATTACK_LADDER          = 21;
+    public static int CIRCLE_ATTACK_SIEGETOWER      = 22;
     public static int BOILING_ATTACK_BATTERING_RAM  = 31;
     public static int BOILING_ATTACK_LADDER         = 32;
     public static int BOILING_ATTACK_SIEGETOWER     = 33;

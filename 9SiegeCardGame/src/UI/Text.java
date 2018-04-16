@@ -1,10 +1,10 @@
 package UI;
 
-import SiegeCard.Util.Str_Values;
+import SiegeCard.Util.str_values;
 
 import java.util.Scanner;
 
-public class Text implements Str_Values {
+public class Text implements str_values {
 
     Scanner scanner = new Scanner(System.in);
 

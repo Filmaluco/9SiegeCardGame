@@ -6,7 +6,7 @@ import Models.GameDataModel;
 
 public class GameController {
 
-    GameDataModel gameData;
+    private GameDataModel gameData;
     private IState state;
 
     public GameController()
@@ -20,5 +20,9 @@ public class GameController {
         this.state = state;
     }
 
+    boolean hasInitialConfig(){  /* so far is the only one required */ return gameData.Player.hasName(); }
+    void setInitialConfig(String player_name){ gameData.Player.setName(player_name);}
+
+    String getPlayerName(){ return gameData.Player.getName();}
 
 }

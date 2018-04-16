@@ -1,6 +1,6 @@
 package SiegeCard.Util;
 
-public interface Str_Values {
+public interface str_values {
     String[] mainMenuOptions={
             "Play",
             "Configs",
