@@ -8,15 +8,14 @@ public class PlayerModel {
 
     public PlayerModel(){
         tracker = new PlayerTackerModel();
+        name = null;
     }
 
     public String getName() { return name; }
 
     public void setName(String name) { this.name = name; }
 
-    public boolean hasName(){ return name!=null;}
-
-
+    public boolean hasName(){return name!=null;}
 
 
 }

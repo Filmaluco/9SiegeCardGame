@@ -1,17 +1,30 @@
 package UI;
 
+import Controllers.GameController;
 import SiegeCard.Util.str_values;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Scanner;
 
 public class Text implements str_values {
 
     Scanner scanner = new Scanner(System.in);
+    BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+    GameController game = new GameController();
 
     private int readOption(){
         System.out.println("Choose your option: ");
         while(!scanner.hasNextInt()) scanner.next();
         return scanner.nextInt();
+    }
+
+    private String readLine(){
+        String line="";
+        try {                    line=reader.readLine().trim();
+        } catch (IOException e) {System.out.println(e);}
+        return line;
     }
 
     private void printLogo(){
@@ -29,6 +42,16 @@ public class Text implements str_values {
     protected void printMenu(String[] options){
         for (int i = 0; i < options.length; i++)
             System.out.println(i+1+ "-" + options[i]);
+    }
+
+    protected void printOptionsMenu(String[] options){
+        for (int i = 0; i < options.length; i++){
+            System.out.print(i+1+ "-");
+            //Checks if it needs to Set or Change Name
+            if(i==0)
+                System.out.print(game.hasInitialConfig()?nameOptions[0]:nameOptions[1]);
+            System.out.println(options[i]);
+        }
     }
 
     public final static void clearScreen()
@@ -65,11 +88,11 @@ public class Text implements str_values {
             option = readOption();
 
             switch (option) {
-                case 1: {
+                case 1:
                     //TODO Implement gameplay, check loadexist and config conditions
                     clearScreen();
                     System.out.println("Playing...\n");
-                }break;
+                    break;
 
                 case 2:
                     clearScreen();
@@ -86,7 +109,7 @@ public class Text implements str_values {
                     break;
 
                 default:{
-                    System.out.println("Wrong Option\n");
+                    System.out.println(errorMessage[0]);
                 }break;
             }
 
@@ -99,25 +122,23 @@ public class Text implements str_values {
         do{
             clearScreen();
             printLogo();
-            printMenu(configsOptions);
+            printOptionsMenu(configsOptions);
             option=readOption();
 
             switch (option){
                 case 1:
-                    //TODO implement change player name
+                    System.out.print(nameOptions[2]);
+                    game.setInitialConfig(readLine());
                     break;
 
                 case 2:
                     break;
 
-                default:{
-                    System.out.println("Wrong Option\n");
-                }break;
+                default:
+                    System.out.println(errorMessage[0]);
+                    break;
             }
         }while (option!=2);
 
     }
-
-
-
 }

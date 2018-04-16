@@ -1,6 +1,9 @@
 package SiegeCard.Util;
 
 public interface str_values {
+    String[] errorMessage={
+            "Wrong Option!\n"
+    };
     String[] mainMenuOptions={
             "Play",
             "Configs",
@@ -9,8 +12,14 @@ public interface str_values {
     };
 
     String[] configsOptions={
-            "Set Player name",
+            "Player name",
             "Return to Main Menu"
+    };
+
+    String[] nameOptions={
+            "Change ",
+            "Set ",
+            "Please enter your name: "
     };
 
 

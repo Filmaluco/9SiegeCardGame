@@ -20,8 +20,8 @@ public class GameController {
         this.state = state;
     }
 
-    boolean hasInitialConfig(){  /* so far is the only one required */ return gameData.Player.hasName(); }
-    void setInitialConfig(String player_name){ gameData.Player.setName(player_name);}
+    public boolean hasInitialConfig(){  /* so far is the only one required */ return gameData.Player.hasName(); }
+    public void setInitialConfig(String player_name){ gameData.Player.setName(player_name);}
 
     String getPlayerName(){ return gameData.Player.getName();}
 
