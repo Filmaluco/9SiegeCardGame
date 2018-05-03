@@ -10,9 +10,15 @@ import java.util.Scanner;
 
 public class Text implements str_values {
 
-    Scanner scanner = new Scanner(System.in);
-    BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-    GameController game = new GameController();
+    private Scanner scanner;
+    private BufferedReader reader;
+    private GameController game;
+
+    public Text(GameController gameController){
+        this.game=gameController;
+        scanner=new Scanner(System.in);
+        reader=new BufferedReader(new InputStreamReader(System.in));
+    }
 
     private int readOption(){
         System.out.println("Choose your option: ");
@@ -114,7 +120,7 @@ public class Text implements str_values {
             }
 
         } while (option!=4);
-
+        //TODO: Change to instanceof GameOver
     }
 
     public void configsMenu(){
@@ -139,6 +145,5 @@ public class Text implements str_values {
                     break;
             }
         }while (option!=2);
-
     }
 }
