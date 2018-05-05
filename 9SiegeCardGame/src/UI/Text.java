@@ -45,17 +45,28 @@ public class Text implements str_values {
                 "          /___/             ");
     }
 
-    protected void printMenu(String[] options){
+    private void printMenu(String[] options){
         for (int i = 0; i < options.length; i++)
             System.out.println(i+1+ "-" + options[i]);
     }
 
-    protected void printOptionsMenu(String[] options){
+    private void printOptionsMenu(String[] options){
         for (int i = 0; i < options.length; i++){
             System.out.print(i+1+ "-");
             //Checks if it needs to Set or Change Name
             if(i==0)
                 System.out.print(game.hasInitialConfig()?nameOptions[0]:nameOptions[1]);
+            System.out.println(options[i]);
+        }
+    }
+
+    private void printPlayMenu(String[] options){
+        for (int i = 0; i < options.length; i++){
+            System.out.print(i+1+ "-");
+            //TODO: Implement Check Boiling Water
+            //Checks if Boiling Water was used in the turn
+//            if(i==2)
+//                System.out.print(game.hasInitialConfig()?nameOptions[0]:nameOptions[1]);
             System.out.println(options[i]);
         }
     }
@@ -96,8 +107,12 @@ public class Text implements str_values {
             switch (option) {
                 case 1:
                     //TODO Implement gameplay, check loadexist and config conditions
+                    if(!game.hasInitialConfig()){
+                        System.out.print(nameOptions[2]);
+                        game.setInitialConfig(readLine());
+                    }
                     clearScreen();
-                    System.out.println("Playing...\n");
+                    playMenu();
                     break;
 
                 case 2:
@@ -114,9 +129,9 @@ public class Text implements str_values {
                     System.out.println("Exiting...\n");
                     break;
 
-                default:{
+                default:
                     System.out.println(errorMessage[0]);
-                }break;
+                    break;
             }
 
         } while (option!=4);
@@ -124,7 +139,7 @@ public class Text implements str_values {
     }
 
     public void configsMenu(){
-        int option=0;
+        int option;
         do{
             clearScreen();
             printLogo();
@@ -145,5 +160,53 @@ public class Text implements str_values {
                     break;
             }
         }while (option!=2);
+    }
+
+    public void playMenu(){
+        int option;
+        //TODO: Change do while to end in instanceof GAMEOVER or Save and Exit
+        //TODO: Complete the UI with trackers and day
+        do {
+            clearScreen();
+            printLogo();
+            printPlayMenu(playMenuOptions);
+            option=readOption();
+
+            switch (option){
+                case 1:
+                    break;
+
+                case 2:
+                    break;
+
+                case 3:
+                    break;
+
+                case 4:
+                    break;
+
+                case 5:
+                    break;
+
+                case 6:
+                    break;
+
+                case 7:
+                    break;
+
+                case 8:
+                    break;
+
+                case 9:
+                    break;
+
+                case 10:
+                    break;
+
+                default:
+                    System.out.println(errorMessage[0]);
+                    break;
+            }
+        }while (option!=9);
     }
 }

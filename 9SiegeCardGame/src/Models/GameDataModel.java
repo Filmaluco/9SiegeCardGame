@@ -7,13 +7,16 @@ public class GameDataModel {
     public PlayerModel Player;
     public DiceModel Dice;
     //todo: implement deck ... (make it a collection)
-    private int currDay;
-    private int currTurn;
+    public static final int LAST_DAY = 3;
+    public static final int LAST_TURN = 7;
+
+    private int currentDay;
+    private int currentTurn;
 
     //TODO: Change Constructor
     public GameDataModel() {
         Player = new PlayerModel();
-        currDay = 1;
-        currTurn = 1;
+        currentDay = 1;
+        currentTurn = 1;
     }
 }

@@ -22,7 +22,17 @@ public interface str_values {
             "Please enter your name: "
     };
 
-
+    String[] playMenuOptions={
+            "Archers Attack ",
+            "Boiling Water Attack ",
+            "Close Combat Attack ",
+            "Coupure ",
+            "Rally Troops ",
+            "Tunnel Movement ",
+            "Supply Raid ",
+            "Sabotage ",
+            "Save and Exit"
+    };
 
 
 }

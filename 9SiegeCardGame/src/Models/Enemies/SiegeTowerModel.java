@@ -4,8 +4,10 @@ import Models.EnemyModel;
 
 public class SiegeTowerModel extends EnemyModel {
 
+    public static final int SIEGE_TOWER_BASE_STRENGHT = 4;
+
     public SiegeTowerModel() {
         super();
-        trackStrength = SIEGE_TOWER_STRENGHT;
+        trackStrength = SIEGE_TOWER_BASE_STRENGHT;
     }
 }

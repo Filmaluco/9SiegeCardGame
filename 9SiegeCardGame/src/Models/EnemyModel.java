@@ -1,20 +1,22 @@
 package Models;
 
-import SiegeCard.Util.game_constants;
-
-public class EnemyModel implements game_constants {
+public class EnemyModel {
     protected int position;
     protected int trackStrength;
 
+    public static final int MAX_ENEMY_TRACK_SLOTS = 4;
+    public static final int CLOSE_COMBAT_STRENGTH = 4;
+
     public EnemyModel() {
-        position = MAX_TRACK_SLOTS;
+        position = MAX_ENEMY_TRACK_SLOTS;
     }
 
     public int getPosition() { return position; }
     public int getTrackStrength() { return trackStrength; }
 
+    //TODO: Add exception to check if bellow 0 or above MAX
     public void incrementPosition(){this.position+=1;}
-    public void decrementPosition(){this.position+=1;}
+    public void decrementPosition(){this.position-=1;}
 
     /**
      * Checks if Enemy unit is on Close Combat

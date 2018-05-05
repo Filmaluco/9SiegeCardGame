@@ -23,6 +23,6 @@ public class GameController {
     public boolean hasInitialConfig(){  /* so far is the only one required */ return gameData.Player.hasName(); }
     public void setInitialConfig(String player_name){ gameData.Player.setName(player_name);}
 
-    String getPlayerName(){ return gameData.Player.getName();}
+    public String getPlayerName(){ return gameData.Player.getName();}
 
 }
