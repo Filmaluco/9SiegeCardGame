@@ -169,6 +169,7 @@ public class Text implements str_values {
         do {
             clearScreen();
             printLogo();
+            System.out.println(game.toString()+"\n");
             printPlayMenu(playMenuOptions);
             option=readOption();
 
@@ -198,9 +199,6 @@ public class Text implements str_values {
                     break;
 
                 case 9:
-                    break;
-
-                case 10:
                     break;
 
                 default:

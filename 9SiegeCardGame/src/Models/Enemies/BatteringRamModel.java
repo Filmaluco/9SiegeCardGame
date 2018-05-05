@@ -10,4 +10,9 @@ public class BatteringRamModel extends EnemyModel {
         super();
         trackStrength = BATTERING_RAM_BASE_STRENGHT;
     }
+
+    @Override
+    public String toString() {
+        return String.format("%-15s" + super.toString(), "Battering Ram:") ;
+    }
 }

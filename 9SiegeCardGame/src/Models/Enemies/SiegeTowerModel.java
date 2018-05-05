@@ -10,4 +10,9 @@ public class SiegeTowerModel extends EnemyModel {
         super();
         trackStrength = SIEGE_TOWER_BASE_STRENGHT;
     }
+
+    @Override
+    public String toString() {
+        return String.format("%-15s" + super.toString(),"Siege Tower:");
+    }
 }

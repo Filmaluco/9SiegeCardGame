@@ -25,4 +25,8 @@ public class GameController {
 
     public String getPlayerName(){ return gameData.Player.getName();}
 
+    @Override
+    public String toString() {
+        return gameData.toString();
+    }
 }

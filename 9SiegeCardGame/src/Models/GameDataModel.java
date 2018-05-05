@@ -16,7 +16,23 @@ public class GameDataModel {
     //TODO: Change Constructor
     public GameDataModel() {
         Player = new PlayerModel();
+        EnemyTracker = new EnemyTrackerModel();
         currentDay = 1;
         currentTurn = 1;
+    }
+
+    public EnemyTrackerModel getEnemyTracker() { return EnemyTracker; }
+    public PlayerModel getPlayer() { return Player; }
+    public DiceModel getDice() { return Dice; }
+    public int getCurrentDay() { return currentDay; }
+    public int getCurrentTurn() { return currentTurn; }
+
+    @Override
+    public String toString() {
+        String s="";
+        s+=EnemyTracker.toString()+"\n";
+        s+=Player.toString()+"\n";
+        s+="Day: " + getCurrentDay() + "\nTurn: " + getCurrentTurn() + "\nAction Points: " + Player.getActionPoints();
+        return s;
     }
 }

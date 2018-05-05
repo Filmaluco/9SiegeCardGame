@@ -10,4 +10,9 @@ public class LadderModel extends EnemyModel {
         super();
         trackStrength = LADDER_BASE_STRENGHT;
     }
+
+    @Override
+    public String toString() {
+        return String.format("%-15s" + super.toString(), "Ladder:");
+    }
 }
