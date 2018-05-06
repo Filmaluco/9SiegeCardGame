@@ -25,7 +25,7 @@ public class PlayerModel {
     @Override
     public String toString() {
         String s = "";
-        s+=getName()+" Status Track Card \n";
+        s+=getName()+" Status Track Card";
         s+=tracker.toString()+"\n";
         return s;
     }
