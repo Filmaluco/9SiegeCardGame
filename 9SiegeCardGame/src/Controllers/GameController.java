@@ -1,7 +1,8 @@
 package Controllers;
 
+import Controllers.states.AwaitBeginning;
+import Controllers.states.AwaitLineCheck;
 import Controllers.states.IState;
-import Controllers.states.SampleState;
 import Models.GameDataModel;
 
 public class GameController {
@@ -12,12 +13,16 @@ public class GameController {
     public GameController()
     {
         gameData = new GameDataModel();
-        setState(new SampleState(gameData));
+        setState(new AwaitBeginning(gameData));
     }
 
     private void setState(IState state)
     {
         this.state = state;
+    }
+
+    public IState getState() {
+        return state;
     }
 
     public boolean hasInitialConfig(){  /* so far is the only one required */ return gameData.Player.hasName(); }
@@ -29,4 +34,8 @@ public class GameController {
     public String toString() {
         return gameData.toString();
     }
+
+    //States
+
+    public void GameSetup(){setState(getState().GameSetup());}
 }
