@@ -166,6 +166,7 @@ public class Text implements str_values {
         int option;
         //TODO: Change do while to end in instanceof GAMEOVER or Save and Exit
         //TODO: Complete the UI with trackers and day
+        //TODO:
         do {
             clearScreen();
             printLogo();

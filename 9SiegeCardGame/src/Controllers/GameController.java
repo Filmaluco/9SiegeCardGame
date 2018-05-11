@@ -1,7 +1,6 @@
 package Controllers;
 
 import Controllers.states.AwaitBeginning;
-import Controllers.states.AwaitLineCheck;
 import Controllers.states.IState;
 import Models.GameDataModel;
 
