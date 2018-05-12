@@ -2,6 +2,7 @@ package Models;
 
 import SiegeCard.Util.constants;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CardModel implements constants {
@@ -12,6 +13,7 @@ public class CardModel implements constants {
     List<EventModel> events;
 
     public CardModel(EventModel day1Event, EventModel day2Event, EventModel day3Event){
+            events = new ArrayList<>();
             cardId = ID++;
             events.add(day1Event);
             events.add(day2Event);

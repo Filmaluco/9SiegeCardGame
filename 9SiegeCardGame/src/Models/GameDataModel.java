@@ -8,7 +8,6 @@ public class GameDataModel implements constants {
     public EnemyTrackerModel EnemyTracker;
     public PlayerModel Player;
     public DiceModel Dice;
-    //todo: implement deck ... (make it a collection)
     public DeckModel Deck;
 
     private int currentDay,
@@ -18,6 +17,7 @@ public class GameDataModel implements constants {
     public GameDataModel() {
         Player = new PlayerModel();
         EnemyTracker = new EnemyTrackerModel();
+        Deck = new DeckModel();
         currentDay = 1;
         currentTurn = 1;
     }
@@ -30,13 +30,14 @@ public class GameDataModel implements constants {
 
     @Override
     public String toString() {
+        Dice = Deck.Draw().applyEvent(this);
         String s="";
         s+=EnemyTracker.toString()+"\n";
         s+=Player.toString()+"\n";
-        s+="Day: " + "[" + getCurrentDay() + "]" + " Turn: " + "[" + getCurrentTurn() + "]" + " Action Points: " + "[" + Player.getActionPoints() + "]\n1";
+        s+="Day: " + "[" + getCurrentDay() + "]" + " Turn: " + "[" + getCurrentTurn() + "]" + " Action Points: " + "[" + Player.getActionPoints() + "]\n";
         s+="Card:\n";
-        //s+="Name: " + Deck.getCurrentCardName;
-        //s+="Effect: " + Deck.getCurrentDescription;
+        s+="Name: " + Deck.getLastCardName() + "\n";
+        s+="Effect: \n" + Deck.getLastCardDescription() + "\n";
         return s;
     }
 }

@@ -20,9 +20,7 @@ public class GuardsDistractedEvent extends EventModel implements rules, rolls {
     }
 
     public DiceModel applyEvent(GameDataModel data){
-
         //TODO: move Slowest
-
         return new DiceModel(eventID);
     }
 }
