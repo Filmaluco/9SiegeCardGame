@@ -14,13 +14,14 @@ public class IllnessEvent extends EventModel implements rules, rolls {
                               "Reduce Supplies by 1";
         eventActionPoints   = 2;
 
-        batteringRamMovement = true;
+        siegeTowerMovement = true;
     }
 
     public DiceModel applyEvent(GameDataModel data){
 
         data.Player.tracker.reduceMorale();
         data.Player.tracker.reduceSupplies();
+
 
         data.EnemyTracker.siegeTower.advance();
 

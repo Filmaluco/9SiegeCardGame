@@ -32,6 +32,10 @@ public class DiceModel implements rolls, rules {
 
             case ILLNESS: { modifier = 0; break;}
             case GUARDS_DISTRACTED: { modifier = +1; sabotage = true; rally = true; break;}
+            case SUPPLIES_SPOILED: { modifier = 0; break;}
+            case BOILING_OIL: { modifier = 2; circle_attack=true; break;}
+            case DEATH_OF_A_LEADER: { modifier = 1; rally = true; break;}
+            case GATE_FORTIFIED: { modifier = 1; battering_ram = true; break;}
 
             default: //Exeption
         }
