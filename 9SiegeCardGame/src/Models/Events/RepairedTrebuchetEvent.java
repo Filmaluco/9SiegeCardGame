@@ -9,7 +9,7 @@ import SiegeCard.Util.rules;
 public class RepairedTrebuchetEvent extends EventModel implements rules, rolls {
 
     public RepairedTrebuchetEvent() {
-        //TODO: Implement Special 
+        //TODO: Implement Special
     }
 
     @Override

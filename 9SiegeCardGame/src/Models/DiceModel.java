@@ -39,7 +39,7 @@ public class DiceModel implements rolls, rules {
             case FLAMING_ARROWS: { modifier = 1; siege_tower = true; break;}
             case VOLLEY_OF_ARROWS: { modifier = 1; battering_ram = true; normal_attack = true;
                             circle_attack = true; siege_tower = true; ladder = true; close_combat_attack = true; break;}
-
+            case COVER_OF_DARKNESS: { modifier = 1; raid = true; sabotage = true; break;}
 
 
             default: //Exeption
