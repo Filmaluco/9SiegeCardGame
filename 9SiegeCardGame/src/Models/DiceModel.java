@@ -36,6 +36,7 @@ public class DiceModel implements rolls, rules {
             case BOILING_OIL: { modifier = 2; circle_attack=true; break;}
             case DEATH_OF_A_LEADER: { modifier = 1; rally = true; break;}
             case GATE_FORTIFIED: { modifier = 1; battering_ram = true; break;}
+            case FLAMING_ARROWS: { modifier = 1; siege_tower = true; break;}
 
             default: //Exeption
         }
