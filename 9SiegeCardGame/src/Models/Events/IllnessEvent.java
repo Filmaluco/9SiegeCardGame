@@ -24,6 +24,8 @@ public class IllnessEvent extends EventModel implements rules, rolls {
 
         data.EnemyTracker.siegeTower.advance();
 
+        data.Player.setActionPoints(eventActionPoints);
+
         return new DiceModel(eventID);
     }
 

@@ -21,6 +21,8 @@ public class GuardsDistractedEvent extends EventModel implements rules, rolls {
 
     public DiceModel applyEvent(GameDataModel data){
         //TODO: move Slowest
+        data.Player.setActionPoints(eventActionPoints);
+
         return new DiceModel(eventID);
     }
 }

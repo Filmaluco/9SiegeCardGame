@@ -30,7 +30,6 @@ public class GameDataModel implements constants {
 
     @Override
     public String toString() {
-        Dice = Deck.Draw().applyEvent(this);
         String s="";
         s+=EnemyTracker.toString()+"\n";
         s+=Player.toString()+"\n";

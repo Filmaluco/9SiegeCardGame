@@ -25,6 +25,8 @@ public class SuppliesSoiledEvent extends EventModel implements rules, rolls {
 
         data.EnemyTracker.ladder.advance();
 
+        data.Player.setActionPoints(eventActionPoints);
+
         return new DiceModel(eventID);
     }
 }
