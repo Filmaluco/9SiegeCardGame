@@ -40,7 +40,11 @@ public class DiceModel implements rolls, rules {
             case VOLLEY_OF_ARROWS: { modifier = 1; battering_ram = true; normal_attack = true;
                             circle_attack = true; siege_tower = true; ladder = true; close_combat_attack = true; break;}
             case COVER_OF_DARKNESS: { modifier = 1; raid = true; sabotage = true; break;}
-
+            case ENEMY_FATIGUE: { modifier = 1; coupure = true; raid = true; sabotage = true; break;}
+            case RALLY: { modifier = 1; close_combat_attack = true; circle_attack = true; break;}
+            case DETERMINED_ENEMY: { modifier = -1; battering_ram = true; break;}
+            case IRON_SHIELDS: { modifier = -1; siege_tower = true; break;}
+            case FAITH: { modifier = 1; battering_ram = true; ladder = true; raid = true; break;}
 
             default: //Exeption
         }
