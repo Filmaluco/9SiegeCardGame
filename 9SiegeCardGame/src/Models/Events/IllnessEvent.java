@@ -18,12 +18,13 @@ public class IllnessEvent extends EventModel implements rules, rolls {
     }
 
     public DiceModel applyEvent(GameDataModel data){
-
         data.Player.tracker.reduceMorale();
         data.Player.tracker.reduceSupplies();
 
 
         data.EnemyTracker.siegeTower.advance();
+
+        data.Player.setActionPoints(eventActionPoints);
 
         return new DiceModel(eventID);
     }

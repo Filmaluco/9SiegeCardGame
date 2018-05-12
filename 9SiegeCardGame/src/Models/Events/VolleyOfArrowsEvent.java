@@ -22,6 +22,7 @@ public class VolleyOfArrowsEvent extends EventModel implements rules, rolls {
     public DiceModel applyEvent(GameDataModel data) {
 
         data.EnemyTracker.siegeTower.advance();
+        data.Player.setActionPoints(eventActionPoints);
 
         return new DiceModel(eventID);
     }
