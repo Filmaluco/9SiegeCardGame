@@ -1,8 +1,6 @@
 package Models;
 
-import Models.Events.GuardsDistractedEvent;
-import Models.Events.IllnessEvent;
-import Models.Events.SuppliesSoiledEvent;
+import Models.Events.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,8 +20,13 @@ public class DeckModel {
 
         //Exemple of a card
         cards = new ArrayList<>();
-        cards.add(new CardModel(new IllnessEvent(), new GuardsDistractedEvent(), new SuppliesSoiledEvent()));
-
+        cards.add(new CardModel(new TrebuchetAttackEvent(), new TrebuchetAttackEvent(), new TrebuchetAttackEvent()));
+        cards.add(new CardModel(new IllnessEvent(), new GuardsDistractedEvent(), new TrebuchetAttackEvent()));
+        cards.add(new CardModel(new SuppliesSoiledEvent(), new BadWeatherEvent(), new BoilingOilEvent()));
+        cards.add(new CardModel(new DeathOfALeaderEvent(), new GateFortifiedEvent(), new FlamingArrowsEvent()));
+        cards.add(new CardModel(new VolleyOfArrowsEvent(), new CollapsedEvent(), new RepairedTrebuchetEvent()));
+        cards.add(new CardModel(new CoverOfDarknessEvent(), new EnemyFatigueEvent(), new RallyEvent()));
+        cards.add(new CardModel(new DeterminedEnemyEvent(), new IronShieldsEvent(), new FaithEvent()));
         numberCards = cards.size();
         currentCard = 0;
         currentDay = 1;
