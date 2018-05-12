@@ -1,6 +1,6 @@
 package Controllers;
 
-import Controllers.states.AwaitBeginning;
+import Controllers.states.GameSetup;
 import Controllers.states.IState;
 import Models.GameDataModel;
 
@@ -12,7 +12,7 @@ public class GameController {
     public GameController()
     {
         gameData = new GameDataModel();
-        setState(new AwaitBeginning(gameData));
+        setState(new GameSetup(gameData));
     }
 
     private void setState(IState state)
