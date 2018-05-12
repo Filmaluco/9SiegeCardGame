@@ -1,4 +1,4 @@
 package Controllers.states;
 
-public class GameExitSave {
+public class GameSave {
 }

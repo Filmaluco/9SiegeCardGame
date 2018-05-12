@@ -11,55 +11,72 @@ public class StateAdapter implements IState {
 
 
     @Override
-    public IState GameSetup() { return this; }
-
-    @Override
-    public IState lineCheck() {
-        return null;
+    public IState GameSetup()  {
+        return this;
     }
 
     @Override
-    public IState updateBoard() {
-        return null;
+    public IState StartTurn()  {
+        return this;
     }
 
     @Override
-    public IState archersAttack() {
-        return null;
+    public IState EndTurn()  {
+        return this;
     }
 
     @Override
-    public IState boilingAttack() {
-        return null;
+    public IState GameWon()  {
+        return this;
     }
 
     @Override
-    public IState Coupure() {
-        return null;
+    public IState GameOver()  {
+        return this;
     }
 
     @Override
-    public IState RallyTroops() {
-        return null;
+    public IState GameSave()  {
+        return this;
     }
 
     @Override
-    public IState TunnelMovement() {
-        return null;
+    public IState GameExit()  {
+        return this;
     }
 
     @Override
-    public IState SupplyRaid() {
-        return null;
+    public IState TrackSelectionArchersAttack()  {
+        return this;
     }
 
     @Override
-    public IState Sabotage() {
-        return null;
+    public IState TrackSelectionBoilingAttack()  {
+        return this;
+    }
+
+    @Override
+    public IState ActionRallyTroops()  {
+        return this;
+    }
+
+    @Override
+    public IState ActionTrunnelMovement()  {
+        return this;
+    }
+
+    @Override
+    public IState ActionSupplyRaid()  {
+        return this;
+    }
+
+    @Override
+    public IState ApplyRules()  {
+        return this;
     }
 
     @Override
     public IState getState() {
-        return null;
+        return this;
     }
 }

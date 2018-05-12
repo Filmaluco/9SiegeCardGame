@@ -3,17 +3,22 @@ package Controllers.states;
 public interface IState {
     IState GameSetup();
 
-    IState lineCheck();
-    IState updateBoard();
+    IState StartTurn();                     // [CardPhase] -> [ActionPhase]
+    IState EndTurn();                       // [ActionPhase] -> [CardPhase]
 
-    IState archersAttack();
-    IState boilingAttack();
-    IState Coupure();
-    IState RallyTroops();
-    IState TunnelMovement();
-    IState SupplyRaid();
-    IState Sabotage();
+    IState GameWon();
+    IState GameOver();
 
+    IState GameSave();
+    IState GameExit();
+
+    IState TrackSelectionArchersAttack();   // [ActionPhase] -> [Archers]
+    IState TrackSelectionBoilingAttack();   // [ActionPhase] -> [Boiling]
+    IState ActionRallyTroops();             // [ActionPhase] -> [Rally]
+    IState ActionTrunnelMovement();         // [ActionPhase] -> [Tunnel]
+    IState ActionSupplyRaid();              // [ActionPhase] -> [Supply]
+
+    IState ApplyRules();                    // [ActionPhase] <- [Action]
 
     IState getState();
 }
