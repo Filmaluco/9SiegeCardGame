@@ -4,11 +4,10 @@ public interface IState {
     IState GameSetup();
 
     IState StartTurn();                     // [CardPhase] -> [ActionPhase]
-    IState EndTurn();                       // [ActionPhase] -> [CardPhase]
+    IState EndTurn();                       // [CardPhase] <- [ActionPhase]
 
     IState GameWon();
     IState GameOver();
-
     IState GameSave();
     IState GameExit();
 
