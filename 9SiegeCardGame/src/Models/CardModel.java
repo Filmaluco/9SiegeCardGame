@@ -6,8 +6,19 @@ import java.util.List;
 
 public class CardModel implements constants {
 
-    int cardId;
+    private static int ID = 0;
 
+    private int cardId;
     List<EventModel> events;
 
+    public CardModel(EventModel day1Event, EventModel day2Event, EventModel day3Event){
+            cardId = ID++;
+            events.add(day1Event);
+            events.add(day2Event);
+            events.add(day3Event);
+    }
+
+    public EventModel getEvent(int currentDay){
+        return events.get(currentDay-1);
+    }
 }
