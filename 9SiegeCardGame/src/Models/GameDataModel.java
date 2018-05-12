@@ -7,11 +7,12 @@ public class GameDataModel {
     public PlayerModel Player;
     public DiceModel Dice;
     //todo: implement deck ... (make it a collection)
-    public static final int LAST_DAY = 3;
-    public static final int LAST_TURN = 7;
 
-    private int currentDay;
-    private int currentTurn;
+    private int currentDay,
+                currentTurn;
+
+    static final int LAST_DAY = 3;
+    static final int LAST_TURN = 7;
 
     //TODO: Change Constructor
     public GameDataModel() {
@@ -32,7 +33,10 @@ public class GameDataModel {
         String s="";
         s+=EnemyTracker.toString()+"\n";
         s+=Player.toString()+"\n";
-        s+="Day: " + getCurrentDay() + "\nTurn: " + getCurrentTurn() + "\nAction Points: " + Player.getActionPoints();
+        s+="Day: " + "[" + getCurrentDay() + "]" + " Turn: " + "[" + getCurrentTurn() + "]" + " Action Points: " + "[" + Player.getActionPoints() + "]\n1";
+        s+="Card:\n";
+        //s+="Name: " + Deck[currentDay].getName;
+        //s+="Effect: " + Deck[currentDay].getDesc;
         return s;
     }
 }

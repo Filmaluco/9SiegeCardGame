@@ -24,7 +24,7 @@ public class GameController {
         return state;
     }
 
-    public boolean hasInitialConfig(){  /* so far is the only one required */ return gameData.Player.hasName(); }
+    public boolean hasInitialConfig(){ return gameData.Player.hasName(); }
     public void setInitialConfig(String player_name){ gameData.Player.setName(player_name);}
 
     public String getPlayerName(){ return gameData.Player.getName();}
@@ -36,5 +36,5 @@ public class GameController {
 
     //States
 
-    public void GameSetup(){setState(getState().GameSetup());}
+    public void Start(){setState(getState().GameSetup());}
 }

@@ -12,13 +12,13 @@ import java.util.List;
 public class EnemyTrackerModel {
     //TODO: Make a list of enemies, add Trebuchet Count
     public static final int MAX_TREBUCHET = 3;
+    private int currentTrebuchets;
 
-    private int trebuchetCount;
     //TODO: Implementar sem lista e separado?? Lista talvez seja pouco intuitivo de aceder
     private List<EnemyModel> enemies;
 
     public EnemyTrackerModel() {
-        trebuchetCount = MAX_TREBUCHET;
+        currentTrebuchets = MAX_TREBUCHET;
         enemies = new ArrayList<>();
 
         //Initial enemies
@@ -28,7 +28,7 @@ public class EnemyTrackerModel {
 
     }
 
-    public int getTrebuchetCount() { return trebuchetCount; }
+    public int getTrebuchetCount() { return currentTrebuchets; }
 
     public int getTotalEnemies(){return enemies.size();}
 
