@@ -15,7 +15,7 @@ public class BoilingOilEvent extends EventModel implements rules, rolls {
         eventActionPoints   = 2;
 
         ladderMovement      = true;
-        siegeTowerMovement  = true;
+        batteringRamMovement  = true;
     }
 
     @Override

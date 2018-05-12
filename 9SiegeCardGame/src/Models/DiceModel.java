@@ -30,15 +30,19 @@ public class DiceModel implements rolls, rules {
         //TODO: comple for all
         switch (target_rule){
 
+            case TREBUCHET_ATTACK: {break;} //TODO: IMPLEMENT
             case ILLNESS: { modifier = 0; break;}
             case GUARDS_DISTRACTED: { modifier = +1; sabotage = true; rally = true; break;}
             case SUPPLIES_SPOILED: { modifier = 0; break;}
+            case BAD_WEATHER: { break;} //TODO: IMPLEMENT
             case BOILING_OIL: { modifier = 2; circle_attack=true; break;}
             case DEATH_OF_A_LEADER: { modifier = 1; rally = true; break;}
             case GATE_FORTIFIED: { modifier = 1; battering_ram = true; break;}
             case FLAMING_ARROWS: { modifier = 1; siege_tower = true; break;}
             case VOLLEY_OF_ARROWS: { modifier = 1; battering_ram = true; normal_attack = true;
                             circle_attack = true; siege_tower = true; ladder = true; close_combat_attack = true; break;}
+            case COLLAPSED: { break;} //TODO: IMPLEMENT
+            case REPAIRED_TREBUCHET: { break;} //TODO: IMPLEMENT
             case COVER_OF_DARKNESS: { modifier = 1; raid = true; sabotage = true; break;}
             case ENEMY_FATIGUE: { modifier = 1; coupure = true; raid = true; sabotage = true; break;}
             case RALLY: { modifier = 1; close_combat_attack = true; circle_attack = true; break;}

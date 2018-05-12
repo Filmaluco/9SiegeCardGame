@@ -14,14 +14,15 @@ public class VolleyOfArrowsEvent extends EventModel implements rules, rolls {
         eventDescription    = "+1 to all attacks";
         eventActionPoints   = 3;
 
-        siegeTowerMovement  = true;
+        batteringRamMovement  = true;
 
     }
 
     @Override
     public DiceModel applyEvent(GameDataModel data) {
 
-        data.EnemyTracker.siegeTower.advance();
+        data.EnemyTracker.batteringRam.advance();
+
         data.Player.setActionPoints(eventActionPoints);
 
         return new DiceModel(eventID);

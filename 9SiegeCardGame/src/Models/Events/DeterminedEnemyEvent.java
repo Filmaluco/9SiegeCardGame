@@ -14,7 +14,7 @@ public class DeterminedEnemyEvent extends EventModel implements rules, rolls {
         eventDescription    = "-1 to attacks on the Battering Ram";
         eventActionPoints   = 2;
 
-        siegeTowerMovement  = true;
+        batteringRamMovement  = true;
     }
 
     @Override
@@ -22,7 +22,7 @@ public class DeterminedEnemyEvent extends EventModel implements rules, rolls {
 
         data.Player.setActionPoints(eventActionPoints);
 
-        data.EnemyTracker.siegeTower.advance();
+        data.EnemyTracker.batteringRam.advance();
 
         return new DiceModel(eventID);
     }
