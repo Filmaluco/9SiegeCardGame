@@ -4,7 +4,7 @@ public class PlayerModel {
 
 
     private String name;
-    private PlayerTackerModel tracker;
+    public PlayerTackerModel tracker;
 
     //TODO: Implement actionPoints
     //Player action points set by the event

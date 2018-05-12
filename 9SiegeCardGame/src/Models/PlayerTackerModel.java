@@ -22,11 +22,26 @@ public class PlayerTackerModel {
         tunnel = raidSupplies = 0;
     }
 
+    //Setters
+    public void reduceWallStrength() { wallStrength = wallStrength >= 1 ? wallStrength-1:  wallStrength; }
+    public void increaseWallStrength() { wallStrength = wallStrength < 4 ? wallStrength+1:  wallStrength; }
+
+    public void reduceMorale() { morale = morale >= 1 ? morale-1:  morale; }
+    public void increaseMorale() { morale = morale < 4 ? morale+1:  morale; }
+
+    public void reduceSupplies() { supplies = supplies >= 1 ? supplies-1:  supplies; }
+    public void increaseSupplies() { supplies = supplies < 4 ? supplies+1:  supplies; }
+
+    public void reduceRaidSupplies() { raidSupplies = raidSupplies > 1 ? raidSupplies-1:  raidSupplies; }
+    public void increaseRaidSupplies() { raidSupplies = raidSupplies < 2 ? raidSupplies+1:  raidSupplies; }
+
+    //Getters
     public int getWallStrength() { return wallStrength; }
     public int getMorale() { return morale; }
     public int getSupplies() { return supplies; }
     public int getTunnel() { return tunnel; }
     public int getRaidSupplies() { return raidSupplies; }
+
 
     private String printPlayerTracker(int position){
         String s="";
@@ -80,4 +95,6 @@ public class PlayerTackerModel {
 
         return s;
     }
+
+
 }

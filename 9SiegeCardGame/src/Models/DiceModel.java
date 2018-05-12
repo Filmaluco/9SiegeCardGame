@@ -1,11 +1,11 @@
 package Models;
 
-import SiegeCard.Util.roll_for;
-import SiegeCard.Util.rule;
+import SiegeCard.Util.rolls;
+import SiegeCard.Util.rules;
 
 import java.util.Random;
 
-public class DiceModel {
+public class DiceModel implements rolls, rules {
 
     private boolean close_combat_attack = false,
                     normal_attack = false,
@@ -22,44 +22,41 @@ public class DiceModel {
     private int modifier;
 
     /**
-     * Changes the dice (DRM) depending on the card rule
-     * @param target_rule Card rule code
+     * Changes the dice (DRM) depending on the card rules
+     * @param target_rule Card rules code
      */
     public DiceModel(int target_rule){
 
-        //The next piece of code is a sample:
-        //one target can change only a flag
-        if(target_rule == rule.IRON_SHIELDS){ this.modifier = -1; siege_tower = true;}
-        // or multiple
-        if(target_rule == rule.COVER_OF_DARKNESS){ this.modifier = 1; raid = true; sabotage = true;}
-        //....
+        //TODO: comple for all
+        switch (target_rule){
 
-        //TODO: comple for all rules
+            case ILLNESS: { modifier = 0; break;}
+            case GUARDS_DISTRACTED: { modifier = +1; sabotage = true; rally = true; break;}
+
+            default: //Exeption
+        }
+
     }
 
     /**
-     *
      * @param target_roll Enemy unit code to attack
      * @return DRM value for specific Enemy Target
      */
     public int roll(int target_roll){
-        int roll = roll();
+        int rolled = roll();
 
-        //TODO: Apply same logic to all others
-        if(target_roll == roll_for.BOILING_ATTACK_SIEGETOWER && siege_tower) {roll += modifier;}
+        switch (target_roll){
+            case BOILING_ATTACK_SIEGETOWER: { rolled = siege_tower ? rolled+= modifier: rolled; break;}
+            case SABOTAGE_ROLL: { rolled = sabotage ? rolled+= modifier: rolled; break;}
+            case RALLY_TROOPS: { rolled = rally ? rolled+= modifier: rolled; break;}
+        }
 
-
-
-        roll = roll > 6 ? 6 : roll;
-        roll = roll < 0 ? 0 : roll;
-        return roll;
+        rolled = rolled > 6 ? 6 : rolled;
+        rolled = rolled < 0 ? 0 : rolled;
+        return rolled;
     }
 
-    /**
-     *
-     * @return Random number from 1 to 6
-     */
-    public int roll(){
+    private int roll(){
         Random r = new Random();
         return r.nextInt(6) + 1;
     }

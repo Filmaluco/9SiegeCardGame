@@ -12,18 +12,17 @@ public class EnemyModel {
     }
 
     public int getPosition() { return position; }
-    public int getTrackStrength() { return trackStrength; }
+    public int getStrength() { return  onCloseCombat() ? 4 : trackStrength; }
 
     //TODO: Add exception to check if bellow 0 or above MAX
-    public void incrementPosition(){this.position+=1;}
-    public void decrementPosition(){this.position-=1;}
+    public void advance(){position = position < 4 ? position : position+1;}
+    public void retreat(){position = position > 0 ? position : position-1;}
 
     /**
      * Checks if Enemy unit is on Close Combat
      * @return True if on Close Combat
      */
     public boolean onCloseCombat(){return getPosition()==0;}
-    //TODO:If enemy onCloseCombat strength equals 4
 
 
     @Override

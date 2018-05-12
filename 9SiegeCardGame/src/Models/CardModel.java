@@ -1,9 +1,13 @@
 package Models;
 
-public class CardModel {
+import SiegeCard.Util.constants;
 
-    int actionPoints;
-    EventModel event;
+import java.util.List;
 
+public class CardModel implements constants {
+
+    int cardId;
+
+    List<EventModel> events;
 
 }

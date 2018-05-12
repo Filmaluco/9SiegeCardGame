@@ -1,18 +1,18 @@
 package Models;
 
-public class GameDataModel {
+import SiegeCard.Util.constants;
+
+public class GameDataModel implements constants {
 
     //is it worth having protected? because I want to acess their functions
     public EnemyTrackerModel EnemyTracker;
     public PlayerModel Player;
     public DiceModel Dice;
     //todo: implement deck ... (make it a collection)
+    public DeckModel Deck;
 
     private int currentDay,
                 currentTurn;
-
-    static final int LAST_DAY = 3;
-    static final int LAST_TURN = 7;
 
     //TODO: Change Constructor
     public GameDataModel() {
@@ -35,8 +35,8 @@ public class GameDataModel {
         s+=Player.toString()+"\n";
         s+="Day: " + "[" + getCurrentDay() + "]" + " Turn: " + "[" + getCurrentTurn() + "]" + " Action Points: " + "[" + Player.getActionPoints() + "]\n1";
         s+="Card:\n";
-        //s+="Name: " + Deck[currentDay].getName;
-        //s+="Effect: " + Deck[currentDay].getDesc;
+        //s+="Name: " + Deck.getCurrentCardName;
+        //s+="Effect: " + Deck.getCurrentDescription;
         return s;
     }
 }

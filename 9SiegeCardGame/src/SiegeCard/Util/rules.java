@@ -1,6 +1,6 @@
 package SiegeCard.Util;
 
-public interface rule {
+public interface rules {
 
     //Values used for CREATING the dice ONLY!!!
     int TREBUCHET_ATTACK = 1;
