@@ -21,5 +21,6 @@ public interface rolls {
     int SABOTAGE_ROLL                 = 3;
     int COUPURE_ROLL                  = 4;
     int RALLY_TROOPS                  = 5;
+    int BOOST_RALLY_TROOPS            = 6;
 }
 

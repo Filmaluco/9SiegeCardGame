@@ -7,6 +7,6 @@ public class ActionBoilingAttack extends StateAdapter {
 
     @Override
     public IState ApplyRules(int TARGET){
-        return getGame().Attack(TARGET) ? new ActionPhase(getGame()) : this;
+        return getGame().BoilAttack(TARGET) ? new ActionPhase(getGame()) : this;
     }
 }

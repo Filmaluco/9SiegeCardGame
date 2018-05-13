@@ -134,9 +134,9 @@ public class DiceModel implements rolls, rules {
             case CIRCLE_ATTACK_BATTERING_RAM:{  rolled = battering_ram || circle_attack ? rolled+ modifier: rolled; break;}
             case CIRCLE_ATTACK_LADDER:{         rolled = ladder || circle_attack ? rolled+ modifier: rolled; break;}
             case CIRCLE_ATTACK_SIEGETOWER:{     rolled = siege_tower || circle_attack ? rolled+ modifier: rolled; break;}
-            case BOILING_ATTACK_BATTERING_RAM:{ rolled = battering_ram || circle_attack ? rolled+ modifier +1: rolled; break;}
-            case BOILING_ATTACK_LADDER:{        rolled = ladder || circle_attack ? rolled+ modifier+1: rolled; break;}
-            case BOILING_ATTACK_SIEGETOWER:{    rolled = siege_tower || circle_attack ? rolled+ modifier+1: rolled; break;}
+            case BOILING_ATTACK_BATTERING_RAM:{ rolled = battering_ram || circle_attack ? rolled+ modifier +1: rolled+1; break;}
+            case BOILING_ATTACK_LADDER:{        rolled = ladder || circle_attack ? rolled+ modifier+1: rolled+1; break;}
+            case BOILING_ATTACK_SIEGETOWER:{    rolled = siege_tower || circle_attack ? rolled+ modifier+1: rolled+1; break;}
             case CLOSE_COMBAT:{                 rolled = close_combat ? rolled+ modifier+1: rolled; break;}
             case SUPPLY_RAID_ROLL:{             rolled = raid ? rolled+ modifier: rolled; break;}
             case SABOTAGE_ROLL:{                rolled = sabotage ? rolled+ modifier: rolled; break;}
@@ -151,6 +151,7 @@ public class DiceModel implements rolls, rules {
     }
 
     public int getLastRoll(){ return lastRoll;}
+
 
     private int roll(){
         Random r = new Random();

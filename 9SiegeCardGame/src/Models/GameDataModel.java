@@ -220,6 +220,62 @@ public class GameDataModel implements constants, rolls {
         return true;
     }
 
+    public boolean BoilAttack(int TARGET){
+        if(!canArchersAttack() || !canCloseCombat() || !canBoilAttack() || Player.getActionPoints() == 0){ return false;}
+        lockBoilAttack();
+
+        switch (TARGET){
+            case BATTERING_RAM:{
+                if(EnemyTracker.batteringRam.onCircleSpace()){ //Target is on Circle
+                    if(Dice.roll(BOILING_ATTACK_BATTERING_RAM) > EnemyTracker.batteringRam.getStrength()) {
+                        EnemyTracker.batteringRam.retreat();
+                        Player.removeActionPoint();
+                        return true;
+                    }
+                }
+            } break;
+            case LADDER:{
+                if(EnemyTracker.ladder.onCircleSpace()){ //Target is on Circle
+                    if(Dice.roll(BOILING_ATTACK_LADDER) > EnemyTracker.ladder.getStrength()) {
+                        EnemyTracker.ladder.retreat();
+                        Player.removeActionPoint();
+                        return true;
+                    }
+                }
+            } break;
+            case SIEGE_TOWER:{
+                if(EnemyTracker.siegeTower.onCircleSpace()){ //Target is on Circle
+                    if(Dice.roll(BOILING_ATTACK_SIEGETOWER) > EnemyTracker.siegeTower.getStrength()) {
+                        EnemyTracker.siegeTower.retreat();
+                        Player.removeActionPoint();
+                        return true;
+                    }
+                }
+            } break;
+        }
+        Player.removeActionPoint();
+        return true;
+
+    }
+
+    public boolean CloseAttack(){
+        Player.removeActionPoint();
+        if(EnemyTracker.batteringRam.onCloseCombat()) { //Target is on Close Combat
+            if (Dice.roll(CLOSE_COMBAT) > EnemyTracker.batteringRam.getStrength())
+                EnemyTracker.batteringRam.retreat();
+        }else if(EnemyTracker.ladder.onCloseCombat()) { //Target is on Close Combat
+            if (Dice.roll(CLOSE_COMBAT) > EnemyTracker.ladder.getStrength())
+                EnemyTracker.ladder.retreat();
+        }else{
+            if (Dice.roll(CLOSE_COMBAT) > EnemyTracker.siegeTower.getStrength())
+                EnemyTracker.siegeTower.retreat();
+        }
+
+        if(Dice.getLastRoll() == 1) Player.tracker.reduceMorale();
+
+        return true;
+    }
+
 
     @Override
     public String toString() {
