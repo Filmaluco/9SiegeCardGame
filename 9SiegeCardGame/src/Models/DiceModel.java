@@ -7,6 +7,7 @@ public class DiceModel implements rolls, rules {
 
     private boolean normal_attack = false,
                     circle_attack = false,
+                    close_combat = false,
                     battering_ram = false,
                     ladder = false,
                     siege_tower = false,
@@ -90,6 +91,7 @@ public class DiceModel implements rolls, rules {
 
             case RALLY: {                   modifier = 1;
                                             circle_attack = true;
+                                            close_combat = true;
                                             break;}
 
             case DETERMINED_ENEMY: {        modifier = -1;
@@ -135,6 +137,7 @@ public class DiceModel implements rolls, rules {
             case BOILING_ATTACK_BATTERING_RAM:{ rolled = battering_ram || circle_attack ? rolled+ modifier +1: rolled; break;}
             case BOILING_ATTACK_LADDER:{        rolled = ladder || circle_attack ? rolled+ modifier+1: rolled; break;}
             case BOILING_ATTACK_SIEGETOWER:{    rolled = siege_tower || circle_attack ? rolled+ modifier+1: rolled; break;}
+            case CLOSE_COMBAT:{                 rolled = close_combat ? rolled+ modifier+1: rolled; break;}
             case SUPPLY_RAID_ROLL:{             rolled = raid ? rolled+ modifier: rolled; break;}
             case SABOTAGE_ROLL:{                rolled = sabotage ? rolled+ modifier: rolled; break;}
             case COUPURE_ROLL:{                 rolled = coupure ? rolled+ modifier: rolled; break;}

@@ -15,6 +15,7 @@ public interface rolls {
     int BOILING_ATTACK_BATTERING_RAM  = 31;
     int BOILING_ATTACK_LADDER         = 32;
     int BOILING_ATTACK_SIEGETOWER     = 33;
+    int CLOSE_COMBAT                  = 41;
     int ENEMY_LINE_CHECK              = 1;
     int SUPPLY_RAID_ROLL              = 2;
     int SABOTAGE_ROLL                 = 3;
