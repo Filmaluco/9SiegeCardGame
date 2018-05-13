@@ -57,7 +57,8 @@ public class GameDataModel implements constants, rolls {
     public boolean hasBoiledAttacked(){return !canBoilAttack;}
     public boolean canBoilAttack(){ return !EnemyTracker.batteringRam.onCircleSpace() &&
             !EnemyTracker.ladder.onCircleSpace() &&
-            !EnemyTracker.siegeTower.onCircleSpace() ||
+            !EnemyTracker.siegeTower.onCircleSpace() &&
+            Player.getActionPoints() > 0&&
             canBoilAttack;}
 
 
@@ -114,12 +115,14 @@ public class GameDataModel implements constants, rolls {
 
     public boolean canArchersAttack(){ if(  EnemyTracker.batteringRam.onStartingSpace() &&
                                             EnemyTracker.ladder.onStartingSpace() &&
-                                            EnemyTracker.siegeTower.onStartingSpace()) {return false;}
+                                            EnemyTracker.siegeTower.onStartingSpace() &&
+                                            Player.getActionPoints() > 0) {return false;}
                                         return canArchersAttack;}
     public boolean canCloseCombat(){
         return !EnemyTracker.batteringRam.onCloseCombat() &&
                 !EnemyTracker.ladder.onCloseCombat() &&
-                !EnemyTracker.siegeTower.onCloseCombat() ||
+                !EnemyTracker.siegeTower.onCloseCombat() &&
+                Player.getActionPoints() > 0 &&
                 canCloseCombat;
     }
     public boolean canCoupure(){ return canCoupure;}                    //TODO: better validation
@@ -213,7 +216,7 @@ public class GameDataModel implements constants, rolls {
                 }
             } break;
         }
-
+        Player.removeActionPoint();
         return true;
     }
 

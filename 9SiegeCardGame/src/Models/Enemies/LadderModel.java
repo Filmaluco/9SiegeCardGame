@@ -4,7 +4,7 @@ import Models.EnemyModel;
 
 public class LadderModel extends EnemyModel {
 
-    public static final int LADDER_BASE_STRENGHT = 3;
+    public static final int LADDER_BASE_STRENGHT = 2;
 
     public LadderModel() {
         super();
