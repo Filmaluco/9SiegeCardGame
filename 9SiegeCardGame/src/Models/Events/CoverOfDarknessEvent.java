@@ -20,7 +20,7 @@ public class CoverOfDarknessEvent extends EventModel implements rules, rolls {
     @Override
     public DiceModel applyEvent(GameDataModel data) {
 
-        //TODO: Move slowest!
+        data.EnemyTracker.moveSlowest();
 
         return new DiceModel(eventID);
     }
