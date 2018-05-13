@@ -9,6 +9,6 @@ public class ActionArchersAttack extends StateAdapter {
 
     @Override
     public IState ApplyRules(int TARGET){
-        return getGame().ArcherAttack(TARGET) ? new ActionPhase(getGame()) : this;
+        return getGame().Attack(TARGET) ? new ActionPhase(getGame()) : this;
     }
 }
