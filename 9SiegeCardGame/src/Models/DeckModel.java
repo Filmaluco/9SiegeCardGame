@@ -26,18 +26,20 @@ public class DeckModel {
         cards.add(new CardModel(new VolleyOfArrowsEvent(),      new CollapsedEvent(),           new RepairedTrebuchetEvent()));
         cards.add(new CardModel(new CoverOfDarknessEvent(),     new EnemyFatigueEvent(),        new RallyEvent()));
         cards.add(new CardModel(new DeterminedEnemyEvent(),     new IronShieldsEvent(),         new FaithEvent()));
+
+        shuffle(cards);
         numberCards = cards.size();
         currentCard = 0;
         currentDay = 1;
     }
 
-    public EventModel Draw(){
+    public EventModel draw(){
         if (currentCard == (numberCards)){ currentCard = 0; currentDay++;}
         lastCard = currentCard;
         return cards.get(currentCard++).getEvent(currentDay);
     }
 
-    public void Shuffle(){
+    public void reShuffle(){
         shuffle(cards);
         currentCard = 0;
     }
