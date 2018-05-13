@@ -24,6 +24,7 @@ public class CardPhase extends StateAdapter{
 
     @Override
     public IState ActionCloseCombat(){
+        getGame().Player.removeActionPoint();
         if(getGame().EnemyTracker.batteringRam.onCloseCombat()) { //Target is on Close Combat
             if (getGame().Dice.roll(CLOSE_COMBAT) > getGame().EnemyTracker.batteringRam.getStrength())
                 getGame().EnemyTracker.batteringRam.retreat();
