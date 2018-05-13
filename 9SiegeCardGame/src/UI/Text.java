@@ -66,49 +66,27 @@ public class Text implements str_values, rolls {
         for (int i = 0; i < options.length; i++){
             switch (i){
                 case 0:
-                    if(!(game.getGameData().canArchersAttack())) break;
+                    if(!(game.canArchersAttack())) break;
                 case 1:
-                    if(!(game.getGameData().canBoilAttack())) break;
+                    if(!(game.canBoilAttack())) break;
                 case 2:
-                    if(!(game.getGameData().canCloseCombat())) break;
+                    if(!(game.canCloseCombat())) break;
                 case 3:
-                    if(!(game.getGameData().canCoupure())) break;
+                    if(!(game.canCoupure())) break;
                 case 4:
-                    if(!(game.getGameData().canRallyTroops())) break;
+                    if(!(game.canRallyTroops())) break;
                 case 5:
-                    if(!(game.getGameData().canUseTunnelMovemnt())) break;
+                    if(!(game.canUseTunnelMovemnt())) break;
                 case 6:
-                    if(!(game.getGameData().canSupplyRaid())) break;
+                    if(!(game.canSupplyRaid())) break;
                 case 7:
-                    if(!(game.getGameData().canSabotage())) break;
+                    if(!(game.canSabotage())) break;
                 default:
                     System.out.println(i+1+ "-"+options[i]);
             }
         }
     }
 
-    public final static void clearScreen()
-    {
-        //Todo: Test
-        try
-        {
-            final String os = System.getProperty("os.name");
-
-            if (os.contains("Windows"))
-            {
-                Runtime.getRuntime().exec("cls");
-            }
-            else
-            {
-                System.out.print("\033[H\033[2J");
-                System.out.flush();
-            }
-        }
-        catch (final Exception e)
-        {
-            //  Handle any exceptions.
-        }
-    }
 
     public void start(){
 
@@ -282,6 +260,7 @@ public class Text implements str_values, rolls {
         System.out.println("Preparing archers to attack!");
         target=enemySelect();
         game.ApplyRules(target);
+        System.out.println(game.getGameData().Dice.);
     }
 
     public int enemySelect(){

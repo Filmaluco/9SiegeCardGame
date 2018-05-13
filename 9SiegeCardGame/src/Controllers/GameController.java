@@ -31,6 +31,15 @@ public class GameController {
 
     public String getPlayerName(){ return gameData.Player.getName();}
 
+    public boolean canArchersAttack() { return gameData.canArchersAttack(); }
+    public boolean canBoilAttack()  { return  gameData.canBoilAttack(); }
+    public boolean canCloseCombat() { return gameData.canCloseCombat(); }
+    public boolean canCoupure() { return gameData.canCoupure(); }
+    public boolean canRallyTroops() { return gameData.canRallyTroops(); }
+    public boolean canUseTunnelMovemnt() { return gameData.canUseTunnelMovemnt(); }
+    public boolean canSupplyRaid() { return gameData.canSupplyRaid(); }
+    public boolean canSabotage() { return gameData.canSabotage(); }
+
     @Override
     public String toString() {
         return gameData.toString();
