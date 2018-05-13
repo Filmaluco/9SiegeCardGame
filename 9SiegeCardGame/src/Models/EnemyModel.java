@@ -31,15 +31,17 @@ public class EnemyModel {
         for (int i = 0; i < MAX_ENEMY_TRACK_SLOTS+1; i++) {
             if(i==1){
                 //Check if enemy is on circle
-                s += (i==getPosition()? String.format("(X%-3c",')') : String.format("(%d%-3c",i,')'));
+                s += (i==getPosition()? String.format("(X%-3c",')') : String.format("(%c%-3c",' ',')'));
                 continue;
             }
             if(i==getPosition()) {
                 s+=String.format("|X%-3c",'|');
                 continue;
             }
-            s+=String.format("|%d%-3c",i,'|');
+            s+=String.format("|%c%-3c",' ','|');
         }
+
+
         return s;
     }
 }

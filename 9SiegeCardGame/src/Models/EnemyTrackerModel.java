@@ -37,7 +37,8 @@ public class EnemyTrackerModel {
 
         s+=batteringRam + "\n" + ladder + "\n" + siegeTower + "\n";
 
-        s+="Trebuchet Count: " + getTrebuchetCount() + "\n";
+        s+="Trebuchet Count: [";
+        s+= getTrebuchetCount() == 0 ? "Disabled" : getTrebuchetCount() + "]\n";
         return s;
     }
 }
