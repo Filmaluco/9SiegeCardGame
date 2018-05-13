@@ -28,6 +28,7 @@ public class EnemyTrackerModel {
     }
 
     public int getTrebuchetCount() { return currentTrebuchets; }
+    public boolean hasTrebuchets(){ return currentTrebuchets > 0;}
     public int addTrebuchet(){ return currentTrebuchets = currentTrebuchets < 3 ? currentTrebuchets+1 : currentTrebuchets;}
 
 
