@@ -10,6 +10,7 @@ public class CardPhase extends StateAdapter{
     @Override
     public IState StartTurn()  {
 
+        getGame().resetAllActions();
         getGame().Dice = getGame().Deck.draw().applyEvent(getGame());
         //TODO: if one advances to close combat lose morale
 

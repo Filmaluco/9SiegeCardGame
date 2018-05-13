@@ -41,7 +41,6 @@ public class GameDataModel implements constants {
     }
 
 
-
     public int getCurrentDay() { return currentDay; }
     public int getCurrentTurn() { return currentTurn; }
 
