@@ -23,6 +23,7 @@ public class IronShieldsEvent extends EventModel implements rules, rolls {
         data.Player.setActionPoints(eventActionPoints);
 
         data.EnemyTracker.siegeTower.advance();
+        if(data.EnemyTracker.siegeTower.onCloseCombat()) data.Player.tracker.reduceMorale();
 
         return new DiceModel(eventID);
     }

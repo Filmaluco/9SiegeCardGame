@@ -60,6 +60,13 @@ public class GameDataModel implements constants, rolls {
                                         !EnemyTracker.siegeTower.onCircleSpace() ) return false;
                                     return canBoilAttack;}
 
+
+    public  boolean needsToCloseCombat(){
+        if(EnemyTracker.getCloseCombatEnemies() > 1) {
+            return true;
+        }
+        return false;
+    }
     public boolean hasUsedAdicionalPoint(){return !canGetAdicionalPoint;}
     public boolean canGetAdicionalPoint(){return canGetAdicionalPoint;}
 

@@ -24,6 +24,7 @@ public class SuppliesSoiledEvent extends EventModel implements rules, rolls {
         data.Player.tracker.reduceSupplies();
 
         data.EnemyTracker.ladder.advance();
+        if(data.EnemyTracker.ladder.onCloseCombat()) data.Player.tracker.reduceMorale();
 
         data.Player.setActionPoints(eventActionPoints);
 

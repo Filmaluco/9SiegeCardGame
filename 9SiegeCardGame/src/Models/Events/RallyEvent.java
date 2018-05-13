@@ -23,7 +23,9 @@ public class RallyEvent extends EventModel implements rules, rolls {
     public DiceModel applyEvent(GameDataModel data) {
 
         data.EnemyTracker.siegeTower.advance();
+        if(data.EnemyTracker.siegeTower.onCloseCombat()) data.Player.tracker.reduceMorale();
         data.EnemyTracker.batteringRam.advance();
+        if(data.EnemyTracker.batteringRam.onCloseCombat()) data.Player.tracker.reduceMorale();
 
         data.Player.setActionPoints(eventActionPoints);
 

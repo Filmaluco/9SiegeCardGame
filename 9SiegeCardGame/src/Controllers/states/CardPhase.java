@@ -12,6 +12,7 @@ public class CardPhase extends StateAdapter{
 
         getGame().resetAllActions();
         getGame().Dice = getGame().Deck.draw().applyEvent(getGame());
+        if(getGame().needsToCloseCombat()) ActionCloseCombat();
         //TODO: if one advances to close combat lose morale
 
         if(getGame().isGameOver()) return new GameOver(getGame());

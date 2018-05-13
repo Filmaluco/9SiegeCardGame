@@ -23,6 +23,7 @@ public class IllnessEvent extends EventModel implements rules, rolls {
 
 
         data.EnemyTracker.siegeTower.advance();
+        if(data.EnemyTracker.siegeTower.onCloseCombat()) data.Player.tracker.reduceMorale();
 
         data.Player.setActionPoints(eventActionPoints);
 

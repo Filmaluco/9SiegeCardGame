@@ -22,6 +22,7 @@ public class VolleyOfArrowsEvent extends EventModel implements rules, rolls {
     public DiceModel applyEvent(GameDataModel data) {
 
         data.EnemyTracker.batteringRam.advance();
+        if(data.EnemyTracker.batteringRam.onCloseCombat()) data.Player.tracker.reduceMorale();
 
         data.Player.setActionPoints(eventActionPoints);
 

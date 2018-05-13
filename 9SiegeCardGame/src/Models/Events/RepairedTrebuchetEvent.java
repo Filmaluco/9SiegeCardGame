@@ -21,6 +21,7 @@ public class RepairedTrebuchetEvent extends EventModel implements rules, rolls {
     @Override
     public DiceModel applyEvent(GameDataModel data) {
         data.EnemyTracker.ladder.advance();
+        if(data.EnemyTracker.ladder.onCloseCombat()) data.Player.tracker.reduceMorale();
         data.EnemyTracker.addTrebuchet();
         data.Player.setActionPoints(eventActionPoints);
         return new DiceModel(eventActionPoints);

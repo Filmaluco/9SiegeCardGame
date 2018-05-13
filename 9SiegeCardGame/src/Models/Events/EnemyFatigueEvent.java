@@ -22,6 +22,7 @@ public class EnemyFatigueEvent extends EventModel implements rules, rolls {
     public DiceModel applyEvent(GameDataModel data) {
 
         data.EnemyTracker.ladder.advance();
+        if(data.EnemyTracker.ladder.onCloseCombat()) data.Player.tracker.reduceMorale();
 
         data.Player.setActionPoints(eventActionPoints);
 

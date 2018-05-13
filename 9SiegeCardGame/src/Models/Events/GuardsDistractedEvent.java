@@ -21,6 +21,7 @@ public class GuardsDistractedEvent extends EventModel implements rules, rolls {
 
     public DiceModel applyEvent(GameDataModel data){
         data.EnemyTracker.moveSlowest();
+        if(data.EnemyTracker.getCloseCombatEnemies() > 0) data.Player.tracker.reduceMorale();
         data.Player.setActionPoints(eventActionPoints);
 
         return new DiceModel(eventID);
