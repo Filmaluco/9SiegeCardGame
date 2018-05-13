@@ -29,6 +29,7 @@ public class DeckModel {
 
         shuffle(cards);
         numberCards = cards.size();
+        lastCard = 0;
         currentCard = 0;
         currentDay = 1;
     }
