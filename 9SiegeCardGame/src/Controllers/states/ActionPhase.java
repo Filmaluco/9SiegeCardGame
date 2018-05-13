@@ -16,13 +16,15 @@ public class ActionPhase extends StateAdapter {
 
 
         if(getGame().hasToChangeDay()){
-            //TODO: check Tunnel and EnemyLine (diferent enemy line check change paraments this one does not require roll)
+            //TODO: check Tunnel and EnemyLine (different enemy line check change parameters this one does not require roll)
             getGame().Player.tracker.reduceSupplies();
             getGame().nextDay();
             getGame().Deck.reShuffle();
         }else {
-            //TODO: Check EnemyLine
+            //TODO: Check EnemyLine (different enemy line check change parameters this one requires roll)
         }
+
+        //TODO: check if enemies can damage walL
 
         return new CardPhase(getGame());
     }
