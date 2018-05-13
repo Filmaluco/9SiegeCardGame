@@ -119,7 +119,7 @@ public class GameDataModel implements constants {
     }
     public boolean lostTurn(){
         if(EnemyTracker.getCloseCombatEnemies() >= 2){ return true; }
-        if(Player.tracker.getLostAttributes() >= 0){return true;}
+        if(Player.tracker.getLostAttributes() > 0){return true;}
         return false;
     }
 
