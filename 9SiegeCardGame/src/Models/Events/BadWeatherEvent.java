@@ -23,6 +23,8 @@ public class BadWeatherEvent extends EventModel implements rules, rolls {
         data.unLockSabotage();
         data.unLockSupplyRaid();
 
+        data.Player.setActionPoints(eventActionPoints);
+
         return new DiceModel(eventID);
     }
 }

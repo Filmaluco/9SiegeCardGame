@@ -32,6 +32,8 @@ public class TrebuchetAttackEventDay1 extends EventModel implements rules, rolls
             case 1: { if(dice.roll(RANDOM) > 3) data.Player.tracker.reduceWallStrength(); break; }
         }
 
+        data.Player.setActionPoints(eventActionPoints);
+
         return dice;
     }
 }
