@@ -11,7 +11,7 @@ public class StateAdapter implements IState {
 
 
     @Override
-    public IState GameSetup()  {
+    public IState GameStart()  {
         return this;
     }
 
@@ -61,12 +61,32 @@ public class StateAdapter implements IState {
     }
 
     @Override
-    public IState ActionTrunnelMovement()  {
+    public IState ActionTunnelMovement()  {
         return this;
     }
 
     @Override
     public IState ActionSupplyRaid()  {
+        return this;
+    }
+
+    @Override
+    public IState ActionCloseCombat()   {
+        return this;
+    }
+
+    @Override
+    public IState ActionCoupure()   {
+        return this;
+    }
+
+    @Override
+    public IState ActionSabotage()   {
+        return this;
+    }
+
+    @Override
+    public IState GetAdicionalPoints()   {
         return this;
     }
 

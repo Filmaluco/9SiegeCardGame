@@ -1,7 +1,7 @@
 package Controllers.states;
 
 public interface IState {
-    IState GameSetup();
+    IState GameStart();
 
     IState StartTurn();                     // [CardPhase] -> [ActionPhase]
     IState EndTurn();                       // [CardPhase] <- [ActionPhase]
@@ -14,8 +14,14 @@ public interface IState {
     IState TrackSelectionArchersAttack();   // [ActionPhase] -> [Archers]
     IState TrackSelectionBoilingAttack();   // [ActionPhase] -> [Boiling]
     IState ActionRallyTroops();             // [ActionPhase] -> [Rally]
-    IState ActionTrunnelMovement();         // [ActionPhase] -> [Tunnel]
+    IState ActionTunnelMovement();          // [ActionPhase] -> [Tunnel]
     IState ActionSupplyRaid();              // [ActionPhase] -> [Supply]
+
+    IState ActionCloseCombat();             // [ActionPhase] -> [ActionPhase]
+    IState ActionCoupure();                 // [ActionPhase] -> [ActionPhase]
+    IState ActionSabotage();                // [ActionPhase] -> [ActionPhase]
+    IState GetAdicionalPoints();            // [ActionPhase] -> [ActionPhase]
+
 
     IState ApplyRules();                    // [ActionPhase] <- [Action]
 
