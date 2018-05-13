@@ -28,6 +28,28 @@ public class EnemyTrackerModel {
     }
 
     public int getTrebuchetCount() { return currentTrebuchets; }
+    public boolean hasTrebuchets(){ return currentTrebuchets > 0;}
+    public int addTrebuchet(){ return currentTrebuchets = currentTrebuchets < 3 ? currentTrebuchets+1 : currentTrebuchets;}
+
+    public void moveSlowest(){
+        int nr_enemies = 3;
+        boolean[] slowest = new boolean[nr_enemies]; //they start at false
+        int more_slow = 0;
+
+        if(batteringRam.position >= more_slow) { more_slow = batteringRam.position; }
+        if(ladder.position >= more_slow) { more_slow = ladder.position; }
+        if(siegeTower.position >= more_slow) { more_slow = siegeTower.position; }
+
+        int i = 0;
+        if(batteringRam.position == more_slow) {slowest[i] = true;} i++;
+        if(ladder.position == more_slow) {slowest[i] = true;} i++;
+        if(siegeTower.position == more_slow) {slowest[i] = true;};
+
+        i = 0;
+        if(slowest[i]){batteringRam.advance();} i++;
+        if(slowest[i]){ladder.advance();} i++;
+        if(slowest[i]){siegeTower.advance();}
+    }
 
 
     @Override

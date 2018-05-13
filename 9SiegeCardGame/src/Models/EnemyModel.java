@@ -3,12 +3,14 @@ package Models;
 public class EnemyModel {
     protected int position;
     protected int trackStrength;
+    protected boolean status;
 
     public static final int MAX_ENEMY_TRACK_SLOTS = 4;
     public static final int CLOSE_COMBAT_STRENGTH = 4;
 
     public EnemyModel() {
         position = MAX_ENEMY_TRACK_SLOTS;
+        status = true;
     }
 
     public int getPosition() { return position; }
@@ -18,11 +20,16 @@ public class EnemyModel {
     public void advance(){position = position < 4 ? position : position+1;}
     public void retreat(){position = position > 0 ? position : position-1;}
 
+
+    public void remove(){status = false;}
+    public boolean inGame(){return status;}
+
     /**
      * Checks if Enemy unit is on Close Combat
      * @return True if on Close Combat
      */
     public boolean onCloseCombat(){return getPosition()==0;}
+    public boolean onStartingSpace(){return getPosition()==MAX_ENEMY_TRACK_SLOTS;}
 
 
     @Override

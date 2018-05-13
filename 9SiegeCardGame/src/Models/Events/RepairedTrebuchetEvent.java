@@ -9,11 +9,21 @@ import SiegeCard.Util.rules;
 public class RepairedTrebuchetEvent extends EventModel implements rules, rolls {
 
     public RepairedTrebuchetEvent() {
-        //TODO: Implement Special
+        eventID             = REPAIRED_TREBUCHET;
+        eventName           = "Repaired Trebuchet";
+        eventDescription    = "Add 1 Trebuchet (max 3) \n" +
+                              "+1 to Coupure Action";
+        eventActionPoints   = 2;
+
+        ladderMovement = true;
     }
 
     @Override
     public DiceModel applyEvent(GameDataModel data) {
-        return null;
+        data.EnemyTracker.ladder.advance();
+        data.EnemyTracker.addTrebuchet();
+        data.Player.setActionPoints(eventActionPoints);
+        return new DiceModel(eventActionPoints);
+
     }
 }
