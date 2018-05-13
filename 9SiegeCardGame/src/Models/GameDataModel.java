@@ -1,8 +1,8 @@
 package Models;
 
-import SiegeCard.Util.constants;
+import SiegeCard.Util.*;
 
-public class GameDataModel implements constants {
+public class GameDataModel implements constants, rolls {
 
     //is it worth having protected? because I want to acess their functions
     public EnemyTrackerModel EnemyTracker;
@@ -102,13 +102,16 @@ public class GameDataModel implements constants {
     public void unLockSupplyRaid(){ canSupplyRaid = true;}
     public void unLockSabotage(){ canSabotage = true;}
 
-    public boolean canArchersAttack(){ return canArchersAttack;}
-    public boolean canCloseCombat(){ return canCloseCombat;}
-    public boolean canCoupure(){ return canCoupure;}
-    public boolean canRallyTroops(){ return canRallyTroops;}
-    public boolean canUseTunnelMovemnt(){ return canUseTunnelMovemnt;}
-    public boolean canSupplyRaid(){ return canSupplyRaid;}
-    public boolean canSabotage(){ return canSabotage;}
+    public boolean canArchersAttack(){ if(  EnemyTracker.batteringRam.onStartingSpace() &&
+                                            EnemyTracker.ladder.onStartingSpace() &&
+                                            EnemyTracker.siegeTower.onStartingSpace()) {return false;}
+                                        return canArchersAttack;}
+    public boolean canCloseCombat(){ return canCloseCombat;}            //TODO: validation for position
+    public boolean canCoupure(){ return canCoupure;}                    //TODO: better validation
+    public boolean canRallyTroops(){ return canRallyTroops;}            //TODO: better validation
+    public boolean canUseTunnelMovemnt(){ return canUseTunnelMovemnt;}  //TODO: better validation
+    public boolean canSupplyRaid(){ return canSupplyRaid;}              //TODO: better validation
+    public boolean canSabotage(){ return canSabotage;}                  //TODO: better validation
 
     public boolean isGameWon(){ return currentDay == 3 && currentTurn > 7; }
     public boolean isGameOver(){
@@ -120,6 +123,37 @@ public class GameDataModel implements constants {
         if(EnemyTracker.getCloseCombatEnemies() >= 2){ return true; }
         if(Player.tracker.getLostAttributes() > 0){return true;}
         return false;
+    }
+
+    public boolean ArcherAttack(int TARGET){
+        if(!canArchersAttack || Player.getActionPoints() == 0) return false;
+        switch (TARGET){
+            case BATTERING_RAM:{
+                if(EnemyTracker.batteringRam.onCircleSpace()){ //Target is on Circle
+                    if(Dice.roll(CIRCLE_ATTACK_BATTERING_RAM) > EnemyTracker.batteringRam.getStrength()) EnemyTracker.batteringRam.retreat();
+                }
+                if(!EnemyTracker.batteringRam.onCircleSpace() && !EnemyTracker.batteringRam.onCloseCombat()){ //Target is not on close combat or Circle
+                    if(Dice.roll(NORMAL_ATTACK_BATTERING_RAM) > EnemyTracker.batteringRam.getStrength()) EnemyTracker.batteringRam.retreat();
+                }
+            }
+            case LADDER:{
+                if(EnemyTracker.ladder.onCircleSpace()){ //Target is on Circle
+                    if(Dice.roll(CIRCLE_ATTACK_LADDER) > EnemyTracker.ladder.getStrength()) EnemyTracker.ladder.retreat();
+                }
+                if(!EnemyTracker.ladder.onCircleSpace() && !EnemyTracker.ladder.onCloseCombat()){ //Target is not on close combat or Circle
+                    if(Dice.roll(NORMAL_ATTACK_LADDER) > EnemyTracker.ladder.getStrength()) EnemyTracker.ladder.retreat();
+                }
+            }
+            case SIEGE_TOWER:{
+                if(EnemyTracker.siegeTower.onCircleSpace()){ //Target is on Circle
+                    if(Dice.roll(CIRCLE_ATTACK_SIEGETOWER) > EnemyTracker.siegeTower.getStrength()) EnemyTracker.siegeTower.retreat();
+                }
+                if(!EnemyTracker.siegeTower.onCircleSpace() && !EnemyTracker.siegeTower.onCloseCombat()){ //Target is not on close combat or Circle
+                    if(Dice.roll(NORMAL_ATTACK_SIEGETOWER) > EnemyTracker.siegeTower.getStrength()) EnemyTracker.siegeTower.retreat();
+                }
+            }
+        }
+        return Player.removeActionPoint();
     }
 
 

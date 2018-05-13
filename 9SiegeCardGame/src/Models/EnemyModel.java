@@ -29,6 +29,7 @@ public class EnemyModel {
      * @return True if on Close Combat
      */
     public boolean onCloseCombat(){return getPosition()==0;}
+    public boolean onCircleSpace(){return getPosition()==1;}
     public boolean onStartingSpace(){return getPosition()==MAX_ENEMY_TRACK_SLOTS;}
 
 
