@@ -1,7 +1,7 @@
 package Controllers.states;
 
 public interface IState {
-    IState GameSetup();
+    IState GameStart();
 
     IState StartTurn();                     // [CardPhase] -> [ActionPhase]
     IState EndTurn();                       // [CardPhase] <- [ActionPhase]

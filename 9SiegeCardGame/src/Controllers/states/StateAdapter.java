@@ -11,7 +11,7 @@ public class StateAdapter implements IState {
 
 
     @Override
-    public IState GameSetup()  {
+    public IState GameStart()  {
         return this;
     }
 

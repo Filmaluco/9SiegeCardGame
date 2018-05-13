@@ -35,7 +35,7 @@ public class GameController {
     }
 
     //States
-    public void Start(){setState(getState().GameSetup());}
+    public void Start(){setState(getState().GameStart());}
 
 
 }
