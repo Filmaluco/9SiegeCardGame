@@ -31,6 +31,7 @@ public interface str_values {
             "Tunnel Movement ",
             "Supply Raid ",
             "Sabotage ",
+            "Additional",
             "End Turn",
             "Save and Exit"
     };
