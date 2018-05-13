@@ -20,6 +20,7 @@ public class DiceModel implements rolls, rules {
                     coupure = false;
 
     private int modifier;
+    private int lastRoll;
 
     /**
      * Changes the dice (DRM) depending on the card rules
@@ -70,8 +71,11 @@ public class DiceModel implements rolls, rules {
 
         rolled = rolled > 6 ? 6 : rolled;
         rolled = rolled < 0 ? 0 : rolled;
+        lastRoll = rolled;
         return rolled;
     }
+
+    public int getLastRoll(){ return lastRoll;}
 
     private int roll(){
         Random r = new Random();
