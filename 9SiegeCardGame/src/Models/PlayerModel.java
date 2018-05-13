@@ -21,7 +21,7 @@ public class PlayerModel {
     
     public int getActionPoints() { return actionPoints; }
     public void setActionPoints(int actionPoints) { this.actionPoints = actionPoints; }
-    public boolean removeActionPoint(){ --actionPoints; return actionPoints-1 != 0;}
+    public void removeActionPoint(){ actionPoints = actionPoints > 0 ? actionPoints-1: actionPoints; }
 
     @Override
     public String toString() {

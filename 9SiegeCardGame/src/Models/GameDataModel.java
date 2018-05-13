@@ -177,8 +177,8 @@ public class GameDataModel implements constants, rolls {
                 }
             } break;
         }
-        boolean test =  Player.removeActionPoint();
-        return test;
+        Player.removeActionPoint();
+        return true;
     }
 
 

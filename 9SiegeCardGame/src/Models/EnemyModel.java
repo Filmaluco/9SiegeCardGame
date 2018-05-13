@@ -18,7 +18,7 @@ public class EnemyModel {
 
     //TODO: Add exception to check if bellow 0 or above MAX
     public void advance(){position = position > 0 ? position-1 : position;}
-    public void retreat(){position = position <= 4 ? position+1 : position;}
+    public void retreat(){position = position < 4 ? position+1 : position;}
 
 
     public void remove(){status = false;}
