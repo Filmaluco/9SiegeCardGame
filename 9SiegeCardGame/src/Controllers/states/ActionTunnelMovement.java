@@ -1,4 +1,7 @@
 package Controllers.states;
 
-public class ActionTunnelMovement {
+import Models.GameDataModel;
+
+public class ActionTunnelMovement extends StateAdapter{
+    public ActionTunnelMovement(GameDataModel g) { super(g); }
 }

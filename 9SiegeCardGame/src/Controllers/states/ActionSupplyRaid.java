@@ -1,4 +1,7 @@
 package Controllers.states;
 
-public class ActionSupplyRaid {
+import Models.GameDataModel;
+
+public class ActionSupplyRaid extends StateAdapter{
+    public ActionSupplyRaid(GameDataModel g) { super(g); }
 }

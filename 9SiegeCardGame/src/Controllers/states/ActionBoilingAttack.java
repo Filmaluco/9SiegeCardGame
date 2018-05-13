@@ -1,4 +1,7 @@
 package Controllers.states;
 
-public class ActionBoilingAttack {
+import Models.GameDataModel;
+
+public class ActionBoilingAttack extends StateAdapter {
+    public ActionBoilingAttack(GameDataModel g) { super(g); }
 }
