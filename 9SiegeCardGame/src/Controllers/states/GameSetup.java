@@ -10,4 +10,6 @@ public class GameSetup extends StateAdapter {
     public IState GameStart()  {
         return new CardPhase(getGame());
     }
+
+
 }

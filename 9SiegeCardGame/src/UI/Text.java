@@ -124,7 +124,9 @@ public class Text implements str_values {
                     game.setInitialConfig(readLine());
                 }
                 clearScreen();
-                playMenu();
+                game.Start();
+                //TODO: Maybe Implement in a new Card Menu?
+                game.StartTurn();
                 break;
 
             case 2:
@@ -180,45 +182,50 @@ public class Text implements str_values {
         //TODO: Change do while to end in instanceof GAMEOVER or Save and Exit
         //TODO: Complete the UI with trackers and day
         //TODO:
-        do {
-            clearScreen();
-            printLogo();
-            System.out.println(game.toString()+"\n");
-            printPlayMenu(playMenuOptions);
-            option=readOption();
 
-            switch (option){
-                case 1:
-                    break;
+        clearScreen();
+        printLogo();
+        System.out.println(game.toString() + "\n");
+        printPlayMenu(playMenuOptions);
+        option = readOption();
 
-                case 2:
-                    break;
+        switch (option) {
+            case 1:
+                break;
 
-                case 3:
-                    break;
+            case 2:
+                break;
 
-                case 4:
-                    break;
+            case 3:
+                break;
 
-                case 5:
-                    break;
+            case 4:
+                break;
 
-                case 6:
-                    break;
+            case 5:
+                break;
 
-                case 7:
-                    break;
+            case 6:
+                break;
 
-                case 8:
-                    break;
+            case 7:
+                break;
 
-                case 9:
-                    break;
+            case 8:
+                break;
 
-                default:
-                    System.out.println(errorMessage[0]);
-                    break;
-            }
-        }while (option!=9);
+            case 9:
+                game.EndTurn();
+                break;
+
+            case 10:
+                game.Exit();
+                break;
+
+            default:
+                System.out.println(errorMessage[0]);
+                break;
+        }
+
     }
 }

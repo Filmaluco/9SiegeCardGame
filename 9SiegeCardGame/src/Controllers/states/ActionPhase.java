@@ -27,4 +27,6 @@ public class ActionPhase extends StateAdapter {
         return new CardPhase(getGame());
     }
 
+    @Override
+    public IState GameExit() { return new GameExit(getGame()); }
 }

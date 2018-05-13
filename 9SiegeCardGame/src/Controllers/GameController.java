@@ -41,5 +41,8 @@ public class GameController {
 
     public void Exit(){setState(getState().GameExit());}
 
+    public void StartTurn(){setState(getState().StartTurn());}
+    public void EndTurn(){setState(getState().EndTurn());}
+
 
 }
