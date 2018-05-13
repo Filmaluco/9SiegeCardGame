@@ -81,12 +81,13 @@ public class Text implements str_values, rolls {
                     if(!(game.canSupplyRaid())) break;
                 case 7:
                     if(!(game.canSabotage())) break;
+                case 8:
+                    if(!game.canGetAdicionalPoint()) break;
                 default:
                     System.out.println(i+1+ "-"+options[i]);
             }
         }
     }
-
 
     public void start(){
 
@@ -96,11 +97,13 @@ public class Text implements str_values, rolls {
                 mainMenu();
             } else if (game.getState() instanceof ActionPhase) {
                 playMenu();
-            } else if (game.getState() instanceof CardPhase){
+            } else if (game.getState() instanceof CardPhase) {
                 cardPhaseMenu();
-            } else if (game.getState() instanceof ActionArchersAttack){
+            } else if (game.getState() instanceof ActionArchersAttack) {
                 archersAttackMenu();
-            } else if (game.getState() instanceof GameOver){
+            } else if (game.getState() instanceof ActionBoilingAttack){
+                boilingAttackMenu();
+            }else if (game.getState() instanceof GameOver){
                 gameOverMenu();
             } else if (game.getState() instanceof GameWon){
                 gameWonMenu();
@@ -188,9 +191,11 @@ public class Text implements str_values, rolls {
                 break;
 
             case 2:
+                game.BoilingAttack();
                 break;
 
             case 3:
+                closeCombatMenu();
                 break;
 
             case 4:
@@ -233,6 +238,12 @@ public class Text implements str_values, rolls {
         game.StartTurn();
     }
 
+    public void closeCombatMenu(){
+        System.out.println("Entering close combat!!");
+        game.CloseCombat();
+        yourRoll(CLOSE_COMBAT);
+    }
+
     public void gameOverMenu(){
         int option;
         //TODO: Add how many turns and days player lastedfff
@@ -261,6 +272,14 @@ public class Text implements str_values, rolls {
         yourRoll(target);
     }
 
+    public void boilingAttackMenu(){
+        int target;
+        System.out.println("Preparing to boil!");
+        target=enemySelect();
+        game.ApplyRules(target);
+        yourRoll(target);
+    }
+
     public void yourRoll(int target){
         int rollNeeded;
         Scanner enter = new Scanner(System.in);
@@ -277,6 +296,9 @@ public class Text implements str_values, rolls {
             case SIEGE_TOWER:
                 rollNeeded = game.siegeTowerStrength();
                 break;
+            case CLOSE_COMBAT:
+                rollNeeded = 4;
+                break;
 
                 default:
                     return;
@@ -290,10 +312,6 @@ public class Text implements str_values, rolls {
         } else { System.out.print("Ohh, you lost the roll!!"); }
         System.out.println("Press ENTER to continue...");
         enter.nextLine();
-    }
-
-    public void boilingAttackMenu(){
-        int target;
     }
 
     public int enemySelect(){

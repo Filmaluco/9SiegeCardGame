@@ -39,6 +39,7 @@ public class GameController {
     public boolean canUseTunnelMovemnt() { return gameData.canUseTunnelMovemnt(); }
     public boolean canSupplyRaid() { return gameData.canSupplyRaid(); }
     public boolean canSabotage() { return gameData.canSabotage(); }
+    public boolean canGetAdicionalPoint() { return gameData.canGetAdicionalPoint(); }
 
     public boolean batteringRamOnStartingSpace(){ return gameData.EnemyTracker.batteringRam.onStartingSpace();}
     public boolean ladderOnStartingSpace(){ return gameData.EnemyTracker.ladder.onStartingSpace();}
@@ -60,6 +61,9 @@ public class GameController {
     public void Menu(){setState(getState().Menu());}
 
     public void ArchersAttack(){setState(getState().TrackSelectionArchersAttack());}
+    public void BoilingAttack(){setState(getState().TrackSelectionBoilingAttack());}
+    public void CloseCombat(){setState(getState().ActionCloseCombat());}
+
     public void ApplyRules(int target){setState(getState().ApplyRules(target));}
 
     public void StartTurn(){setState(getState().StartTurn());}
