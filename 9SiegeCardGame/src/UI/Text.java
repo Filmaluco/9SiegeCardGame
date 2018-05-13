@@ -111,7 +111,6 @@ public class Text implements str_values, rolls {
     public void mainMenu() {
         int option;
 
-            clearScreen();
             printLogo();
             printMenu(mainMenuOptions);
             option = readOption();
@@ -123,14 +122,12 @@ public class Text implements str_values, rolls {
                     System.out.print(nameOptions[2]);
                     game.setInitialConfig(readLine());
                 }
-                clearScreen();
                 game.Start();
                 //TODO: Maybe Implement in a new Card Menu?
                 //game.StartTurn();
                 break;
 
             case 2:
-                clearScreen();
                 configsMenu();
                 break;
 
@@ -154,7 +151,6 @@ public class Text implements str_values, rolls {
     public void configsMenu(){
         int option;
         do{
-            clearScreen();
             printLogo();
             printOptionsMenu(configsOptions);
             option=readOption();
@@ -181,7 +177,6 @@ public class Text implements str_values, rolls {
         //TODO: Complete the UI with trackers and day
         //TODO:
 
-        clearScreen();
         printLogo();
         System.out.println(game.toString() + "\n");
         printPlayMenu(playMenuOptions);
@@ -260,7 +255,7 @@ public class Text implements str_values, rolls {
         System.out.println("Preparing archers to attack!");
         target=enemySelect();
         game.ApplyRules(target);
-        System.out.println(game.getGameData().Dice.);
+        System.out.println(game.getGameData().Dice.getLastRoll());
     }
 
     public int enemySelect(){

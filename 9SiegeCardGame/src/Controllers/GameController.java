@@ -40,6 +40,7 @@ public class GameController {
     public boolean canSupplyRaid() { return gameData.canSupplyRaid(); }
     public boolean canSabotage() { return gameData.canSabotage(); }
 
+
     @Override
     public String toString() {
         return gameData.toString();
