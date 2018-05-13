@@ -17,8 +17,8 @@ public class EnemyModel {
     public int getStrength() { return  onCloseCombat() ? 4 : trackStrength; }
 
     //TODO: Add exception to check if bellow 0 or above MAX
-    public void advance(){position = position < 4 ? position : position+1;}
-    public void retreat(){position = position > 0 ? position : position-1;}
+    public void advance(){position = position > 0 ? position-1 : position;}
+    public void retreat(){position = position <= 4 ? position+1 : position;}
 
 
     public void remove(){status = false;}
