@@ -64,13 +64,26 @@ public class Text implements str_values, rolls {
 
     private void printPlayMenu(String[] options){
         for (int i = 0; i < options.length; i++){
-            System.out.print(i+1+ "-");
-            //TODO: Implement Check Boiling Water
-            //Checks if Boiling Water was used in the turn
-//            if(i==2)
-//                System.out.print(game.hasInitialConfig()?nameOptions[0]:nameOptions[1]);
-            //TODO: Implement Bad Weather
-            System.out.println(options[i]);
+            switch (i){
+                case 0:
+                    if(!(game.getGameData().canArchersAttack())) break;
+                case 1:
+                    if(!(game.getGameData().canBoilAttack())) break;
+                case 2:
+                    if(!(game.getGameData().canCloseCombat())) break;
+                case 3:
+                    if(!(game.getGameData().canCoupure())) break;
+                case 4:
+                    if(!(game.getGameData().canRallyTroops())) break;
+                case 5:
+                    if(!(game.getGameData().canUseTunnelMovemnt())) break;
+                case 6:
+                    if(!(game.getGameData().canSupplyRaid())) break;
+                case 7:
+                    if(!(game.getGameData().canSabotage())) break;
+                default:
+                    System.out.println(i+1+ "-"+options[i]);
+            }
         }
     }
 
