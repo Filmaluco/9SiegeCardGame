@@ -55,10 +55,10 @@ public class GameDataModel implements constants, rolls {
     public void resetGetAdicionalPoint(){ canGetAdicionalPoint = true;}
 
     public boolean hasBoiledAttacked(){return !canBoilAttack;}
-    public boolean canBoilAttack(){ if( !EnemyTracker.batteringRam.onCircleSpace() &&
-                                        !EnemyTracker.ladder.onCircleSpace() &&
-                                        !EnemyTracker.siegeTower.onCircleSpace() ) return false;
-                                    return canBoilAttack;}
+    public boolean canBoilAttack(){ return !EnemyTracker.batteringRam.onCircleSpace() &&
+            !EnemyTracker.ladder.onCircleSpace() &&
+            !EnemyTracker.siegeTower.onCircleSpace() ||
+            canBoilAttack;}
 
 
     public  boolean needsToCloseCombat(){
@@ -116,10 +116,12 @@ public class GameDataModel implements constants, rolls {
                                             EnemyTracker.ladder.onStartingSpace() &&
                                             EnemyTracker.siegeTower.onStartingSpace()) {return false;}
                                         return canArchersAttack;}
-    public boolean canCloseCombat(){  if(   !EnemyTracker.batteringRam.onCloseCombat() &&
-                                            !EnemyTracker.ladder.onCloseCombat() &&
-                                            !EnemyTracker.siegeTower.onCloseCombat()) {return false;}
-                                            return canCloseCombat;}
+    public boolean canCloseCombat(){
+        return !EnemyTracker.batteringRam.onCloseCombat() &&
+                !EnemyTracker.ladder.onCloseCombat() &&
+                !EnemyTracker.siegeTower.onCloseCombat() ||
+                canCloseCombat;
+    }
     public boolean canCoupure(){ return canCoupure;}                    //TODO: better validation
     public boolean canRallyTroops(){ return canRallyTroops;}            //TODO: better validation
     public boolean canUseTunnelMovemnt(){ return canUseTunnelMovemnt;}  //TODO: better validation
@@ -139,7 +141,7 @@ public class GameDataModel implements constants, rolls {
     }
 
     public boolean Attack(int TARGET){
-        if(!canArchersAttack() || !canCloseCombat() || !canBoilAttack() || Player.getActionPoints() == 0) return false;
+        if(!canArchersAttack() || !canCloseCombat() || !canBoilAttack() || Player.getActionPoints() == 0){ return false;}
         switch (TARGET){
             case BATTERING_RAM:{
                 if(EnemyTracker.batteringRam.onCircleSpace()){ //Target is on Circle
@@ -151,7 +153,7 @@ public class GameDataModel implements constants, rolls {
                 if(!EnemyTracker.batteringRam.onCircleSpace() && !EnemyTracker.batteringRam.onCloseCombat()){ //Target is not on close combat or Circle
                     if(Dice.roll(NORMAL_ATTACK_BATTERING_RAM) > EnemyTracker.batteringRam.getStrength()) EnemyTracker.batteringRam.retreat();
                 }
-            }
+            } break;
             case LADDER:{
                 if(EnemyTracker.ladder.onCircleSpace()){ //Target is on Circle
                     if(Dice.roll(CIRCLE_ATTACK_LADDER) > EnemyTracker.ladder.getStrength()) EnemyTracker.ladder.retreat();
@@ -162,7 +164,7 @@ public class GameDataModel implements constants, rolls {
                 if(!EnemyTracker.ladder.onCircleSpace() && !EnemyTracker.ladder.onCloseCombat()){ //Target is not on close combat or Circle
                     if(Dice.roll(NORMAL_ATTACK_LADDER) > EnemyTracker.ladder.getStrength()) EnemyTracker.ladder.retreat();
                 }
-            }
+            } break;
             case SIEGE_TOWER:{
                 if(EnemyTracker.siegeTower.onCircleSpace()){ //Target is on Circle
                     if(Dice.roll(CIRCLE_ATTACK_SIEGETOWER) > EnemyTracker.siegeTower.getStrength()) EnemyTracker.siegeTower.retreat();
@@ -173,9 +175,10 @@ public class GameDataModel implements constants, rolls {
                 if(!EnemyTracker.siegeTower.onCircleSpace() && !EnemyTracker.siegeTower.onCloseCombat()){ //Target is not on close combat or Circle
                     if(Dice.roll(NORMAL_ATTACK_SIEGETOWER) > EnemyTracker.siegeTower.getStrength()) EnemyTracker.siegeTower.retreat();
                 }
-            }
+            } break;
         }
-        return Player.removeActionPoint();
+        boolean test =  Player.removeActionPoint();
+        return test;
     }
 
 
