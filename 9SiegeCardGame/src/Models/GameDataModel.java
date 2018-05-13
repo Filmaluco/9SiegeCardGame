@@ -45,6 +45,10 @@ public class GameDataModel implements constants {
     public int getCurrentDay() { return currentDay; }
     public int getCurrentTurn() { return currentTurn; }
 
+    public boolean hasToChangeDay(){return currentTurn > 7;}
+    public void nextDay(){if(hasToChangeDay()){currentTurn = 0; currentDay++;}}
+    public int nextTurn(){return currentTurn;}
+
     public void useBoilingAttack(){canBoilAttack = false;}
     public void resetBoilingAttack(){canBoilAttack = true;}
 
@@ -106,6 +110,19 @@ public class GameDataModel implements constants {
     public boolean canUseTunnelMovemnt(){ return canUseTunnelMovemnt;}
     public boolean canSupplyRaid(){ return canSupplyRaid;}
     public boolean canSabotage(){ return canSabotage;}
+
+    public boolean isGameWon(){ return currentDay == 3 && currentTurn > 7; }
+    public boolean isGameOver(){
+        if(EnemyTracker.getCloseCombatEnemies() >= 3){ return true; }
+        if(Player.tracker.getLostAttributes() >= 2){return true;}
+        return false;
+    }
+    public boolean lostTurn(){
+        if(EnemyTracker.getCloseCombatEnemies() >= 2){ return true; }
+        if(Player.tracker.getLostAttributes() >= 0){return true;}
+        return false;
+    }
+
 
     @Override
     public String toString() {

@@ -31,9 +31,7 @@ public class StateAdapter implements IState {
     }
 
     @Override
-    public IState GameOver()  {
-        return this;
-    }
+    public IState GameOver()  { return this; }
 
     @Override
     public IState GameSave()  {
@@ -76,19 +74,13 @@ public class StateAdapter implements IState {
     }
 
     @Override
-    public IState ActionCoupure()   {
-        return this;
-    }
+    public IState ActionCoupure()   { return this; }
 
     @Override
-    public IState ActionSabotage()   {
-        return this;
-    }
+    public IState ActionSabotage()   { return this; }
 
     @Override
-    public IState GetAdicionalPoints()   {
-        return this;
-    }
+    public IState GetAdicionalPoints()   { return this; }
 
     @Override
     public IState ApplyRules()  {

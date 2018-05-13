@@ -4,11 +4,6 @@ import Models.Enemies.BatteringRamModel;
 import Models.Enemies.LadderModel;
 import Models.Enemies.SiegeTowerModel;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 public class EnemyTrackerModel {
     //TODO: Make a list of enemies, add Trebuchet Count
     public static final int MAX_TREBUCHET = 3;
@@ -27,7 +22,7 @@ public class EnemyTrackerModel {
 
     }
 
-    public int getTrebuchetCount() { return currentTrebuchets; }
+    public int getTrebuchets() { return currentTrebuchets; }
     public boolean hasTrebuchets(){ return currentTrebuchets > 0;}
     public int addTrebuchet(){ return currentTrebuchets = currentTrebuchets < 3 ? currentTrebuchets+1 : currentTrebuchets;}
 
@@ -51,6 +46,10 @@ public class EnemyTrackerModel {
         if(slowest[i]){siegeTower.advance();}
     }
 
+    public int getCloseCombatEnemies(){
+        return (batteringRam.onCloseCombat() ? 1 : 0) + (ladder.onCloseCombat() ? 1 : 0) + (siegeTower.onCloseCombat() ? 1 : 0);
+    }
+
 
     @Override
     public String toString() {
@@ -61,7 +60,7 @@ public class EnemyTrackerModel {
         s+= siegeTower.inGame() ? siegeTower : "";
 
         s+="\nTrebuchet Count: [";
-        s+= getTrebuchetCount() == 0 ? "Disabled" : getTrebuchetCount() + "]\n";
+        s+= getTrebuchets() == 0 ? "Disabled" : getTrebuchets() + "]\n";
         return s;
     }
 }

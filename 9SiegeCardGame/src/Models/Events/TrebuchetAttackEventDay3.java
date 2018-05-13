@@ -22,7 +22,7 @@ public class TrebuchetAttackEventDay3 extends EventModel implements rules, rolls
 
         DiceModel dice = new DiceModel(eventID);
 
-        switch (data.EnemyTracker.getTrebuchetCount()){
+        switch (data.EnemyTracker.getTrebuchets()){
             case 3: { data.Player.tracker.reduceWallStrength();
                 data.Player.tracker.reduceWallStrength(); break;}
 

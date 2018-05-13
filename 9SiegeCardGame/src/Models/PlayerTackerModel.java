@@ -42,6 +42,10 @@ public class PlayerTackerModel {
     public int getTunnel() { return tunnel; }
     public int getRaidSupplies() { return raidSupplies; }
 
+    public int getLostAttributes(){
+        return (getWallStrength() == 0 ? 1 : 0) + (getMorale() == 0 ? 1 : 0) + (getSupplies() == 0 ? 1 : 0);
+    }
+
 
     private String printPlayerTracker(int position){
         String s="";

@@ -1,4 +1,9 @@
 package Controllers.states;
 
-public class GameWon {
+import Models.GameDataModel;
+
+public class GameWon extends StateAdapter{
+    public GameWon(GameDataModel g) {
+        super(g);
+    }
 }
