@@ -13,19 +13,19 @@ public interface IState {
     IState GameSave();
     IState GameExit();
 
-    IState TrackSelectionArchersAttack();   // [ActionPhase] -> [Archers]
-    IState TrackSelectionBoilingAttack();   // [ActionPhase] -> [Boiling]
-    IState ActionRallyTroops();             // [ActionPhase] -> [Rally]
-    IState ActionTunnelMovement();          // [ActionPhase] -> [Tunnel]
-    IState ActionSupplyRaid();              // [ActionPhase] -> [Supply]
+    IState TrackSelectionArchersAttack();               // [ActionPhase] -> [Archers]
+    IState TrackSelectionBoilingAttack();               // [ActionPhase] -> [Boiling]
+    IState ActionRallyTroops();                         // [ActionPhase] -> [Rally]
+    IState ActionTunnelMovement();                      // [ActionPhase] -> [Tunnel]
+    IState ActionSupplyRaid();                          // [ActionPhase] -> [Supply]
 
-    IState ActionCloseCombat();             // [ActionPhase] -> [ActionPhase]
-    IState ActionCoupure();                 // [ActionPhase] -> [ActionPhase]
-    IState ActionSabotage();                // [ActionPhase] -> [ActionPhase]
-    IState GetAdicionalPoints();            // [ActionPhase] -> [ActionPhase]
+    IState ActionCloseCombat();                         // [ActionPhase] -> [ActionPhase]
+    IState ActionCoupure();                             // [ActionPhase] -> [ActionPhase]
+    IState ActionSabotage();                            // [ActionPhase] -> [ActionPhase]
+    IState GetAdicionalPoints();                        // [ActionPhase] -> [ActionPhase]
 
 
-    IState ApplyRules();                    // [ActionPhase] <- [Action]
+    IState ApplyRules(int TARGET);                                // [ActionPhase] <- [Action]
 
     IState getState();
 }

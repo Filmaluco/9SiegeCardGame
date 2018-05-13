@@ -30,5 +30,10 @@ public class ActionPhase extends StateAdapter {
     }
 
     @Override
+    public IState TrackSelectionArchersAttack(){
+        return getGame().canArchersAttack() ? new ActionArchersAttack(getGame()): this;
+    }
+
+    @Override
     public IState GameExit() { return new GameExit(getGame()); }
 }

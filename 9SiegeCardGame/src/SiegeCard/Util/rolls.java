@@ -3,6 +3,9 @@ package SiegeCard.Util;
 public interface rolls {
 
     int RANDOM                        = 0;
+    int BATTERING_RAM                 = 101;
+    int LADDER                        = 102;
+    int SIEGE_TOWER                   = 103;
     int NORMAL_ATTACK_BATTERING_RAM   = 10;
     int NORMAL_ATTACK_LADDER          = 11;
     int NORMAL_ATTACK_SIEGETOWER      = 12;

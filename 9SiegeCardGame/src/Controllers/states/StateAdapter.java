@@ -86,7 +86,7 @@ public class StateAdapter implements IState {
     public IState GetAdicionalPoints()   { return this; }
 
     @Override
-    public IState ApplyRules()  {
+    public IState ApplyRules(int TARGET)  {
         return this;
     }
 
