@@ -1,6 +1,7 @@
 package UI;
 
 import Controllers.GameController;
+import Controllers.states.*;
 import SiegeCard.Util.str_values;
 
 import java.io.BufferedReader;
@@ -95,47 +96,58 @@ public class Text implements str_values {
         }
     }
 
+    public void start(){
+
+        while (!(game.getState()instanceof GameExit)) {
+            //TODO: Implement other states!!
+            if (game.getState() instanceof GameSetup) {
+                mainMenu();
+            } else if (game.getState() instanceof ActionPhase) {
+                playMenu();
+            }
+        }
+    }
 
     public void mainMenu() {
         int option;
 
-        do {
             clearScreen();
             printLogo();
             printMenu(mainMenuOptions);
             option = readOption();
 
-            switch (option) {
-                case 1:
-                    //TODO Implement gameplay, check loadexist and config conditions
-                    if(!game.hasInitialConfig()){
-                        System.out.print(nameOptions[2]);
-                        game.setInitialConfig(readLine());
-                    }
-                    clearScreen();
-                    playMenu();
-                    break;
+        switch (option) {
+            case 1:
+                //TODO Implement gameplay, check loadexist and config conditions
+                if (!game.hasInitialConfig()) {
+                    System.out.print(nameOptions[2]);
+                    game.setInitialConfig(readLine());
+                }
+                clearScreen();
+                playMenu();
+                break;
 
-                case 2:
-                    clearScreen();
-                    configsMenu();
-                    break;
+            case 2:
+                clearScreen();
+                configsMenu();
+                break;
 
-                case 3:
-                    //TODO: Implement load from file
-                    System.out.println("Loading...\n");
-                    break;
+            case 3:
+                //TODO: Implement load from file
+                System.out.println("Loading...\n");
+                break;
 
-                case 4:
-                    System.out.println("Exiting...\n");
-                    break;
+            case 4:
+                game.Exit();
+                System.out.println("Exiting...\n");
+                break;
 
-                default:
-                    System.out.println(errorMessage[0]);
-                    break;
-            }
+            default:
+                System.out.println(errorMessage[0]);
+                break;
+        }
 
-        } while (option!=4);
+
         //TODO: Change to instanceof GameOver
     }
 

@@ -1,4 +1,9 @@
 package Controllers.states;
 
-public class GameExit {
+import Models.GameDataModel;
+
+public class GameExit extends StateAdapter{
+
+    public GameExit(GameDataModel g) { super(g); }
+
 }

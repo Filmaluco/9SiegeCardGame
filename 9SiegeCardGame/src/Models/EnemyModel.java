@@ -48,7 +48,6 @@ public class EnemyModel {
             s+=String.format("|%c%-3c",' ','|');
         }
 
-
         return s;
     }
 }

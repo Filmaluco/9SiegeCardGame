@@ -58,13 +58,11 @@ public class PlayerTackerModel {
     @Override
     public String toString() {
         String s="";
-        //TODO: Simplify add function to print
-        s+=
+
         s+=String.format("\n%-15s","Wall Strength:");
         s+="["+getWallStrength()+"]";
 
         s+=String.format("\n%-15s","Morale:");
-        //s+=printPlayerTracker(getMorale());
         s+="["+getMorale()+"]";
 
         s+=String.format("\n%-15s","Supplies:");

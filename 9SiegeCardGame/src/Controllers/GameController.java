@@ -15,6 +15,8 @@ public class GameController {
         setState(new GameSetup(gameData));
     }
 
+    public GameDataModel getGameData() { return gameData; }
+
     private void setState(IState state)
     {
         this.state = state;
@@ -36,6 +38,8 @@ public class GameController {
 
     //States
     public void Start(){setState(getState().GameSetup());}
+
+    public void Exit(){setState(getState().GameExit());}
 
 
 }
