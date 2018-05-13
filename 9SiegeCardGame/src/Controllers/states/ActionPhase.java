@@ -35,5 +35,10 @@ public class ActionPhase extends StateAdapter {
     }
 
     @Override
+    public IState TrackSelectionBoilingAttack(){
+        return getGame().canBoilAttack() ? new ActionBoilingAttack(getGame()): this;
+    }
+
+    @Override
     public IState GameExit() { return new GameExit(getGame()); }
 }
