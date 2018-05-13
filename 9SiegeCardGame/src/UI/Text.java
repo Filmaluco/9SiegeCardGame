@@ -2,6 +2,7 @@ package UI;
 
 import Controllers.GameController;
 import Controllers.states.*;
+import SiegeCard.Util.rolls;
 import SiegeCard.Util.str_values;
 
 import java.io.BufferedReader;
@@ -9,7 +10,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Scanner;
 
-public class Text implements str_values {
+public class Text implements str_values, rolls {
 
     private Scanner scanner;
     private BufferedReader reader;
@@ -106,6 +107,8 @@ public class Text implements str_values {
                 playMenu();
             } else if (game.getState() instanceof CardPhase){
                 cardPhaseMenu();
+            } else if (game.getState() instanceof ActionArchersAttack){
+                archersAttackMenu();
             } else if (game.getState() instanceof GameOver){
                 gameOverMenu();
             } else if (game.getState() instanceof GameWon){
@@ -195,6 +198,7 @@ public class Text implements str_values {
 
         switch (option) {
             case 1:
+                game.ArchersAttack();
                 break;
 
             case 2:
@@ -242,7 +246,7 @@ public class Text implements str_values {
 
     public void gameOverMenu(){
         int option;
-        //TODO: Add how many turns and days player lasted
+        //TODO: Add how many turns and days player lastedfff
         System.out.println("You lost\n Do you wish to go back to the main menu?\n 1 - Yes\n 0 - No, Exit");
 
         option=readOption();
@@ -258,5 +262,35 @@ public class Text implements str_values {
         option=readOption();
 
         if (option == 1) { game.Menu(); } else { game.Exit(); }
+    }
+
+    public void archersAttackMenu(){
+        int target;
+        System.out.println("Preparing archers to attack!");
+        target=enemySelect();
+        game.ApplyRules(target);
+    }
+
+    public int enemySelect(){
+        int option=0;
+
+        System.out.println("Which enemy do you wish to attack: \n1-Battering Ram\n2-Ladder\n3-Siege Tower");
+
+        do {
+            option = readOption();
+            switch (option) {
+                case 1:
+                    return BATTERING_RAM;
+                case 2:
+                    return LADDER;
+                case 3:
+                    return SIEGE_TOWER;
+
+                default:
+                    System.out.println("Wrong Option!");
+                    break;
+            }
+        }while (true);
+
     }
 }

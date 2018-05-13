@@ -41,6 +41,9 @@ public class GameController {
     public void Exit(){setState(getState().GameExit());}
     public void Menu(){setState(getState().Menu());}
 
+    public void ArchersAttack(){setState(getState().TrackSelectionArchersAttack());}
+    public void ApplyRules(int target){setState(getState().ApplyRules(target));}
+
     public void StartTurn(){setState(getState().StartTurn());}
     public void EndTurn(){setState(getState().EndTurn());}
 
