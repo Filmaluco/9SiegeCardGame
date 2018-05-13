@@ -26,8 +26,11 @@ public class FaithEvent extends EventModel implements rules, rolls {
         data.Player.setActionPoints(eventActionPoints);
 
         data.EnemyTracker.ladder.advance();
+        if(data.EnemyTracker.ladder.onCloseCombat()) data.Player.tracker.reduceMorale();
         data.EnemyTracker.siegeTower.advance();
+        if(data.EnemyTracker.siegeTower.onCloseCombat()) data.Player.tracker.reduceMorale();
         data.EnemyTracker.batteringRam.advance();
+        if(data.EnemyTracker.batteringRam.onCloseCombat()) data.Player.tracker.reduceMorale();
 
         return new DiceModel(eventID);
     }

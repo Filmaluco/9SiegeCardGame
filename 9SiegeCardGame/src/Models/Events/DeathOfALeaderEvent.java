@@ -24,7 +24,9 @@ public class DeathOfALeaderEvent extends EventModel implements rules, rolls {
         data.Player.tracker.reduceMorale();
 
         data.EnemyTracker.ladder.advance();
+        if(data.EnemyTracker.ladder.onCloseCombat()) data.Player.tracker.reduceMorale();
         data.EnemyTracker.siegeTower.advance();
+        if(data.EnemyTracker.siegeTower.onCloseCombat()) data.Player.tracker.reduceMorale();
 
         data.Player.setActionPoints(eventActionPoints);
 

@@ -24,7 +24,9 @@ public class GateFortifiedEvent extends EventModel implements rules, rolls {
     public DiceModel applyEvent(GameDataModel data) {
 
         data.EnemyTracker.ladder.advance();
+        if(data.EnemyTracker.ladder.onCloseCombat()) data.Player.tracker.reduceMorale();
         data.EnemyTracker.batteringRam.advance();
+        if(data.EnemyTracker.batteringRam.onCloseCombat()) data.Player.tracker.reduceMorale();
 
         data.Player.setActionPoints(eventActionPoints);
 

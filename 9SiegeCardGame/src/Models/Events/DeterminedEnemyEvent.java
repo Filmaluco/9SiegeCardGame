@@ -23,6 +23,7 @@ public class DeterminedEnemyEvent extends EventModel implements rules, rolls {
         data.Player.setActionPoints(eventActionPoints);
 
         data.EnemyTracker.batteringRam.advance();
+        if(data.EnemyTracker.batteringRam.onCloseCombat()) data.Player.tracker.reduceMorale();
 
         return new DiceModel(eventID);
     }
