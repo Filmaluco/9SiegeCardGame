@@ -209,11 +209,14 @@ public class Text implements str_values, rolls {
                 break;
 
             case 9:
+                break;
+
+            case 10:
                 game.EndTurn();
 
                 break;
 
-            case 10:
+            case 11:
                 game.Exit();
                 break;
 
@@ -278,7 +281,7 @@ public class Text implements str_values, rolls {
                 default:
                     return;
         }
-        System.out.format("You need a roll greater than %d\n", rollNeeded+1);
+        System.out.format("You need a roll greater than %d\n", rollNeeded);
         System.out.print("Press ENTER to see your roll");
         enter.nextLine();
         System.out.format("You got %d\n", game.getLastRoll());
