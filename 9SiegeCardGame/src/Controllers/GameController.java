@@ -40,9 +40,15 @@ public class GameController {
     public boolean canSupplyRaid() { return gameData.canSupplyRaid(); }
     public boolean canSabotage() { return gameData.canSabotage(); }
 
-    public boolean batteringRamOnStartingSpace(){ return getGameData().EnemyTracker.batteringRam.onStartingSpace();}
-    public boolean ladderOnStartingSpace(){ return getGameData().EnemyTracker.ladder.onStartingSpace();}
-    public boolean siegeTowerOnStartingSpace(){ return getGameData().EnemyTracker.siegeTower.onStartingSpace();}
+    public boolean batteringRamOnStartingSpace(){ return gameData.EnemyTracker.batteringRam.onStartingSpace();}
+    public boolean ladderOnStartingSpace(){ return gameData.EnemyTracker.ladder.onStartingSpace();}
+    public boolean siegeTowerOnStartingSpace(){ return gameData.EnemyTracker.siegeTower.onStartingSpace();}
+
+    public int batteringRamStrength(){ return gameData.EnemyTracker.batteringRam.getStrength();}
+    public int ladderStrength(){ return gameData.EnemyTracker.ladder.getStrength();}
+    public int siegeTowerStrength(){ return gameData.EnemyTracker.siegeTower.getStrength();}
+
+    public int getLastRoll(){ return gameData.Dice.getLastRoll(); }
     @Override
     public String toString() {
         return gameData.toString();
