@@ -104,6 +104,12 @@ public class Text implements str_values {
                 mainMenu();
             } else if (game.getState() instanceof ActionPhase) {
                 playMenu();
+            } else if (game.getState() instanceof CardPhase){
+                cardPhaseMenu();
+            } else if (game.getState() instanceof GameOver){
+                gameOverMenu();
+            } else if (game.getState() instanceof GameWon){
+                gameWonMenu();
             }
         }
     }
@@ -126,7 +132,7 @@ public class Text implements str_values {
                 clearScreen();
                 game.Start();
                 //TODO: Maybe Implement in a new Card Menu?
-                game.StartTurn();
+                //game.StartTurn();
                 break;
 
             case 2:
@@ -149,8 +155,6 @@ public class Text implements str_values {
                 break;
         }
 
-
-        //TODO: Change to instanceof GameOver
     }
 
     public void configsMenu(){
@@ -216,6 +220,7 @@ public class Text implements str_values {
 
             case 9:
                 game.EndTurn();
+
                 break;
 
             case 10:
@@ -227,5 +232,31 @@ public class Text implements str_values {
                 break;
         }
 
+    }
+
+    public void cardPhaseMenu(){
+        //System.out.println("You managed to survive another turn, moving on to the next one!");
+        System.out.println("Lets start a turn!!");
+        game.StartTurn();
+    }
+
+    public void gameOverMenu(){
+        int option;
+        //TODO: Add how many turns and days player lasted
+        System.out.println("You lost\n Do you wish to go back to the main menu?\n 1 - Yes\n 0 - No, Exit");
+
+        option=readOption();
+
+        if (option == 1) { game.Menu(); } else { game.Exit(); }
+
+    }
+
+    public void gameWonMenu(){
+        int option;
+        System.out.println("You Won!!\n Do you wish to go back to the main menu?\n 1 - Yes\n 0 - No, Exit");
+
+        option=readOption();
+
+        if (option == 1) { game.Menu(); } else { game.Exit(); }
     }
 }

@@ -38,8 +38,8 @@ public class GameController {
 
     //States
     public void Start(){setState(getState().GameStart());}
-
     public void Exit(){setState(getState().GameExit());}
+    public void Menu(){setState(getState().Menu());}
 
     public void StartTurn(){setState(getState().StartTurn());}
     public void EndTurn(){setState(getState().EndTurn());}
