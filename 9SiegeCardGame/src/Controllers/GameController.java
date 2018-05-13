@@ -37,5 +37,25 @@ public class GameController {
     //States
     public void Start(){setState(getState().GameStart());}
 
+    public void StartTurn(){setState(getState().StartTurn());}
+    public void EndTurn(){setState(getState().EndTurn());}
+
+    public void GameWon(){setState(getState().GameWon());}
+    public void GameOver(){setState(getState().GameOver());}
+    public void GameSave(){setState(getState().GameSave());}
+    public void GameExit(){setState(getState().GameExit());}
+
+    public void ActionSupplyArchersAttack(){setState(getState().TrackSelectionArchersAttack());}
+    public void ActionBoilingAttack(){setState(getState().TrackSelectionBoilingAttack());}
+    public void ActionRallyTroops(){setState(getState().ActionRallyTroops());}
+    public void ActionTunnelMovement(){setState(getState().ActionTunnelMovement());}
+    public void ActionSupplyRaid(){getState().ActionSupplyRaid();}
+
+    public void ActionCloseCombat(){setState(getState().ActionCloseCombat());}
+    public void ActionCoupure(){setState(getState().ActionCoupure());}
+    public void ActionSabotage(){setState(getState().ActionSabotage());}
+    public void GetAdicionalPoints(){setState(getState().GetAdicionalPoints());}
+
+    public void ApplyRules(){setState(getState().ApplyRules());}
 
 }
