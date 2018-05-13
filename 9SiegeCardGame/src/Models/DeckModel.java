@@ -53,4 +53,11 @@ public class DeckModel {
         return cards.get(lastCard).getEvent(currentDay).getDescription();
     }
 
+    @Override
+    public String toString() {
+        String s = "";
+        s+="Card: " + getLastCardName() + "\n";
+        s+="Effect: \n" + getLastCardDescription() + "\n";
+        return s;
+    }
 }

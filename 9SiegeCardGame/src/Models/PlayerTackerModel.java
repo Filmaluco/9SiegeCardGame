@@ -61,13 +61,14 @@ public class PlayerTackerModel {
         //TODO: Simplify add function to print
         s+=
         s+=String.format("\n%-15s","Wall Strength:");
-        s+=printPlayerTracker(getWallStrength());
+        s+="["+getWallStrength()+"]";
 
         s+=String.format("\n%-15s","Morale:");
-        s+=printPlayerTracker(getMorale());
+        //s+=printPlayerTracker(getMorale());
+        s+="["+getMorale()+"]";
 
         s+=String.format("\n%-15s","Supplies:");
-        s+=printPlayerTracker(getSupplies());
+        s+="["+getSupplies()+"]";
 
         //TODO: Implement TUNNEL
         s+=String.format("\n%-15s","Tunnel:");
@@ -80,18 +81,12 @@ public class PlayerTackerModel {
                 s+=String.format("|C%-3c",'|');
                 continue;
             }
-            s+= (i>0 && i<=TUNEL_SIZE) ? String.format("|T%-3c",'|') : String.format("|E%-3c",'|');
+            s+= (i<=TUNEL_SIZE) ? String.format("|T%-3c",'|') : String.format("|E%-3c",'|');
         }
 
 
         s+=String.format("\n%-15s","RaidedSupplies:");
-        for (int i = MAX_RAIDED_SUPPLIES; i > 0; i--) {
-            if(i==getRaidSupplies()) {
-                s+=String.format("|X%-3c",'|');
-                continue;
-            }
-            s+=String.format("|%d%-3c",i,'|');
-        }
+        s+="["+getRaidSupplies()+"]";
 
         return s;
     }

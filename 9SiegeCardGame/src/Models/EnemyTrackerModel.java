@@ -57,9 +57,11 @@ public class EnemyTrackerModel {
         String s="";
         s+="Enemy Track Card \n";
 
-        s+=batteringRam + "\n" + ladder + "\n" + siegeTower + "\n";
+        s+=batteringRam + "\n" + ladder + "\n";
+        s+= siegeTower.inGame() ? siegeTower : "";
 
-        s+="Trebuchet Count: " + getTrebuchetCount() + "\n";
+        s+="\nTrebuchet Count: [";
+        s+= getTrebuchetCount() == 0 ? "Disabled" : getTrebuchetCount() + "]\n";
         return s;
     }
 }

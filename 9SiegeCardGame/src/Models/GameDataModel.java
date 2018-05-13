@@ -112,10 +112,8 @@ public class GameDataModel implements constants {
         String s="";
         s+=EnemyTracker.toString()+"\n";
         s+=Player.toString()+"\n";
-        s+="Day: " + "[" + getCurrentDay() + "]" + " Turn: " + "[" + getCurrentTurn() + "]" + " Action Points: " + "[" + Player.getActionPoints() + "]\n";
-        s+="Card:\n";
-        s+="Name: " + Deck.getLastCardName() + "\n";
-        s+="Effect: \n" + Deck.getLastCardDescription() + "\n";
+        s+="Day: [" + getCurrentDay() + "]" + " Turn: [" + getCurrentTurn() + "]" + " Action Points: [" + Player.getActionPoints() + "]\n\n";
+        s+=Deck.toString();
         return s;
     }
 }
