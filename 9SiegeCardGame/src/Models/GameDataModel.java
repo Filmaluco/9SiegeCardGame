@@ -46,7 +46,7 @@ public class GameDataModel implements constants {
     public int getCurrentTurn() { return currentTurn; }
 
     public boolean hasToChangeDay(){return currentTurn > 7;}
-    public void nextDay(){if(hasToChangeDay()){currentTurn = 0; currentDay++;}}
+    public void nextDay(){if(hasToChangeDay()){currentTurn = 1; currentDay++;}}
     public int nextTurn(){return ++currentTurn;}
 
     public void useBoilingAttack(){canBoilAttack = false;}

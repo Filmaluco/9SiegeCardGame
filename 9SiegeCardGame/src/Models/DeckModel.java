@@ -35,7 +35,6 @@ public class DeckModel {
     }
 
     public EventModel draw(){
-        if (currentCard == (numberCards)){ currentCard = 0; currentDay++;}
         lastCard = currentCard;
         return cards.get(currentCard++).getEvent(currentDay);
     }
@@ -43,6 +42,7 @@ public class DeckModel {
     public void reShuffle(){
         shuffle(cards);
         currentCard = 0;
+        currentDay++;
     }
 
     public String getLastCardName(){
