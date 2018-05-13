@@ -9,11 +9,20 @@ import SiegeCard.Util.rules;
 public class BadWeatherEvent extends EventModel implements rules, rolls {
 
     public BadWeatherEvent() {
-        //TODO: Implement Special
+        eventID             = BAD_WEATHER;
+        eventName           = "Bad Weather";
+        eventDescription    = "Only Raid and Sabotage allowed this turn";
+        eventActionPoints   = 2;
+
     }
 
     @Override
     public DiceModel applyEvent(GameDataModel data) {
-        return null;
+
+        data.lockAllActions();
+        data.unLockSabotage();
+        data.unLockSupplyRaid();
+
+        return new DiceModel(eventID);
     }
 }

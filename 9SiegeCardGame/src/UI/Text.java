@@ -67,6 +67,7 @@ public class Text implements str_values {
             //Checks if Boiling Water was used in the turn
 //            if(i==2)
 //                System.out.print(game.hasInitialConfig()?nameOptions[0]:nameOptions[1]);
+            //TODO: Implement Bad Weather
             System.out.println(options[i]);
         }
     }

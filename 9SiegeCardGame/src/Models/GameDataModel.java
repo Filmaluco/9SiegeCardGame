@@ -13,20 +13,99 @@ public class GameDataModel implements constants {
     private int currentDay,
                 currentTurn;
 
-    //TODO: Change Constructor
+    private boolean canArchersAttack,
+                    canBoilAttack,
+                    canCloseCombat,
+                    canCoupure,
+                    canRallyTroops,
+                    canUseTunnelMovemnt,
+                    canSupplyRaid,
+                    canSabotage,
+                    canGetAdicionalPoint;
+
     public GameDataModel() {
         Player = new PlayerModel();
         EnemyTracker = new EnemyTrackerModel();
         Deck = new DeckModel();
         currentDay = 1;
         currentTurn = 1;
+        canArchersAttack = true;
+        canBoilAttack = true;
+        canCloseCombat = true;
+        canCoupure = true;
+        canRallyTroops = true;
+        canUseTunnelMovemnt = true;
+        canSupplyRaid = true;
+        canSabotage = true;
+        canGetAdicionalPoint = true;
     }
 
-    public EnemyTrackerModel getEnemyTracker() { return EnemyTracker; }
-    public PlayerModel getPlayer() { return Player; }
-    public DiceModel getDice() { return Dice; }
+
+
     public int getCurrentDay() { return currentDay; }
     public int getCurrentTurn() { return currentTurn; }
+
+    public void useBoilingAttack(){canBoilAttack = false;}
+    public void resetBoilingAttack(){canBoilAttack = true;}
+
+    public void useGetAdicionalPoint(){ canGetAdicionalPoint = false;}
+    public void resetGetAdicionalPoint(){ canGetAdicionalPoint = true;}
+
+    public boolean hasBoiledAttacked(){return !canBoilAttack;}
+    public boolean canBoilAttack(){return canBoilAttack;}
+
+    public boolean hasUsedAdicionalPoint(){return !canGetAdicionalPoint;}
+    public boolean canGetAdicionalPoint(){return canGetAdicionalPoint;}
+
+    public void resetAllActions(){
+        canArchersAttack = true;
+        canBoilAttack = true;
+        canCloseCombat = true;
+        canCoupure = true;
+        canRallyTroops = true;
+        canUseTunnelMovemnt = true;
+        canSupplyRaid = true;
+        canSabotage = true;
+        canGetAdicionalPoint = true;
+    }
+
+    public void lockAllActions(){
+        canArchersAttack = false;
+        canBoilAttack = false;
+        canCloseCombat = false;
+        canCoupure = false;
+        canRallyTroops = false;
+        canUseTunnelMovemnt = false;
+        canSupplyRaid = false;
+        canSabotage = false;
+        canGetAdicionalPoint = false;
+    }
+
+    public void lockArchersAttack(){ canArchersAttack = false;}
+    public void lockBoilAttack(){ canBoilAttack = false;}
+    public void lockCloseCombat(){ canCloseCombat = false;}
+    public void lockCoupure(){ canCoupure = false;}
+    public void lockRallyTroops(){ canRallyTroops = false;}
+    public void lockUseTunnelMovemnt(){ canUseTunnelMovemnt = false;}
+    public void lockSupplyRaid(){ canSupplyRaid = false;}
+    public void lockSabotage(){ canSabotage = false;}
+
+    public void unLockArchersAttack(){ canArchersAttack = true;}
+    public void unLockBoilAttack(){ canBoilAttack = true;}
+    public void unLockCloseCombat(){ canCloseCombat = true;}
+    public void unLockCoupure(){ canCoupure = true;}
+    public void unLockRallyTroops(){ canRallyTroops = true;}
+    public void unLockUseTunnelMovemnt(){ canUseTunnelMovemnt = true;}
+    public void unLockSupplyRaid(){ canSupplyRaid = true;}
+    public void unLockSabotage(){ canSabotage = true;}
+
+    public boolean canArchersAttack(){ return canArchersAttack;}
+    public boolean canCloseCombat(){ return canCloseCombat;}
+    public boolean canCoupure(){ return canCoupure;}
+    public boolean canRallyTroops(){ return canRallyTroops;}
+    public boolean canUseTunnelMovemnt(){ return canUseTunnelMovemnt;}
+    public boolean canSupplyRaid(){ return canSupplyRaid;}
+    public boolean canSabotage(){ return canSabotage;}
 
     @Override
     public String toString() {

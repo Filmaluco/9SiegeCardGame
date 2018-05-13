@@ -18,15 +18,14 @@ public class DeckModel {
 
     public DeckModel(){
 
-        //Exemple of a card
         cards = new ArrayList<>();
         cards.add(new CardModel(new TrebuchetAttackEventDay1(), new TrebuchetAttackEventDay2(), new TrebuchetAttackEventDay3()));
-        cards.add(new CardModel(new IllnessEvent(), new GuardsDistractedEvent(), new TrebuchetAttackEventDay3()));
-        cards.add(new CardModel(new SuppliesSoiledEvent(), new BadWeatherEvent(), new BoilingOilEvent()));
-        cards.add(new CardModel(new DeathOfALeaderEvent(), new GateFortifiedEvent(), new FlamingArrowsEvent()));
-        cards.add(new CardModel(new VolleyOfArrowsEvent(), new CollapsedEvent(), new RepairedTrebuchetEvent()));
-        cards.add(new CardModel(new CoverOfDarknessEvent(), new EnemyFatigueEvent(), new RallyEvent()));
-        cards.add(new CardModel(new DeterminedEnemyEvent(), new IronShieldsEvent(), new FaithEvent()));
+        cards.add(new CardModel(new IllnessEvent(),             new GuardsDistractedEvent(),    new TrebuchetAttackEventDay3()));
+        cards.add(new CardModel(new SuppliesSoiledEvent(),      new BadWeatherEvent(),          new BoilingOilEvent()));
+        cards.add(new CardModel(new DeathOfALeaderEvent(),      new GateFortifiedEvent(),       new FlamingArrowsEvent()));
+        cards.add(new CardModel(new VolleyOfArrowsEvent(),      new CollapsedEvent(),           new RepairedTrebuchetEvent()));
+        cards.add(new CardModel(new CoverOfDarknessEvent(),     new EnemyFatigueEvent(),        new RallyEvent()));
+        cards.add(new CardModel(new DeterminedEnemyEvent(),     new IronShieldsEvent(),         new FaithEvent()));
         numberCards = cards.size();
         currentCard = 0;
         currentDay = 1;
