@@ -40,7 +40,9 @@ public class GameController {
     public boolean canSupplyRaid() { return gameData.canSupplyRaid(); }
     public boolean canSabotage() { return gameData.canSabotage(); }
 
-
+    public boolean batteringRamOnStartingSpace(){ return getGameData().EnemyTracker.batteringRam.onStartingSpace();}
+    public boolean ladderOnStartingSpace(){ return getGameData().EnemyTracker.ladder.onStartingSpace();}
+    public boolean siegeTowerOnStartingSpace(){ return getGameData().EnemyTracker.siegeTower.onStartingSpace();}
     @Override
     public String toString() {
         return gameData.toString();

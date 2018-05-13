@@ -258,10 +258,18 @@ public class Text implements str_values, rolls {
         System.out.println(game.getGameData().Dice.getLastRoll());
     }
 
+    public void boilingAttackMenu(){
+        int target;
+    }
+
     public int enemySelect(){
         int option=0;
 
-        System.out.println("Which enemy do you wish to attack: \n1-Battering Ram\n2-Ladder\n3-Siege Tower");
+        System.out.println("Which enemy do you wish to attack: \n");
+
+        System.out.format(game.batteringRamOnStartingSpace()?"":"1-Battering Ram\n");
+        System.out.format(game.ladderOnStartingSpace()?"":"2-Ladder\n");
+        System.out.format(game.siegeTowerOnStartingSpace()?"":"3-Siege Tower\n");
 
         do {
             option = readOption();
