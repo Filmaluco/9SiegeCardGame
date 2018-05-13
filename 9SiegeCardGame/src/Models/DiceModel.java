@@ -1,8 +1,6 @@
 package Models;
 
-import SiegeCard.Util.rolls;
-import SiegeCard.Util.rules;
-
+import SiegeCard.Util.*;
 import java.util.Random;
 
 public class DiceModel implements rolls, rules {
@@ -17,8 +15,8 @@ public class DiceModel implements rolls, rules {
                     rally = false,
                     coupure = false;
 
-    private int modifier = 0;
-    private int lastRoll = 0;
+    private int     modifier = 0;
+    private int     lastRoll = 0;
 
     /**
      * Changes the dice (DRM) depending on the card rules
@@ -26,7 +24,6 @@ public class DiceModel implements rolls, rules {
      */
     public DiceModel(int target_rule){
 
-        //TODO: comple for all
         switch (target_rule){
 
             case TREBUCHET_ATTACK: {        modifier = 0;
