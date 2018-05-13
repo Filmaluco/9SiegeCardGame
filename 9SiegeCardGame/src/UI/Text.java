@@ -275,11 +275,20 @@ public class Text implements str_values, rolls {
             option = readOption();
             switch (option) {
                 case 1:
-                    return BATTERING_RAM;
+                    if(!game.batteringRamOnStartingSpace()){
+                        return BATTERING_RAM;
+                    }
+                    break;
                 case 2:
-                    return LADDER;
+                    if(!game.ladderOnStartingSpace()){
+                        return LADDER;
+                    }
+                    break;
                 case 3:
-                    return SIEGE_TOWER;
+                    if(!game.siegeTowerOnStartingSpace()){
+                        return SIEGE_TOWER;
+                    }
+                    break;
 
                 default:
                     System.out.println("Wrong Option!");

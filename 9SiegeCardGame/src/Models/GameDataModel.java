@@ -144,40 +144,76 @@ public class GameDataModel implements constants, rolls {
         if(!canArchersAttack() || !canCloseCombat() || !canBoilAttack() || Player.getActionPoints() == 0){ return false;}
         switch (TARGET){
             case BATTERING_RAM:{
-                if(EnemyTracker.batteringRam.onCircleSpace()){ //Target is on Circle
-                    if(Dice.roll(CIRCLE_ATTACK_BATTERING_RAM) > EnemyTracker.batteringRam.getStrength()) EnemyTracker.batteringRam.retreat();
+                if(EnemyTracker.batteringRam.onCircleSpace() && !EnemyTracker.batteringRam.onStartingSpace()){ //Target is on Circle
+                    if(Dice.roll(CIRCLE_ATTACK_BATTERING_RAM) > EnemyTracker.batteringRam.getStrength()) {
+                        EnemyTracker.batteringRam.retreat();
+                        Player.removeActionPoint();
+                        return true;
+                    }
                 }
-                if(EnemyTracker.batteringRam.onCloseCombat()){ //Target is on Close Combat
-                    if(Dice.roll(CLOSE_COMBAT) > EnemyTracker.batteringRam.getStrength()) EnemyTracker.batteringRam.retreat();
+                if(EnemyTracker.batteringRam.onCloseCombat()&& !EnemyTracker.batteringRam.onStartingSpace()){ //Target is on Close Combat
+                    if(Dice.roll(CLOSE_COMBAT) > EnemyTracker.batteringRam.getStrength()) {
+                        EnemyTracker.batteringRam.retreat();
+                        Player.removeActionPoint();
+                        return true;
+                    }
                 }
-                if(!EnemyTracker.batteringRam.onCircleSpace() && !EnemyTracker.batteringRam.onCloseCombat()){ //Target is not on close combat or Circle
-                    if(Dice.roll(NORMAL_ATTACK_BATTERING_RAM) > EnemyTracker.batteringRam.getStrength()) EnemyTracker.batteringRam.retreat();
+                if(!EnemyTracker.batteringRam.onCircleSpace() && !EnemyTracker.batteringRam.onCloseCombat() && !EnemyTracker.batteringRam.onStartingSpace()){ //Target is not on close combat or Circle
+                    if(Dice.roll(NORMAL_ATTACK_BATTERING_RAM) > EnemyTracker.batteringRam.getStrength()) {
+                        EnemyTracker.batteringRam.retreat();
+                        Player.removeActionPoint();
+                        return true;
+                    }
                 }
             } break;
             case LADDER:{
-                if(EnemyTracker.ladder.onCircleSpace()){ //Target is on Circle
-                    if(Dice.roll(CIRCLE_ATTACK_LADDER) > EnemyTracker.ladder.getStrength()) EnemyTracker.ladder.retreat();
+                if(EnemyTracker.ladder.onCircleSpace()&& !EnemyTracker.ladder.onStartingSpace()){ //Target is on Circle
+                    if(Dice.roll(CIRCLE_ATTACK_LADDER) > EnemyTracker.ladder.getStrength()) {
+                        EnemyTracker.ladder.retreat();
+                        Player.removeActionPoint();
+                        return true;
+                    }
                 }
-                if(EnemyTracker.ladder.onCloseCombat()){ //Target is on Close Combat
-                    if(Dice.roll(CLOSE_COMBAT) > EnemyTracker.ladder.getStrength()) EnemyTracker.ladder.retreat();
+                if(EnemyTracker.ladder.onCloseCombat()&& !EnemyTracker.ladder.onStartingSpace()){ //Target is on Close Combat
+                    if(Dice.roll(CLOSE_COMBAT) > EnemyTracker.ladder.getStrength()) {
+                        EnemyTracker.ladder.retreat();
+                        Player.removeActionPoint();
+                        return true;
+                    }
                 }
-                if(!EnemyTracker.ladder.onCircleSpace() && !EnemyTracker.ladder.onCloseCombat()){ //Target is not on close combat or Circle
-                    if(Dice.roll(NORMAL_ATTACK_LADDER) > EnemyTracker.ladder.getStrength()) EnemyTracker.ladder.retreat();
+                if(!EnemyTracker.ladder.onCircleSpace() && !EnemyTracker.ladder.onCloseCombat()&& !EnemyTracker.ladder.onStartingSpace()){ //Target is not on close combat or Circle
+                    if(Dice.roll(NORMAL_ATTACK_LADDER) > EnemyTracker.ladder.getStrength()) {
+                        EnemyTracker.ladder.retreat();
+                        Player.removeActionPoint();
+                        return true;
+                    }
                 }
             } break;
             case SIEGE_TOWER:{
-                if(EnemyTracker.siegeTower.onCircleSpace()){ //Target is on Circle
-                    if(Dice.roll(CIRCLE_ATTACK_SIEGETOWER) > EnemyTracker.siegeTower.getStrength()) EnemyTracker.siegeTower.retreat();
+                if(EnemyTracker.siegeTower.onCircleSpace() && !EnemyTracker.siegeTower.onStartingSpace()){ //Target is on Circle
+                    if(Dice.roll(CIRCLE_ATTACK_SIEGETOWER) > EnemyTracker.siegeTower.getStrength()) {
+                        EnemyTracker.siegeTower.retreat();
+                        Player.removeActionPoint();
+                        return true;
+                    }
                 }
-                if(EnemyTracker.siegeTower.onCloseCombat()){ //Target is on Close Combat
-                    if(Dice.roll(CLOSE_COMBAT) > EnemyTracker.siegeTower.getStrength()) EnemyTracker.siegeTower.retreat();
+                if(EnemyTracker.siegeTower.onCloseCombat() && !EnemyTracker.siegeTower.onStartingSpace()){ //Target is on Close Combat
+                    if(Dice.roll(CLOSE_COMBAT) > EnemyTracker.siegeTower.getStrength()){
+                        EnemyTracker.siegeTower.retreat();
+                        Player.removeActionPoint();
+                        return true;
+                    }
                 }
-                if(!EnemyTracker.siegeTower.onCircleSpace() && !EnemyTracker.siegeTower.onCloseCombat()){ //Target is not on close combat or Circle
-                    if(Dice.roll(NORMAL_ATTACK_SIEGETOWER) > EnemyTracker.siegeTower.getStrength()) EnemyTracker.siegeTower.retreat();
+                if(!EnemyTracker.siegeTower.onCircleSpace() && !EnemyTracker.siegeTower.onCloseCombat() && !EnemyTracker.siegeTower.onStartingSpace()){ //Target is not on close combat or Circle
+                    if(Dice.roll(NORMAL_ATTACK_SIEGETOWER) > EnemyTracker.siegeTower.getStrength()) {
+                        EnemyTracker.siegeTower.retreat();
+                        Player.removeActionPoint();
+                        return true;
+                    }
                 }
             } break;
         }
-        Player.removeActionPoint();
+
         return true;
     }
 
