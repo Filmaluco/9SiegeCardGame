@@ -45,4 +45,8 @@ public class ActionTunnelMovement extends StateAdapter{
         return getGame().canUseTunnelMovemnt() && getGame().Player.tracker.inTunnel();
     }
 
+    public boolean canUseFreeMovement(){
+        return !getGame().hasUsedTunnelMovement();
+    }
+
 }
