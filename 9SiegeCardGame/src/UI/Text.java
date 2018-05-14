@@ -1,13 +1,12 @@
 package UI;
 
 import Controllers.GameController;
+import Controllers.SavesController;
 import Controllers.states.*;
 import SiegeCard.Util.rolls;
 import SiegeCard.Util.str_values;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.Scanner;
 
 import static SiegeCard.Util.constants.MORALE;
@@ -18,9 +17,11 @@ public class Text implements str_values, rolls {
     private Scanner scanner;
     private BufferedReader reader;
     private GameController game;
+    private SavesController savesGame;
 
     public Text(GameController gameController){
         this.game=gameController;
+        savesGame= new SavesController();
         scanner=new Scanner(System.in);
         reader=new BufferedReader(new InputStreamReader(System.in));
     }
@@ -151,8 +152,6 @@ public class Text implements str_values, rolls {
                     game.setInitialConfig(readLine());
                 }
                 game.Start();
-                //TODO: Maybe Implement in a new Card Menu?
-                //game.StartTurn();f
                 break;
 
             case 2:
@@ -161,12 +160,17 @@ public class Text implements str_values, rolls {
 
             case 3:
                 //TODO: Implement load from file
-                System.out.println("Loading...\n");
+                System.out.println("What was your Player name?");
+                String name = readLine();
+                try {
+                    game=savesGame.loadGame(name);
+                } catch (IOException | ClassNotFoundException e) {
+                    System.out.println("No record for thar player name...");
+                }
                 break;
 
             case 4:
                 game.Exit();
-                System.out.println("Exiting...\n");
                 break;
 
             default:
@@ -250,6 +254,11 @@ public class Text implements str_values, rolls {
                 break;
 
             case 11:
+                if(savesGame.saveGame(game,game.getPlayerName())){
+                    System.out.println("Saved successfully!");
+                }else{
+                    System.out.println("Error could not save...");
+                }
                 game.Exit();
                 break;
 
@@ -428,4 +437,5 @@ public class Text implements str_values, rolls {
         }while (true);
 
     }
+
 }

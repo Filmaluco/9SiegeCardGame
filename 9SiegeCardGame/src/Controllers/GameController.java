@@ -4,7 +4,9 @@ import Controllers.states.GameSetup;
 import Controllers.states.IState;
 import Models.GameDataModel;
 
-public class GameController {
+import java.io.Serializable;
+
+public class GameController implements Serializable{
 
     private GameDataModel gameData;
     private IState state;

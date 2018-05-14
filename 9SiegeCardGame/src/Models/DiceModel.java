@@ -1,9 +1,11 @@
 package Models;
 
 import SiegeCard.Util.*;
+
+import java.io.Serializable;
 import java.util.Random;
 
-public class DiceModel implements rolls, rules {
+public class DiceModel implements rolls, rules, Serializable {
 
     private boolean normal_attack = false,
                     circle_attack = false,

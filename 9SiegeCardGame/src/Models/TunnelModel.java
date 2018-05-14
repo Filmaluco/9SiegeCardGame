@@ -1,6 +1,8 @@
 package Models;
 
-public class TunnelModel {
+import java.io.Serializable;
+
+public class TunnelModel implements Serializable{
 
     private int raidedSupplies;
     private boolean castle;

@@ -1,6 +1,8 @@
 package Models;
 
-public class EnemyModel {
+import java.io.Serializable;
+
+public class EnemyModel implements Serializable{
     protected int position;
     protected int trackStrength;
     protected boolean status;

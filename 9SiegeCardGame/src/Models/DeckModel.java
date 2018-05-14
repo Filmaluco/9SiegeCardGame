@@ -2,12 +2,13 @@ package Models;
 
 import Models.Events.*;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 import static java.util.Collections.shuffle;
 
-public class DeckModel {
+public class DeckModel implements Serializable{
 
     private int numberCards,
                 currentCard,
