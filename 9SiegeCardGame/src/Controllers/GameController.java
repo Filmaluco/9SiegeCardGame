@@ -31,6 +31,8 @@ public class GameController {
 
     public String getPlayerName(){ return gameData.Player.getName();}
 
+    public int getMorale(){ return gameData.Player.tracker.getMorale();}
+
     public boolean canArchersAttack() { return gameData.canArchersAttack(); }
     public boolean canBoilAttack()  { return  gameData.canBoilAttack(); }
     public boolean canCloseCombat() { return gameData.canCloseCombat(); }
@@ -63,6 +65,7 @@ public class GameController {
     public void ArchersAttack(){setState(getState().TrackSelectionArchersAttack());}
     public void BoilingAttack(){setState(getState().TrackSelectionBoilingAttack());}
     public void CloseCombat(){setState(getState().ActionCloseCombat());}
+    public void RallyTroops(){setState(getState().ActionRallyTroops());}
 
     public void ApplyRules(int target){setState(getState().ApplyRules(target));}
 

@@ -119,8 +119,10 @@ public class Text implements str_values, rolls {
                 cardPhaseMenu();
             } else if (game.getState() instanceof ActionArchersAttack) {
                 archersAttackMenu();
-            } else if (game.getState() instanceof ActionBoilingAttack){
+            } else if (game.getState() instanceof ActionBoilingAttack) {
                 boilingAttackMenu();
+            } else if (game.getState() instanceof ActionRallyTroops){
+                rallyTroopsMenu();
             }else if (game.getState() instanceof GameOver){
                 gameOverMenu();
             } else if (game.getState() instanceof GameWon){
@@ -145,7 +147,7 @@ public class Text implements str_values, rolls {
                 }
                 game.Start();
                 //TODO: Maybe Implement in a new Card Menu?
-                //game.StartTurn();
+                //game.StartTurn();f
                 break;
 
             case 2:
@@ -220,6 +222,7 @@ public class Text implements str_values, rolls {
                 break;
 
             case 5:
+                game.RallyTroops();
                 break;
 
             case 6:
@@ -300,6 +303,25 @@ public class Text implements str_values, rolls {
         yourRoll(target);
     }
 
+    public void rallyTroopsMenu(){
+        int option;
+        int target=RALLY_TROOPS;
+        System.out.println("Preparing to be motivational!");
+        if(game.getMorale()>0) {
+            System.out.println("Do you want to trade one supply to get a +1 DRM?\n1-Yes\n0-No");
+            option = readOption();
+            if (option == 1) {
+                target=BOOST_RALLY_TROOPS;
+                game.ApplyRules(target);
+            } else {
+                game.ApplyRules(target);
+            }
+        }else{
+            game.ApplyRules(target);
+        }
+        yourRoll(target);
+    }
+
     public void yourRoll(int target){
         int rollNeeded;
         Scanner enter = new Scanner(System.in);
@@ -318,6 +340,12 @@ public class Text implements str_values, rolls {
                 break;
             case CLOSE_COMBAT:
                 rollNeeded = 4;
+                break;
+            case RALLY_TROOPS:
+                rollNeeded = 4;
+                break;
+            case BOOST_RALLY_TROOPS:
+                rollNeeded = 3;
                 break;
 
                 default:
