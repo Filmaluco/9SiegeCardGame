@@ -1,6 +1,8 @@
 package Models;
 
-public class PlayerTackerModel {
+import java.io.Serializable;
+
+public class PlayerTackerModel implements Serializable{
     private int wallStrength,
                 morale,
                 supplies;

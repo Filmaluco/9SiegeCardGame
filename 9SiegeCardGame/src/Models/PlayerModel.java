@@ -1,6 +1,8 @@
 package Models;
 
-public class PlayerModel {
+import java.io.Serializable;
+
+public class PlayerModel implements Serializable{
 
 
     private String name;

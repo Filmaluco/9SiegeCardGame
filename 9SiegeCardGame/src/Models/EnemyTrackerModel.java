@@ -4,7 +4,9 @@ import Models.Enemies.BatteringRamModel;
 import Models.Enemies.LadderModel;
 import Models.Enemies.SiegeTowerModel;
 
-public class EnemyTrackerModel {
+import java.io.Serializable;
+
+public class EnemyTrackerModel implements Serializable{
     public static final int MAX_TREBUCHET = 3;
     private int currentTrebuchets;
 

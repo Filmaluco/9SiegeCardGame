@@ -2,7 +2,9 @@ package Controllers.states;
 
 import Models.GameDataModel;
 
-public class StateAdapter implements IState {
+import java.io.Serializable;
+
+public class StateAdapter implements IState, Serializable {
 
     private GameDataModel game;
 

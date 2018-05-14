@@ -1,6 +1,8 @@
 package Models;
 
-public abstract class EventModel {
+import java.io.Serializable;
+
+public abstract class EventModel implements Serializable{
 
     protected int eventID;
 
