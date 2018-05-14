@@ -17,7 +17,7 @@ public class ActionTunnelMovement extends StateAdapter{
     @Override
     public IState moveIntoTunnel(){
         if(canMoveIntoTunnel()){
-          getGame().Player.tracker.moveToTunnel();
+          getGame().moveToTunnel();
         }
         return this;
     }
@@ -32,9 +32,9 @@ public class ActionTunnelMovement extends StateAdapter{
         if(canMoveInTunnel()){
 
             switch (TARGET){
-                case FREE_MOVEMENT: getGame().Player.tracker.freeMovement();
-                case FAST_MOVEMENT: getGame().Player.tracker.fastMovement();
-                case AUTO_MOVMENT: getGame().Player.tracker.autoMovement();
+                case FREE_MOVEMENT: getGame().freeMovement();
+                case FAST_MOVEMENT: getGame().fastMovement();
+                case AUTO_MOVMENT: getGame().autoMovement();
             }
 
         }
