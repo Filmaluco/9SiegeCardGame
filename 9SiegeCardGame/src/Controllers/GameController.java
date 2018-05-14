@@ -66,6 +66,8 @@ public class GameController {
     public void BoilingAttack(){setState(getState().TrackSelectionBoilingAttack());}
     public void CloseCombat(){setState(getState().ActionCloseCombat());}
     public void RallyTroops(){setState(getState().ActionRallyTroops());}
+    public void Coupure(){setState(getState().ActionCoupure());}
+    public void Adicional(){setState(getState().GetAdicionalPoints());}
 
     public void ApplyRules(int target){setState(getState().ApplyRules(target));}
 
