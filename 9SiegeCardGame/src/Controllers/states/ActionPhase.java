@@ -58,8 +58,7 @@ public class ActionPhase extends StateAdapter {
     public IState GetAdicionalPoints(){
         //TODO: Convert into State reduce with target
         if(getGame().canGetAdicionalPoint()){
-            getGame().Player.setActionPoints(getGame().Player.getActionPoints()+1);
-            getGame().lockAdicionalPoint();
+            return new ActionAdicionalPoint(getGame());
         }
         return this;
     }

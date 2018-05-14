@@ -70,7 +70,10 @@ public class GameDataModel implements constants, rolls {
         return false;
     }
     public boolean hasUsedAdicionalPoint(){return !canGetAdicionalPoint;}
-    public boolean canGetAdicionalPoint(){return canGetAdicionalPoint;}
+    public boolean canGetAdicionalPoint(){ canGetAdicionalPoint = canGetAdicionalPoint &&
+                                            Player.tracker.getSupplies() > 0 &&
+                                            Player.tracker.getMorale() > 0;
+                                            return canGetAdicionalPoint;}
 
     public void resetAllActions(){
         canArchersAttack = true;
