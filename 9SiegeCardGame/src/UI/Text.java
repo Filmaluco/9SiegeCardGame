@@ -100,8 +100,9 @@ public class Text implements str_values, rolls {
                 case 8:
                     if(game.canGetAdicionalPoint())
                         System.out.println(i+1+ "-"+options[i]);break;
-                default:
 
+                default:
+                    System.out.println(i+1+ "-"+options[i]);
             }
         }
     }
