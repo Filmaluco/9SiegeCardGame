@@ -66,25 +66,42 @@ public class Text implements str_values, rolls {
         for (int i = 0; i < options.length; i++){
             switch (i){
                 case 0:
-                    if(!(game.canArchersAttack())) break;
+                    if((game.canArchersAttack()))
+                        System.out.println(i+1+ "-"+options[i]);
+                    break;
                 case 1:
-                    if(!(game.canBoilAttack())) break;
+                    if((game.canBoilAttack()))
+                        System.out.println(i+1+ "-"+options[i]);
+                    break;
                 case 2:
-                    if(!(game.canCloseCombat())) break;
+                    if((game.canCloseCombat()))
+                        System.out.println(i+1+ "-"+options[i]);
+                    break;
                 case 3:
-                    if(!(game.canCoupure())) break;
+                    if((game.canCoupure()))
+                        System.out.println(i+1+ "-"+options[i]);
+                    break;
                 case 4:
-                    if(!(game.canRallyTroops())) break;
+                    if((game.canRallyTroops()))
+                        System.out.println(i+1+ "-"+options[i]);
+                    break;
                 case 5:
-                    if(!(game.canUseTunnelMovemnt())) break;
+                    if((game.canUseTunnelMovemnt()))
+                        System.out.println(i+1+ "-"+options[i]);
+                    break;
                 case 6:
-                    if(!(game.canSupplyRaid())) break;
+                    if((game.canSupplyRaid()))
+                        System.out.println(i+1+ "-"+options[i]);
+                    break;
                 case 7:
-                    if(!(game.canSabotage())) break;
+                    if((game.canSabotage()))
+                        System.out.println(i+1+ "-"+options[i]);
+                    break;
                 case 8:
-                    if(!game.canGetAdicionalPoint()) break;
+                    if(game.canGetAdicionalPoint())
+                        System.out.println(i+1+ "-"+options[i]);break;
                 default:
-                    System.out.println(i+1+ "-"+options[i]);
+
             }
         }
     }
