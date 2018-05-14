@@ -2,7 +2,7 @@ package Models;
 
 import SiegeCard.Util.*;
 
-public class GameDataModel implements constants, rolls {
+public class GameDataModel implements constants, rolls , java.io.Serializable{
 
     //is it worth having protected? because I want to acess their functions
     public EnemyTrackerModel EnemyTracker;

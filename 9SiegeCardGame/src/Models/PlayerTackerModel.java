@@ -3,15 +3,13 @@ package Models;
 public class PlayerTackerModel {
     private int wallStrength,
                 morale,
-                supplies,
-                tunnel,
-                raidSupplies;
+                supplies;
+
+    public TunnelModel tunnel;
 
     public static final int MAX_PLAYER_TRACK_SLOTS = 4;
     //Used only if we choose to use an array to print status tracks
     public static final int STATUS_TRACKS = 3;
-    public static final int MAX_RAIDED_SUPPLIES = 2;
-    public static final int TUNEL_SIZE = 2;
 
     /**
      * Initial Player Tracker Values
@@ -19,7 +17,8 @@ public class PlayerTackerModel {
     public PlayerTackerModel() {
         //Initial Status Tracker values
         wallStrength = morale = supplies = MAX_PLAYER_TRACK_SLOTS;
-        tunnel = raidSupplies = 0;
+        tunnel = new TunnelModel();
+
     }
 
     //Setters
@@ -32,15 +31,12 @@ public class PlayerTackerModel {
     public void reduceSupplies() { supplies = supplies >= 1 ? supplies-1:  supplies; }
     public void increaseSupplies() { supplies = supplies < 4 ? supplies+1:  supplies; }
 
-    public void reduceRaidSupplies() { raidSupplies = raidSupplies > 1 ? raidSupplies-1:  raidSupplies; }
-    public void increaseRaidSupplies() { raidSupplies = raidSupplies < 2 ? raidSupplies+1:  raidSupplies; }
 
     //Getters
     public int getWallStrength() { return wallStrength; }
     public int getMorale() { return morale; }
     public int getSupplies() { return supplies; }
-    public int getTunnel() { return tunnel; }
-    public int getRaidSupplies() { return raidSupplies; }
+
 
     public int getLostAttributes(){
         return (getWallStrength() == 0 ? 1 : 0) + (getMorale() == 0 ? 1 : 0) + (getSupplies() == 0 ? 1 : 0);
@@ -73,22 +69,7 @@ public class PlayerTackerModel {
         s+="["+getSupplies()+"]";
 
         //TODO: Implement TUNNEL
-        s+=String.format("\n%-15s","Tunnel:");
-        for (int i = 0; i <= TUNEL_SIZE+1; i++) {
-            if(i==getTunnel()){
-                s+=String.format("|X%-3c",'|');
-                continue;
-            }
-            if (i==0){
-                s+=String.format("|C%-3c",'|');
-                continue;
-            }
-            s+= (i<=TUNEL_SIZE) ? String.format("|T%-3c",'|') : String.format("|E%-3c",'|');
-        }
-
-
-        s+=String.format("\n%-15s","RaidedSupplies:");
-        s+="["+getRaidSupplies()+"]";
+        s+=tunnel;
 
         return s;
     }
