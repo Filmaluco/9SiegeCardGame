@@ -46,6 +46,10 @@ public class PlayerTackerModel {
         return tunnel.inEnemyLine();
     }
 
+    public boolean inCastle(){ return tunnel.inCastle(); }
+
+    public boolean inTunnel(){return tunnel.inTunnel() != 0;}
+
     //Setters
     public void reduceWallStrength() { wallStrength = wallStrength >= 1 ? wallStrength-1:  wallStrength; }
     public void increaseWallStrength() { wallStrength = wallStrength < 4 ? wallStrength+1:  wallStrength; }

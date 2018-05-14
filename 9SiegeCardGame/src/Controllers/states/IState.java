@@ -24,8 +24,11 @@ public interface IState {
     IState ActionSabotage();                            // [ActionPhase] -> [ActionPhase]
     IState GetAdicionalPoints();                        // [ActionPhase] -> [ActionPhase]
 
+    IState moveIntoTunnel();                            // [Tunnel] -> [Tunnel]
+    IState moveInTunnel(int TARGET);                    // [Tunnel] -> [Tunnel]
 
-    IState ApplyRules(int TARGET);                                // [ActionPhase] <- [Action]
+
+    IState ApplyRules(int TARGET);                      // [ActionPhase] <- [Action]
 
     IState getState();
 }

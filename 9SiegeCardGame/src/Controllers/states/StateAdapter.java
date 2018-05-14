@@ -86,6 +86,12 @@ public class StateAdapter implements IState {
     public IState GetAdicionalPoints()   { return this; }
 
     @Override
+    public IState moveIntoTunnel() { return this; }
+
+    @Override
+    public IState moveInTunnel(int TARGET) { return this; }
+
+    @Override
     public IState ApplyRules(int TARGET)  {
         return this;
     }

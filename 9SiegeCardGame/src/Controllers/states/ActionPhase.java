@@ -75,5 +75,13 @@ public class ActionPhase extends StateAdapter {
     }
 
     @Override
+    public IState ActionTunnelMovement(){
+        if(getGame().canUseTunnelMovemnt()){
+            return new ActionTunnelMovement(getGame());
+        }
+        return this;
+    }
+
+    @Override
     public IState GameExit() { return new GameExit(getGame()); }
 }

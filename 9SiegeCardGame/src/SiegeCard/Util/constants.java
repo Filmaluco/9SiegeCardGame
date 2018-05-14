@@ -8,5 +8,8 @@ public interface constants {
        DAY_TWO = 2,
        DAY_THREE = 3,
        MORALE = 5,
-       SUPPLY = 7;
+       SUPPLY = 7,
+       FREE_MOVEMENT = 1,
+       FAST_MOVEMENT = 2,
+       AUTO_MOVMENT = 0;
 }
