@@ -164,7 +164,6 @@ public class Text implements str_values, rolls {
                 break;
 
             case 3:
-                //TODO: Implement load from file
                 System.out.println("What was your Player name?");
                 String name = readLine();
                 try {
@@ -210,9 +209,6 @@ public class Text implements str_values, rolls {
 
     private void playMenu(){
         int option;
-        //TODO: Change do while to end in instanceof GAMEOVER or Save and Exit
-        //TODO: Complete the UI with trackers and day
-        //TODO:
 
         printLogo();
         System.out.println(game.toString() + "\n");
@@ -320,7 +316,6 @@ public class Text implements str_values, rolls {
 
     private void gameOverMenu(){
         int option;
-        //TODO: Add how many turns and days player lastedfff
         System.out.println("You lost\n Do you wish to go back to the main menu?\n 1 - Yes\n 0 - No, Exit");
 
         option=readOption();
@@ -397,8 +392,6 @@ public class Text implements str_values, rolls {
     private void yourRoll(int target){
         int rollNeeded;
         Scanner enter = new Scanner(System.in);
-
-        //TODO: Check if on close combat
 
         switch (target){
             case BATTERING_RAM:
