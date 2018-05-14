@@ -146,7 +146,7 @@ public class GameDataModel implements constants, rolls {
     }
 
     public boolean Attack(int TARGET){
-        if(!canArchersAttack() || !canCloseCombat() || !canBoilAttack() || Player.getActionPoints() == 0){ return false;}
+        if(!(canArchersAttack() || canCloseCombat() || canBoilAttack() || Player.getActionPoints() == 0)){ return false;}
         switch (TARGET){
             case BATTERING_RAM:{
                 if(EnemyTracker.batteringRam.onCircleSpace() && !EnemyTracker.batteringRam.onStartingSpace()){ //Target is on Circle
