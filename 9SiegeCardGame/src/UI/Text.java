@@ -257,9 +257,11 @@ public class Text implements str_values, rolls {
     }
 
     public void closeCombatMenu(){
-        System.out.println("Entering close combat!!");
-        game.CloseCombat();
-        yourRoll(CLOSE_COMBAT);
+        if(game.canCloseCombat()) {
+            System.out.println("Entering close combat!!");
+            game.CloseCombat();
+            yourRoll(CLOSE_COMBAT);
+        }
     }
 
     public void gameOverMenu(){

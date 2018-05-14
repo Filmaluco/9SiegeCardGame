@@ -43,7 +43,7 @@ public class ActionPhase extends StateAdapter {
 
     @Override
     public IState ActionCloseCombat(){
-        getGame().CloseAttack();
+        if(getGame().canCloseCombat()) getGame().CloseAttack();
         return this;
     }
 
