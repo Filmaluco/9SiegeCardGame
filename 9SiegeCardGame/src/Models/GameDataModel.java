@@ -137,7 +137,8 @@ public class GameDataModel implements constants, rolls {
                                     Player.getActionPoints() > 0;
                                     return canCoupure;}
 
-    public boolean canRallyTroops(){ return canRallyTroops;}            //TODO: better validation
+    public boolean canRallyTroops(){ canRallyTroops = canRallyTroops && Player.tracker.getMorale() < 4;
+                                     return canRallyTroops;}
     public boolean canUseTunnelMovemnt(){ return canUseTunnelMovemnt;}  //TODO: better validation
     public boolean canSupplyRaid(){ return canSupplyRaid;}              //TODO: better validation
     public boolean canSabotage(){ return canSabotage;}                  //TODO: better validation
