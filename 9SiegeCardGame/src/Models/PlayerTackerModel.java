@@ -7,7 +7,7 @@ public class PlayerTackerModel implements Serializable{
                 morale,
                 supplies;
 
-    public TunnelModel tunnel;
+    private TunnelModel tunnel;
 
     public static final int MAX_PLAYER_TRACK_SLOTS = 4;
     //Used only if we choose to use an array to print status tracks
@@ -23,6 +23,31 @@ public class PlayerTackerModel implements Serializable{
 
     }
 
+    //Tunnel
+    public boolean moveToTunnel(){
+        return tunnel.moveToTunnel();
+    }
+
+    public boolean freeMovement(){
+        return tunnel.freeMovement();
+    }
+
+    public void fastMovement(){
+        addSupplies(tunnel.fastMovement());
+    }
+
+    public void autoMovement(){
+        addSupplies(tunnel.autoMovement());
+    }
+
+    public void capture(){
+        tunnel.capture();
+    }
+
+    public boolean inEnemyLine(){
+        return tunnel.inEnemyLine();
+    }
+
     //Setters
     public void reduceWallStrength() { wallStrength = wallStrength >= 1 ? wallStrength-1:  wallStrength; }
     public void increaseWallStrength() { wallStrength = wallStrength < 4 ? wallStrength+1:  wallStrength; }
@@ -32,6 +57,8 @@ public class PlayerTackerModel implements Serializable{
 
     public void reduceSupplies() { supplies = supplies >= 1 ? supplies-1:  supplies; }
     public void increaseSupplies() { supplies = supplies < 4 ? supplies+1:  supplies; }
+    public void setSupplies(int nr){supplies = nr > 2 || nr < 0 ? supplies: nr;}
+    public void addSupplies(int nr){supplies = supplies+nr > 2 ? 2 : supplies+nr;}
 
 
     //Getters

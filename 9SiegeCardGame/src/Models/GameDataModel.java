@@ -21,6 +21,7 @@ public class GameDataModel implements constants, rolls , Serializable{
                     canCoupure,
                     canRallyTroops,
                     canUseTunnelMovemnt,
+                    usedTunnelMovement,
                     canSupplyRaid,
                     canSabotage,
                     canGetAdicionalPoint;
@@ -40,6 +41,8 @@ public class GameDataModel implements constants, rolls , Serializable{
         canSupplyRaid = true;
         canSabotage = true;
         canGetAdicionalPoint = true;
+
+        usedTunnelMovement = false;
     }
 
 
@@ -50,13 +53,10 @@ public class GameDataModel implements constants, rolls , Serializable{
     public void nextDay(){if(hasToChangeDay()){currentTurn = 1; currentDay++;}}
     public int nextTurn(){return ++currentTurn;}
 
-    public void useBoilingAttack(){canBoilAttack = false;}
-    public void resetBoilingAttack(){canBoilAttack = true;}
+    public void useTunnelMovement(){usedTunnelMovement = true;}
+    public boolean hasUsedTunnelMovement(){return  usedTunnelMovement;}
+    public void resetTunnelMovement(){usedTunnelMovement = false;}
 
-    public void useGetAdicionalPoint(){ canGetAdicionalPoint = false;}
-    public void resetGetAdicionalPoint(){ canGetAdicionalPoint = true;}
-
-    public boolean hasBoiledAttacked(){return !canBoilAttack;}
     public boolean canBoilAttack(){ canBoilAttack = EnemyTracker.batteringRam.onCircleSpace() ||
             EnemyTracker.ladder.onCircleSpace() ||
             EnemyTracker.siegeTower.onCircleSpace() &&
@@ -141,9 +141,16 @@ public class GameDataModel implements constants, rolls , Serializable{
 
     public boolean canRallyTroops(){ canRallyTroops = canRallyTroops && Player.tracker.getMorale() < 4;
                                      return canRallyTroops;}
-    public boolean canUseTunnelMovemnt(){ return canUseTunnelMovemnt;}  //TODO: better validation
-    public boolean canSupplyRaid(){ return canSupplyRaid;}              //TODO: better validation
-    public boolean canSabotage(){ return canSabotage;}                  //TODO: better validation
+    public boolean canUseTunnelMovemnt(){   canUseTunnelMovemnt = canUseTunnelMovemnt && Player.getActionPoints() > 0;
+                                            return canUseTunnelMovemnt;}
+    public boolean canSupplyRaid(){ canSupplyRaid = canSupplyRaid
+                                    && Player.tracker.inEnemyLine()
+                                    && Player.getActionPoints() > 0;
+                                    return canSupplyRaid;}
+    public boolean canSabotage(){   canSabotage = canSabotage
+                                    && Player.tracker.inEnemyLine()
+                                    && Player.getActionPoints() > 0;
+                                    return canSabotage;}
 
     public boolean isGameWon(){ return currentDay == 3 && currentTurn > 7; }
     public boolean isGameOver(){
@@ -291,6 +298,44 @@ public class GameDataModel implements constants, rolls , Serializable{
         if(Dice.getLastRoll() == 1) Player.tracker.reduceMorale();
 
         return true;
+    }
+
+    public void moveToTunnel(){
+        if(canUseTunnelMovemnt() && Player.getActionPoints() > 0){
+
+            useTunnelMovement();
+            Player.removeActionPoint();
+            Player.tracker.moveToTunnel();
+
+        }
+    }
+
+    public void freeMovement(){
+        if(canUseTunnelMovemnt && !hasUsedTunnelMovement()){
+            useTunnelMovement();
+            Player.tracker.freeMovement();
+        }
+    }
+
+    public void fastMovement(){
+        if(canUseTunnelMovemnt() && Player.getActionPoints() > 0){
+
+            useTunnelMovement();
+            Player.removeActionPoint();
+            Player.tracker.fastMovement();
+
+        }
+    }
+
+    public void autoMovement(){
+        if(canUseTunnelMovemnt()){
+            Player.tracker.autoMovement();
+        }
+    }
+
+    public void capture(){
+        Player.tracker.capture();
+        Player.tracker.reduceMorale();
     }
 
 
