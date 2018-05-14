@@ -10,6 +10,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Scanner;
 
+import static SiegeCard.Util.constants.MORALE;
+import static SiegeCard.Util.constants.SUPPLY;
+
 public class Text implements str_values, rolls {
 
     private Scanner scanner;
@@ -123,7 +126,9 @@ public class Text implements str_values, rolls {
                 boilingAttackMenu();
             } else if (game.getState() instanceof ActionRallyTroops){
                 rallyTroopsMenu();
-            }else if (game.getState() instanceof GameOver){
+            } else if (game.getState() instanceof ActionAdicionalPoint){
+                adicionalPointMenu();
+            } else if (game.getState() instanceof GameOver){
                 gameOverMenu();
             } else if (game.getState() instanceof GameWon){
                 gameWonMenu();
@@ -219,6 +224,7 @@ public class Text implements str_values, rolls {
                 break;
 
             case 4:
+                coupureMenu();
                 break;
 
             case 5:
@@ -235,6 +241,7 @@ public class Text implements str_values, rolls {
                 break;
 
             case 9:
+                game.Adicional();
                 break;
 
             case 10:
@@ -303,6 +310,27 @@ public class Text implements str_values, rolls {
         yourRoll(target);
     }
 
+    public void coupureMenu(){
+        if(game.canCoupure()) {
+            System.out.println("Preparing to repair damage to the wall");
+            game.Coupure();
+            yourRoll(COUPURE_ROLL);
+        }
+    }
+
+    public void adicionalPointMenu(){
+        int option;
+        int target;
+        System.out.println("Do you wish to trade a Morale or Supply Point for an additional action?");
+        System.out.println("1-Morale\n2-Supply Point");
+        option=readOption();
+
+        if (option == 1) { target=MORALE; } else { target=SUPPLY; }
+
+        game.ApplyRules(target);
+
+    }
+
     public void rallyTroopsMenu(){
         int option;
         int target=RALLY_TROOPS;
@@ -346,6 +374,9 @@ public class Text implements str_values, rolls {
                 break;
             case BOOST_RALLY_TROOPS:
                 rollNeeded = 3;
+                break;
+            case COUPURE_ROLL:
+                rollNeeded = 4;
                 break;
 
                 default:
