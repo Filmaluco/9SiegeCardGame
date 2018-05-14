@@ -5,7 +5,6 @@ import Models.Enemies.LadderModel;
 import Models.Enemies.SiegeTowerModel;
 
 public class EnemyTrackerModel {
-    //TODO: Make a list of enemies, add Trebuchet Count
     public static final int MAX_TREBUCHET = 3;
     private int currentTrebuchets;
 
