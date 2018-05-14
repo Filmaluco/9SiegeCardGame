@@ -49,4 +49,8 @@ public class ActionTunnelMovement extends StateAdapter{
         return !getGame().hasUsedTunnelMovement();
     }
 
+    public boolean canUseFastMovement(){
+        return getGame().canUseTunnelMovemnt() && getGame().Player.getActionPoints() > 0;
+    }
+
 }
