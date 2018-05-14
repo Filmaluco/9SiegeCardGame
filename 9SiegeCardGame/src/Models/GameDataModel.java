@@ -19,6 +19,7 @@ public class GameDataModel implements constants, rolls , java.io.Serializable{
                     canCoupure,
                     canRallyTroops,
                     canUseTunnelMovemnt,
+                    usedTunnelMovement,
                     canSupplyRaid,
                     canSabotage,
                     canGetAdicionalPoint;
@@ -38,6 +39,8 @@ public class GameDataModel implements constants, rolls , java.io.Serializable{
         canSupplyRaid = true;
         canSabotage = true;
         canGetAdicionalPoint = true;
+
+        usedTunnelMovement = false;
     }
 
 
@@ -48,13 +51,9 @@ public class GameDataModel implements constants, rolls , java.io.Serializable{
     public void nextDay(){if(hasToChangeDay()){currentTurn = 1; currentDay++;}}
     public int nextTurn(){return ++currentTurn;}
 
-    public void useBoilingAttack(){canBoilAttack = false;}
-    public void resetBoilingAttack(){canBoilAttack = true;}
+    public void useTunnelMovement(){usedTunnelMovement = true;}
+    public void resetTunnelMovement(){usedTunnelMovement = false;}
 
-    public void useGetAdicionalPoint(){ canGetAdicionalPoint = false;}
-    public void resetGetAdicionalPoint(){ canGetAdicionalPoint = true;}
-
-    public boolean hasBoiledAttacked(){return !canBoilAttack;}
     public boolean canBoilAttack(){ canBoilAttack = EnemyTracker.batteringRam.onCircleSpace() ||
             EnemyTracker.ladder.onCircleSpace() ||
             EnemyTracker.siegeTower.onCircleSpace() &&
