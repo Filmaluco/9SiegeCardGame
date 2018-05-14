@@ -121,35 +121,35 @@ public class GameDataModel implements constants, rolls , Serializable{
     public void unLockSupplyRaid(){ canSupplyRaid = true;}
     public void unLockSabotage(){ canSabotage = true;}
 
-    public boolean canArchersAttack(){  canArchersAttack = !EnemyTracker.batteringRam.onStartingSpace() ||
+    public boolean canArchersAttack(){  canArchersAttack = (!EnemyTracker.batteringRam.onStartingSpace() ||
                                         !EnemyTracker.ladder.onStartingSpace() ||
                                         !EnemyTracker.siegeTower.onStartingSpace() &&
-                                        Player.getActionPoints() > 0 && canArchersAttack;
+                                        canArchersAttack && Player.getActionPoints() > 0);
                                         return canArchersAttack;}
 
-    public boolean canCloseCombat(){    canCloseCombat = EnemyTracker.batteringRam.onCloseCombat() ||
+    public boolean canCloseCombat(){    canCloseCombat = (EnemyTracker.batteringRam.onCloseCombat() ||
                                         EnemyTracker.ladder.onCloseCombat() ||
                                         EnemyTracker.siegeTower.onCloseCombat() &&
                                         Player.getActionPoints() > 0 &&
-                                        canCloseCombat;
+                                        canCloseCombat);
                                         return canCloseCombat;
     }
-    public boolean canCoupure(){    canCoupure = canCoupure &&
+    public boolean canCoupure(){    canCoupure = (canCoupure &&
                                     Player.tracker.getWallStrength() < 4 &&
-                                    Player.getActionPoints() > 0;
+                                    Player.getActionPoints() > 0);
                                     return canCoupure;}
 
-    public boolean canRallyTroops(){ canRallyTroops = canRallyTroops && Player.tracker.getMorale() < 4;
+    public boolean canRallyTroops(){ canRallyTroops = (canRallyTroops && Player.tracker.getMorale() < 4);
                                      return canRallyTroops;}
-    public boolean canUseTunnelMovemnt(){   canUseTunnelMovemnt = canUseTunnelMovemnt && Player.getActionPoints() > 0;
+    public boolean canUseTunnelMovemnt(){   canUseTunnelMovemnt = (canUseTunnelMovemnt && Player.getActionPoints() > 0);
                                             return canUseTunnelMovemnt;}
-    public boolean canSupplyRaid(){ canSupplyRaid = canSupplyRaid
+    public boolean canSupplyRaid(){ canSupplyRaid = (canSupplyRaid
                                     && Player.tracker.inEnemyLine()
-                                    && Player.getActionPoints() > 0;
+                                    && Player.getActionPoints() > 0);
                                     return canSupplyRaid;}
-    public boolean canSabotage(){   canSabotage = canSabotage
+    public boolean canSabotage(){   canSabotage = (canSabotage
                                     && Player.tracker.inEnemyLine()
-                                    && Player.getActionPoints() > 0;
+                                    && Player.getActionPoints() > 0);
                                     return canSabotage;}
 
     public boolean isGameWon(){ return currentDay == 3 && currentTurn > 7; }

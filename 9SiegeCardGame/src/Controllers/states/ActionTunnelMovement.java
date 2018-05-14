@@ -32,9 +32,9 @@ public class ActionTunnelMovement extends StateAdapter{
         if(canMoveInTunnel()){
 
             switch (TARGET){
-                case FREE_MOVEMENT: getGame().freeMovement();
-                case FAST_MOVEMENT: getGame().fastMovement();
-                case AUTO_MOVMENT: getGame().autoMovement();
+                case FREE_MOVEMENT: getGame().freeMovement(); break;
+                case FAST_MOVEMENT: getGame().fastMovement(); break;
+                case AUTO_MOVMENT: getGame().autoMovement(); break;
             }
 
         }

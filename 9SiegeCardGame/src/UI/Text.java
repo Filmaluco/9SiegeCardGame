@@ -9,6 +9,7 @@ import SiegeCard.Util.str_values;
 import java.io.*;
 import java.util.Scanner;
 
+import static SiegeCard.Util.constants.FREE_MOVEMENT;
 import static SiegeCard.Util.constants.MORALE;
 import static SiegeCard.Util.constants.SUPPLY;
 
@@ -276,7 +277,7 @@ public class Text implements str_values, rolls {
 
     private void tunelMovementMenu() {
         //TODO: Implement
-        System.out.println("Entering into the tunel!");
+
         if(game.canMoveInTunnel()){
             int option;
             System.out.println("Which option do you wanne use?");
@@ -286,10 +287,20 @@ public class Text implements str_values, rolls {
             if(game.canUseFastMovement()){
                 System.out.println("2-Fast Movement");
             }
-            System.out.println("hello?");
+            System.out.println("3- go back");
             option=readOption();
-
-            game.MoveIntoTunel(option);
+            if(option == 3)game.ApplyRules(0);
+            game.MoveInTunnel(option);
+        }else if(game.canMoveIntoTunnel()){
+            int option;
+            System.out.println("Would you like to enter the tunnel (1 action Point)");
+            System.out.println("1 - Yes");
+            System.out.println("2 - No");
+            option=readOption();
+            if(option == 1) game.MoveIntoTunnel();
+            if(option == 2) game.ApplyRules(0);
+        }else {
+            game.ApplyRules(0);
         }
     }
 

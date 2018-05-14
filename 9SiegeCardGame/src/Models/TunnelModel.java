@@ -111,14 +111,14 @@ public class TunnelModel implements Serializable{
         if(directionEnemyCastle){
             directionEnemyCastle = false;
             directionCastleEnemy = true;
-            tunnel[inTunnel()] = false;
+            tunnel[inTunnel()-1] = false;
             castle = true;
             return raidedSupplies;
         }
         if(directionCastleEnemy){
             directionEnemyCastle = true;
             directionCastleEnemy = false;
-            tunnel[inTunnel()] = false;
+            tunnel[inTunnel()-1] = false;
             enemy = true;
         }
         return 0;
@@ -129,7 +129,7 @@ public class TunnelModel implements Serializable{
             directionCastleEnemy = true;
             directionEnemyCastle = false;
             castle = true;
-            tunnel[inTunnel()]=false;
+            tunnel[inTunnel()-1]=false;
         }
         return raidedSupplies;
     }

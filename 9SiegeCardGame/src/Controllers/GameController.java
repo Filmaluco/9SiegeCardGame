@@ -56,6 +56,7 @@ public class GameController implements Serializable{
     public int getLastRoll(){ return gameData.Dice.getLastRoll(); }
 
     public boolean canMoveInTunnel(){ return gameData.canUseTunnelMovemnt() && gameData.Player.tracker.inTunnel(); }
+    public boolean canMoveIntoTunnel(){ return gameData.canUseTunnelMovemnt() && !gameData.Player.tracker.inTunnel(); }
 
     public boolean canUseFreeMovement(){ return !gameData.hasUsedTunnelMovement(); }
 
@@ -80,7 +81,8 @@ public class GameController implements Serializable{
     public void Coupure(){setState(getState().ActionCoupure());}
     public void Adicional(){setState(getState().GetAdicionalPoints());}
     public void Tunel(){setState(getState().ActionTunnelMovement());}
-    public void MoveIntoTunel(int target){setState(getState().moveInTunnel(target));}
+    public void MoveInTunnel(int target){setState(getState().moveInTunnel(target));}
+    public void MoveIntoTunnel(){setState(getState().moveIntoTunnel());}
 
     public void ApplyRules(int target){setState(getState().ApplyRules(target));}
 
