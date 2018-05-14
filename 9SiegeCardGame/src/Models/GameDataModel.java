@@ -55,11 +55,12 @@ public class GameDataModel implements constants, rolls {
     public void resetGetAdicionalPoint(){ canGetAdicionalPoint = true;}
 
     public boolean hasBoiledAttacked(){return !canBoilAttack;}
-    public boolean canBoilAttack(){ return !EnemyTracker.batteringRam.onCircleSpace() &&
-            !EnemyTracker.ladder.onCircleSpace() &&
-            !EnemyTracker.siegeTower.onCircleSpace() &&
-            Player.getActionPoints() > 0&&
-            canBoilAttack;}
+    public boolean canBoilAttack(){ canBoilAttack = EnemyTracker.batteringRam.onCircleSpace() ||
+            EnemyTracker.ladder.onCircleSpace() ||
+            EnemyTracker.siegeTower.onCircleSpace() &&
+            Player.getActionPoints() > 0 && canBoilAttack;
+
+    return canBoilAttack;}
 
 
     public  boolean needsToCloseCombat(){
@@ -113,17 +114,18 @@ public class GameDataModel implements constants, rolls {
     public void unLockSupplyRaid(){ canSupplyRaid = true;}
     public void unLockSabotage(){ canSabotage = true;}
 
-    public boolean canArchersAttack(){ if(  EnemyTracker.batteringRam.onStartingSpace() &&
-                                            EnemyTracker.ladder.onStartingSpace() &&
-                                            EnemyTracker.siegeTower.onStartingSpace() &&
-                                            Player.getActionPoints() > 0) {return false;}
+    public boolean canArchersAttack(){ canArchersAttack = !EnemyTracker.batteringRam.onStartingSpace() ||
+                                            !EnemyTracker.ladder.onStartingSpace() ||
+                                            !EnemyTracker.siegeTower.onStartingSpace() &&
+                                            Player.getActionPoints() > 0 && canArchersAttack;
                                         return canArchersAttack;}
     public boolean canCloseCombat(){
-        return !EnemyTracker.batteringRam.onCloseCombat() &&
-                !EnemyTracker.ladder.onCloseCombat() &&
-                !EnemyTracker.siegeTower.onCloseCombat() &&
+        canCloseCombat = EnemyTracker.batteringRam.onCloseCombat() ||
+                EnemyTracker.ladder.onCloseCombat() ||
+                EnemyTracker.siegeTower.onCloseCombat() &&
                 Player.getActionPoints() > 0 &&
                 canCloseCombat;
+        return canCloseCombat;
     }
     public boolean canCoupure(){ return canCoupure;}                    //TODO: better validation
     public boolean canRallyTroops(){ return canRallyTroops;}            //TODO: better validation

@@ -23,6 +23,8 @@ public class CoverOfDarknessEvent extends EventModel implements rules, rolls {
         data.EnemyTracker.moveSlowest();
         if(data.EnemyTracker.getCloseCombatEnemies() > 0) data.Player.tracker.reduceMorale();
 
+        data.Player.setActionPoints(eventActionPoints);
+
         return new DiceModel(eventID);
     }
 }
