@@ -3,6 +3,7 @@ package Controllers.states;
 import Models.GameDataModel;
 
 import static SiegeCard.Util.rolls.CLOSE_COMBAT;
+import static SiegeCard.Util.rolls.COUPURE_ROLL;
 
 public class ActionPhase extends StateAdapter {
 
@@ -55,9 +56,20 @@ public class ActionPhase extends StateAdapter {
 
     @Override
     public IState GetAdicionalPoints(){
+        //TODO: Convert into State reduce with target
         if(getGame().canGetAdicionalPoint()){
-            getGame().Player.setActionPoints(getGame().Player.getActionPoints()+1);
-            getGame().lockAdicionalPoint();
+            return new ActionAdicionalPoint(getGame());
+        }
+        return this;
+    }
+
+    @Override
+    public IState ActionCoupure(){
+        if(getGame().canCoupure()){
+            if(getGame().Dice.roll(COUPURE_ROLL) > 4){
+                getGame().Player.tracker.increaseWallStrength();
+            }
+         getGame().Player.removeActionPoint();
         }
         return this;
     }
