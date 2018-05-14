@@ -146,7 +146,6 @@ public class TunnelModel implements Serializable{
     @Override
     public String toString() {
         String s="";
-        //TODO: Implement TUNNEL
         s+=String.format("\n%-15s","Tunnel:");
 
         s+= (castle) ? String.format("|X%-3c",'|') : String.format("|C%-3c",'|');

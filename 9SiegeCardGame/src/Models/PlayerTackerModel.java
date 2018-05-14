@@ -101,7 +101,6 @@ public class PlayerTackerModel implements Serializable{
         s+=String.format("\n%-15s","Supplies:");
         s+="["+getSupplies()+"]";
 
-        //TODO: Implement TUNNEL
         s+=tunnel;
 
         return s;
