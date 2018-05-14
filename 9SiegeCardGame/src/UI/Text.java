@@ -129,7 +129,9 @@ public class Text implements str_values, rolls {
                 rallyTroopsMenu();
             } else if (game.getState() instanceof ActionAdicionalPoint){
                 adicionalPointMenu();
-            } else if (game.getState() instanceof GameOver){
+            } else if (game.getState() instanceof ActionTunnelMovement) {
+                tunelMovementMenu();
+            }else if (game.getState() instanceof GameOver){
                 gameOverMenu();
             } else if (game.getState() instanceof GameWon){
                 gameWonMenu();
@@ -137,7 +139,9 @@ public class Text implements str_values, rolls {
         }
     }
 
-    public void mainMenu() {
+
+
+    private void mainMenu() {
         int option;
 
             printLogo();
@@ -180,7 +184,7 @@ public class Text implements str_values, rolls {
 
     }
 
-    public void configsMenu(){
+    private void configsMenu(){
         int option;
         do{
             printLogo();
@@ -203,7 +207,7 @@ public class Text implements str_values, rolls {
         }while (option!=2);
     }
 
-    public void playMenu(){
+    private void playMenu(){
         int option;
         //TODO: Change do while to end in instanceof GAMEOVER or Save and Exit
         //TODO: Complete the UI with trackers and day
@@ -236,6 +240,7 @@ public class Text implements str_values, rolls {
                 break;
 
             case 6:
+                game.Tunel();
                 break;
 
             case 7:
@@ -269,13 +274,32 @@ public class Text implements str_values, rolls {
 
     }
 
-    public void cardPhaseMenu(){
+    private void tunelMovementMenu() {
+        //TODO: Implement
+        System.out.println("Entering into the tunel!");
+        if(game.canMoveInTunnel()){
+            int option;
+            System.out.println("Which option do you wanne use?");
+            if(game.canUseFreeMovement()){
+                System.out.println("1-Free Movement");
+            }
+            if(game.canUseFastMovement()){
+                System.out.println("2-Fast Movement");
+            }
+            System.out.println("hello?");
+            option=readOption();
+
+            game.MoveIntoTunel(option);
+        }
+    }
+
+    private void cardPhaseMenu(){
         //System.out.println("You managed to survive another turn, moving on to the next one!");
         System.out.println("Lets start a turn!!");
         game.StartTurn();
     }
 
-    public void closeCombatMenu(){
+    private void closeCombatMenu(){
         if(game.canCloseCombat()) {
             System.out.println("Entering close combat!!");
             game.CloseCombat();
@@ -283,7 +307,7 @@ public class Text implements str_values, rolls {
         }
     }
 
-    public void gameOverMenu(){
+    private void gameOverMenu(){
         int option;
         //TODO: Add how many turns and days player lastedfff
         System.out.println("You lost\n Do you wish to go back to the main menu?\n 1 - Yes\n 0 - No, Exit");
@@ -294,7 +318,7 @@ public class Text implements str_values, rolls {
 
     }
 
-    public void gameWonMenu(){
+    private void gameWonMenu(){
         int option;
         System.out.println("You Won!!\n Do you wish to go back to the main menu?\n 1 - Yes\n 0 - No, Exit");
 
@@ -303,7 +327,7 @@ public class Text implements str_values, rolls {
         if (option == 1) { game.Menu(); } else { game.Exit(); }
     }
 
-    public void archersAttackMenu(){
+    private void archersAttackMenu(){
         int target;
         System.out.println("Preparing archers to attack!");
         target=enemySelect();
@@ -311,7 +335,7 @@ public class Text implements str_values, rolls {
         yourRoll(target);
     }
 
-    public void boilingAttackMenu(){
+    private void boilingAttackMenu(){
         int target;
         System.out.println("Preparing to boil!");
         target=enemySelect();
@@ -319,7 +343,7 @@ public class Text implements str_values, rolls {
         yourRoll(target);
     }
 
-    public void coupureMenu(){
+    private void coupureMenu(){
         if(game.canCoupure()) {
             System.out.println("Preparing to repair damage to the wall");
             game.Coupure();
@@ -327,7 +351,7 @@ public class Text implements str_values, rolls {
         }
     }
 
-    public void adicionalPointMenu(){
+    private void adicionalPointMenu(){
         int option;
         int target;
         System.out.println("Do you wish to trade a Morale or Supply Point for an additional action?");
@@ -340,7 +364,7 @@ public class Text implements str_values, rolls {
 
     }
 
-    public void rallyTroopsMenu(){
+    private void rallyTroopsMenu(){
         int option;
         int target=RALLY_TROOPS;
         System.out.println("Preparing to be motivational!");
@@ -359,7 +383,7 @@ public class Text implements str_values, rolls {
         yourRoll(target);
     }
 
-    public void yourRoll(int target){
+    private void yourRoll(int target){
         int rollNeeded;
         Scanner enter = new Scanner(System.in);
 
@@ -402,7 +426,7 @@ public class Text implements str_values, rolls {
         enter.nextLine();
     }
 
-    public int enemySelect(){
+    private int enemySelect(){
         int option=0;
 
         System.out.println("Which enemy do you wish to attack: \n");

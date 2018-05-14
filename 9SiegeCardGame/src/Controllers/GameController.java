@@ -54,6 +54,15 @@ public class GameController implements Serializable{
     public int siegeTowerStrength(){ return gameData.EnemyTracker.siegeTower.getStrength();}
 
     public int getLastRoll(){ return gameData.Dice.getLastRoll(); }
+
+    public boolean canMoveInTunnel(){ return gameData.canUseTunnelMovemnt() && gameData.Player.tracker.inTunnel(); }
+
+    public boolean canUseFreeMovement(){ return !gameData.hasUsedTunnelMovement(); }
+
+    public boolean canUseFastMovement(){ return gameData.canUseTunnelMovemnt() && gameData.Player.getActionPoints() > 0; }
+
+
+
     @Override
     public String toString() {
         return gameData.toString();
@@ -70,8 +79,11 @@ public class GameController implements Serializable{
     public void RallyTroops(){setState(getState().ActionRallyTroops());}
     public void Coupure(){setState(getState().ActionCoupure());}
     public void Adicional(){setState(getState().GetAdicionalPoints());}
+    public void Tunel(){setState(getState().ActionTunnelMovement());}
+    public void MoveIntoTunel(int target){setState(getState().moveInTunnel(target));}
 
     public void ApplyRules(int target){setState(getState().ApplyRules(target));}
+
 
     public void StartTurn(){setState(getState().StartTurn());}
     public void EndTurn(){setState(getState().EndTurn());}
