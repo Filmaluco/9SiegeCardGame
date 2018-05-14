@@ -54,5 +54,14 @@ public class ActionPhase extends StateAdapter {
     }
 
     @Override
+    public IState GetAdicionalPoints(){
+        if(getGame().canGetAdicionalPoint()){
+            getGame().Player.setActionPoints(getGame().Player.getActionPoints()+1);
+            getGame().lockAdicionalPoint();
+        }
+        return this;
+    }
+
+    @Override
     public IState GameExit() { return new GameExit(getGame()); }
 }

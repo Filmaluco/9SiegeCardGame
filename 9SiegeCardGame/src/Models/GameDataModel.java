@@ -98,6 +98,7 @@ public class GameDataModel implements constants, rolls {
 
     public void lockArchersAttack(){ canArchersAttack = false;}
     public void lockBoilAttack(){ canBoilAttack = false;}
+    public void lockAdicionalPoint(){ canGetAdicionalPoint = false;}
     public void lockCloseCombat(){ canCloseCombat = false;}
     public void lockCoupure(){ canCoupure = false;}
     public void lockRallyTroops(){ canRallyTroops = false;}
@@ -105,6 +106,7 @@ public class GameDataModel implements constants, rolls {
     public void lockSupplyRaid(){ canSupplyRaid = false;}
     public void lockSabotage(){ canSabotage = false;}
 
+    public void unLockAdicionalPoint(){ canGetAdicionalPoint = true;}
     public void unLockArchersAttack(){ canArchersAttack = true;}
     public void unLockBoilAttack(){ canBoilAttack = true;}
     public void unLockCloseCombat(){ canCloseCombat = true;}
@@ -254,6 +256,9 @@ public class GameDataModel implements constants, rolls {
                     }
                 }
             } break;
+        }
+        if(Dice.getLastRoll()==1){
+            Player.tracker.reduceMorale();
         }
         Player.removeActionPoint();
         return true;
