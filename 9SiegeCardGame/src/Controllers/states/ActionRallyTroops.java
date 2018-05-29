@@ -1,15 +1,16 @@
 package Controllers.states;
 
 import Models.GameDataModel;
+import SiegeCard.Util.Rolls;
 
-import static SiegeCard.Util.rolls.BOOST_RALLY_TROOPS;
-import static SiegeCard.Util.rolls.RALLY_TROOPS;
+import static SiegeCard.Util.Rolls.BOOST_RALLY_TROOPS;
+import static SiegeCard.Util.Rolls.RALLY_TROOPS;
 
 public class ActionRallyTroops extends StateAdapter{
     public ActionRallyTroops(GameDataModel g) { super(g); }
 
     @Override
-    public IState ApplyRules(int TARGET){
+    public IState ApplyRules(Rolls TARGET){
 
         if(getGame().Player.tracker.getSupplies() == 0) TARGET = RALLY_TROOPS;
 

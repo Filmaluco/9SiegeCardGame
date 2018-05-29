@@ -1,6 +1,8 @@
 package Controllers.states;
 
 import Models.GameDataModel;
+import SiegeCard.Util.Constants;
+import SiegeCard.Util.Rolls;
 
 import java.io.Serializable;
 
@@ -91,12 +93,15 @@ public class StateAdapter implements IState, Serializable {
     public IState moveIntoTunnel() { return this; }
 
     @Override
-    public IState moveInTunnel(int TARGET) { return this; }
+    public IState moveInTunnel(Constants TARGET) { return this; }
 
     @Override
-    public IState ApplyRules(int TARGET)  {
+    public IState ApplyRules(Rolls TARGET)  {
         return this;
     }
+
+    @Override
+    public IState ApplyRules(Constants TARGET) { return this; }
 
     @Override
     public IState getState() {

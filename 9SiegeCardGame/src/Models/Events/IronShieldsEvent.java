@@ -3,10 +3,10 @@ package Models.Events;
 import Models.DiceModel;
 import Models.EventModel;
 import Models.GameDataModel;
-import SiegeCard.Util.rolls;
-import SiegeCard.Util.rules;
 
-public class IronShieldsEvent extends EventModel implements rules, rolls {
+import static SiegeCard.Util.Rules.IRON_SHIELDS;
+
+public class IronShieldsEvent extends EventModel{
 
     public IronShieldsEvent() {
         eventID             = IRON_SHIELDS;

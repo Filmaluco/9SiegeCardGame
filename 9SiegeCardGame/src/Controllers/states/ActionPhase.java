@@ -2,8 +2,7 @@ package Controllers.states;
 
 import Models.GameDataModel;
 
-import static SiegeCard.Util.rolls.CLOSE_COMBAT;
-import static SiegeCard.Util.rolls.COUPURE_ROLL;
+import static SiegeCard.Util.Rolls.COUPURE_ROLL;
 
 public class ActionPhase extends StateAdapter {
 

@@ -1,8 +1,9 @@
 package Controllers.states;
 
 import Models.GameDataModel;
+import SiegeCard.Util.Constants;
 
-import static SiegeCard.Util.constants.*;
+import static SiegeCard.Util.Constants.*;
 
 public class ActionAdicionalPoint extends StateAdapter{
     public ActionAdicionalPoint(GameDataModel g) {
@@ -10,7 +11,7 @@ public class ActionAdicionalPoint extends StateAdapter{
     }
 
     @Override
-    public IState ApplyRules(int TARGET){
+    public IState ApplyRules(Constants TARGET){
 
         getGame().Player.setActionPoints(getGame().Player.getActionPoints()+1);
         getGame().lockAdicionalPoint();

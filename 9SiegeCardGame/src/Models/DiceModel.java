@@ -1,11 +1,15 @@
 package Models;
 
-import SiegeCard.Util.*;
+import SiegeCard.Util.Rolls;
+import SiegeCard.Util.Rules;
 
 import java.io.Serializable;
 import java.util.Random;
 
-public class DiceModel implements rolls, rules, Serializable {
+import static SiegeCard.Util.Rolls.*;
+import static SiegeCard.Util.Rules.*;
+
+public class DiceModel implements Serializable {
 
     private boolean normal_attack = false,
                     circle_attack = false,
@@ -25,7 +29,7 @@ public class DiceModel implements rolls, rules, Serializable {
      * Changes the dice (DRM) depending on the card rules
      * @param target_rule Card rules code
      */
-    public DiceModel(int target_rule){
+    public DiceModel(Rules target_rule){
 
         switch (target_rule){
 
@@ -126,7 +130,7 @@ public class DiceModel implements rolls, rules, Serializable {
      * @param target_roll Enemy unit code to attack
      * @return DRM value for specific Enemy Target
      */
-    public int roll(int target_roll){
+    public int roll(Rolls target_roll){
         int rolled = roll();
 
         switch (target_roll){

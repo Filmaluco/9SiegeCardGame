@@ -3,17 +3,17 @@ package UI;
 import Controllers.GameController;
 import Controllers.SavesController;
 import Controllers.states.*;
-import SiegeCard.Util.rolls;
+import SiegeCard.Util.Constants;
+import SiegeCard.Util.Rolls;
 import SiegeCard.Util.str_values;
 
 import java.io.*;
 import java.util.Scanner;
 
-import static SiegeCard.Util.constants.FREE_MOVEMENT;
-import static SiegeCard.Util.constants.MORALE;
-import static SiegeCard.Util.constants.SUPPLY;
+import static SiegeCard.Util.Constants.*;
+import static SiegeCard.Util.Rolls.*;
 
-public class Text implements str_values, rolls {
+public class Text implements str_values{
 
     private Scanner scanner;
     private BufferedReader reader;
@@ -285,8 +285,10 @@ public class Text implements str_values, rolls {
             }
             System.out.println("3- go back");
             option=readOption();
-            if(option == 3)game.ApplyRules(0);
-            game.MoveInTunnel(option);
+            if(option == 1)game.MoveInTunnel(FREE_MOVEMENT);
+            if(option == 2)game.MoveInTunnel(FAST_MOVEMENT);
+            if(option == 3)game.ApplyRules(AUTO_MOVMENT);
+
         }else if(game.canMoveIntoTunnel()){
             int option;
             System.out.println("Would you like to enter the tunnel (1 action Point)");
@@ -294,9 +296,9 @@ public class Text implements str_values, rolls {
             System.out.println("2 - No");
             option=readOption();
             if(option == 1) game.MoveIntoTunnel();
-            if(option == 2) game.ApplyRules(0);
+            if(option == 2) game.ApplyRules(AUTO_MOVMENT);
         }else {
-            game.ApplyRules(0);
+            game.ApplyRules(AUTO_MOVMENT);
         }
     }
 
@@ -334,7 +336,7 @@ public class Text implements str_values, rolls {
     }
 
     private void archersAttackMenu(){
-        int target;
+        Rolls target;
         System.out.println("Preparing archers to attack!");
         target=enemySelect();
         game.ApplyRules(target);
@@ -342,9 +344,9 @@ public class Text implements str_values, rolls {
     }
 
     private void boilingAttackMenu(){
-        int target;
+        Rolls target;
         System.out.println("Preparing to boil!");
-        target=enemySelect();
+        target=enemySelectBoilAttack();
         game.ApplyRules(target);
         yourRoll(target);
     }
@@ -359,7 +361,7 @@ public class Text implements str_values, rolls {
 
     private void adicionalPointMenu(){
         int option;
-        int target;
+        Constants target;
         System.out.println("Do you wish to trade a Morale or Supply Point for an additional action?");
         System.out.println("1-Morale\n2-Supply Point");
         option=readOption();
@@ -372,7 +374,7 @@ public class Text implements str_values, rolls {
 
     private void rallyTroopsMenu(){
         int option;
-        int target=RALLY_TROOPS;
+        Rolls target=RALLY_TROOPS;
         System.out.println("Preparing to be motivational!");
         if(game.getMorale()>0) {
             System.out.println("Do you want to trade one supply to get a +1 DRM?\n1-Yes\n0-No");
@@ -389,7 +391,7 @@ public class Text implements str_values, rolls {
         yourRoll(target);
     }
 
-    private void yourRoll(int target){
+    private void yourRoll(Rolls target){
         int rollNeeded;
         Scanner enter = new Scanner(System.in);
 
@@ -430,8 +432,8 @@ public class Text implements str_values, rolls {
         enter.nextLine();
     }
 
-    private int enemySelect(){
-        int option=0;
+    private Rolls enemySelect(){
+        int option;
 
         System.out.println("Which enemy do you wish to attack: \n");
 
@@ -454,6 +456,42 @@ public class Text implements str_values, rolls {
                     break;
                 case 3:
                     if(!game.siegeTowerOnStartingSpace()){
+                        return SIEGE_TOWER;
+                    }
+                    break;
+
+                default:
+                    System.out.println("Wrong Option!");
+                    break;
+            }
+        }while (true);
+
+    }
+
+    private Rolls enemySelectBoilAttack(){
+        int option;
+
+        System.out.println("Which enemy do you wish to attack: \n");
+
+        System.out.format(!game.batteringRamOnCircleSpace()?"":"1-Battering Ram\n");
+        System.out.format(!game.ladderOnCircleSpace()?"":"2-Ladder\n");
+        System.out.format(!game.siegeTowerOnCircleSpace()?"":"3-Siege Tower\n");
+
+        do {
+            option = readOption();
+            switch (option) {
+                case 1:
+                    if(game.batteringRamOnCircleSpace()){
+                        return BATTERING_RAM;
+                    }
+                    break;
+                case 2:
+                    if(game.ladderOnCircleSpace()){
+                        return LADDER;
+                    }
+                    break;
+                case 3:
+                    if(game.siegeTowerOnCircleSpace()){
                         return SIEGE_TOWER;
                     }
                     break;

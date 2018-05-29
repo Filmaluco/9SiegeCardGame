@@ -1,10 +1,12 @@
 package Models;
 
-import SiegeCard.Util.*;
+import SiegeCard.Util.Rolls;
 
 import java.io.Serializable;
 
-public class GameDataModel implements constants, rolls , Serializable{
+import static SiegeCard.Util.Rolls.*;
+
+public class GameDataModel implements Serializable{
 
     //is it worth having protected? because I want to acess their functions
     public EnemyTrackerModel EnemyTracker;
@@ -164,7 +166,7 @@ public class GameDataModel implements constants, rolls , Serializable{
         return false;
     }
 
-    public boolean Attack(int TARGET){
+    public boolean Attack(Rolls TARGET){
         if(!(canArchersAttack() || canCloseCombat() || canBoilAttack() || Player.getActionPoints() == 0)){ return false;}
         switch (TARGET){
             case BATTERING_RAM:{
@@ -241,7 +243,7 @@ public class GameDataModel implements constants, rolls , Serializable{
         return true;
     }
 
-    public boolean BoilAttack(int TARGET){
+    public boolean BoilAttack(Rolls TARGET){
         if(!canArchersAttack() || !canCloseCombat() || !canBoilAttack() || Player.getActionPoints() == 0){ return false;}
         lockBoilAttack();
 

@@ -3,10 +3,11 @@ package Models.Events;
 import Models.DiceModel;
 import Models.EventModel;
 import Models.GameDataModel;
-import SiegeCard.Util.rolls;
-import SiegeCard.Util.rules;
 
-public class TrebuchetAttackEventDay1 extends EventModel implements rules, rolls {
+import static SiegeCard.Util.Rules.TREBUCHET_ATTACK;
+import static SiegeCard.Util.Rolls.RANDOM;
+
+public class TrebuchetAttackEventDay1 extends EventModel{
 
     public TrebuchetAttackEventDay1() {
         eventID             = TREBUCHET_ATTACK;

@@ -3,10 +3,11 @@ package Models.Events;
 import Models.DiceModel;
 import Models.EventModel;
 import Models.GameDataModel;
-import SiegeCard.Util.rolls;
-import SiegeCard.Util.rules;
 
-public class FlamingArrowsEvent extends EventModel implements rules, rolls {
+import static SiegeCard.Util.Rules.FLAMING_ARROWS;
+
+
+public class FlamingArrowsEvent extends EventModel {
     public FlamingArrowsEvent() {
         eventID             = FLAMING_ARROWS;
         eventName           = "Flaming Arrows";

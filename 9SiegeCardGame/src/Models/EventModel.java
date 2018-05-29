@@ -1,10 +1,12 @@
 package Models;
 
+import SiegeCard.Util.Rules;
+
 import java.io.Serializable;
 
 public abstract class EventModel implements Serializable{
 
-    protected int eventID;
+    protected Rules eventID;
 
     protected String eventName,
                      eventDescription;

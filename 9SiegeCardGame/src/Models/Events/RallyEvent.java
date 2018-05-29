@@ -3,10 +3,10 @@ package Models.Events;
 import Models.DiceModel;
 import Models.EventModel;
 import Models.GameDataModel;
-import SiegeCard.Util.rolls;
-import SiegeCard.Util.rules;
 
-public class RallyEvent extends EventModel implements rules, rolls {
+import static SiegeCard.Util.Rules.RALLY;
+
+public class RallyEvent extends EventModel{
 
     public RallyEvent() {
         eventID             = RALLY;
