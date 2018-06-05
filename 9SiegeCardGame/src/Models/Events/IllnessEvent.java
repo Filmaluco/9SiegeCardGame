@@ -5,7 +5,11 @@ import Models.EventModel;
 import Models.GameDataModel;
 import SiegeCard.Util.*;
 
-public class IllnessEvent extends EventModel implements rules, rolls {
+import static SiegeCard.Util.Rules.ILLNESS;
+
+public class IllnessEvent extends EventModel {
+
+    Rules rules;
 
     public IllnessEvent(){
         eventID             = ILLNESS;

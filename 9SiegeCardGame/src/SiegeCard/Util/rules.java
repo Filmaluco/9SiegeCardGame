@@ -1,31 +1,31 @@
 package SiegeCard.Util;
 
-public interface rules {
+public enum Rules {
 
     //Values used for CREATING the dice ONLY!!!
-    int TREBUCHET_ATTACK = 1;
+    TREBUCHET_ATTACK,
 
-    int ILLNESS = 21;
-    int GUARDS_DISTRACTED = 22;
+    ILLNESS,
+    GUARDS_DISTRACTED,
 
-    int SUPPLIES_SPOILED = 31;
-    int BAD_WEATHER = 32;
-    int BOILING_OIL = 33;
+     SUPPLIES_SPOILED,
+     BAD_WEATHER,
+     BOILING_OIL,
 
-    int DEATH_OF_A_LEADER = 41;
-    int GATE_FORTIFIED = 42;
-    int FLAMING_ARROWS = 43;
+     DEATH_OF_A_LEADER,
+     GATE_FORTIFIED,
+     FLAMING_ARROWS,
 
-    int VOLLEY_OF_ARROWS = 51;
-    int COLLAPSED = 52;
-    int REPAIRED_TREBUCHET = 53;
+     VOLLEY_OF_ARROWS,
+     COLLAPSED,
+     REPAIRED_TREBUCHET,
 
-    int COVER_OF_DARKNESS = 61;
-    int ENEMY_FATIGUE = 62;
-    int RALLY = 63;
+     COVER_OF_DARKNESS,
+     ENEMY_FATIGUE,
+     RALLY,
 
-    int DETERMINED_ENEMY = 71;
-    int IRON_SHIELDS = 72;
-    int FAITH = 73;
+     DETERMINED_ENEMY,
+     IRON_SHIELDS,
+     FAITH
 
 }

@@ -3,10 +3,12 @@ package Models.Events;
 import Models.DiceModel;
 import Models.EventModel;
 import Models.GameDataModel;
-import SiegeCard.Util.rolls;
-import SiegeCard.Util.rules;
+import SiegeCard.Util.Rolls;
+import SiegeCard.Util.Rules;
 
-public class GateFortifiedEvent extends EventModel implements rules, rolls {
+import static SiegeCard.Util.Rules.GATE_FORTIFIED;
+
+public class GateFortifiedEvent extends EventModel{
 
     public GateFortifiedEvent() {
         eventID             = GATE_FORTIFIED;

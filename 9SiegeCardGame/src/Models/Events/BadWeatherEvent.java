@@ -3,10 +3,10 @@ package Models.Events;
 import Models.DiceModel;
 import Models.EventModel;
 import Models.GameDataModel;
-import SiegeCard.Util.rolls;
-import SiegeCard.Util.rules;
 
-public class BadWeatherEvent extends EventModel implements rules, rolls {
+import static SiegeCard.Util.Rules.BAD_WEATHER;
+
+public class BadWeatherEvent extends EventModel{
 
     public BadWeatherEvent() {
         eventID             = BAD_WEATHER;

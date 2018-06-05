@@ -1,10 +1,11 @@
 import Controllers.GameController;
-import UI.Text;
+import UI.Text.Text;
 
 public class Main {
 
     public static void main(String[] args) {
-        Text menu = new Text(new GameController());
-        menu.start();
+        GameController game = new GameController();
+        Text text = new Text(game);
+        text.start();
     }
 }

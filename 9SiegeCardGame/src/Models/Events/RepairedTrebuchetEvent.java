@@ -3,10 +3,10 @@ package Models.Events;
 import Models.DiceModel;
 import Models.EventModel;
 import Models.GameDataModel;
-import SiegeCard.Util.rolls;
-import SiegeCard.Util.rules;
 
-public class RepairedTrebuchetEvent extends EventModel implements rules, rolls {
+import static SiegeCard.Util.Rules.REPAIRED_TREBUCHET;
+
+public class RepairedTrebuchetEvent extends EventModel{
 
     public RepairedTrebuchetEvent() {
         eventID             = REPAIRED_TREBUCHET;
@@ -24,7 +24,7 @@ public class RepairedTrebuchetEvent extends EventModel implements rules, rolls {
         if(data.EnemyTracker.ladder.onCloseCombat()) data.Player.tracker.reduceMorale();
         data.EnemyTracker.addTrebuchet();
         data.Player.setActionPoints(eventActionPoints);
-        return new DiceModel(eventActionPoints);
+        return new DiceModel(eventID);
 
     }
 }

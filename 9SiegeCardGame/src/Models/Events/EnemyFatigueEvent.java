@@ -3,10 +3,10 @@ package Models.Events;
 import Models.DiceModel;
 import Models.EventModel;
 import Models.GameDataModel;
-import SiegeCard.Util.rolls;
-import SiegeCard.Util.rules;
 
-public class EnemyFatigueEvent extends EventModel implements rules, rolls {
+import static SiegeCard.Util.Rules.ENEMY_FATIGUE;
+
+public class EnemyFatigueEvent extends EventModel{
 
     public EnemyFatigueEvent() {
         eventID             = ENEMY_FATIGUE;

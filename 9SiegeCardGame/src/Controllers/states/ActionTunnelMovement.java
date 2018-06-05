@@ -1,15 +1,14 @@
 package Controllers.states;
 
 import Models.GameDataModel;
-import SiegeCard.Util.*;
+import SiegeCard.Util.Constants;
 
-import static SiegeCard.Util.constants.*;
 
 public class ActionTunnelMovement extends StateAdapter{
     public ActionTunnelMovement(GameDataModel g) { super(g); }
 
     @Override
-    public IState ApplyRules(int TARGET){
+    public IState ApplyRules(Constants TARGET){
         return new ActionPhase(getGame());
     }
 
@@ -28,7 +27,7 @@ public class ActionTunnelMovement extends StateAdapter{
     }
 
     @Override
-    public IState moveInTunnel(int TARGET){
+    public IState moveInTunnel(Constants TARGET){
         if(canMoveInTunnel()){
 
             switch (TARGET){

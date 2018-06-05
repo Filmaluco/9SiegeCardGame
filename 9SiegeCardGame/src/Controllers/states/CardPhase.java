@@ -2,8 +2,6 @@ package Controllers.states;
 
 import Models.GameDataModel;
 
-import static SiegeCard.Util.rolls.CLOSE_COMBAT;
-
 public class CardPhase extends StateAdapter{
     public CardPhase(GameDataModel g) {
         super(g);

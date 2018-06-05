@@ -3,6 +3,8 @@ package Controllers;
 import Controllers.states.GameSetup;
 import Controllers.states.IState;
 import Models.GameDataModel;
+import SiegeCard.Util.Constants;
+import SiegeCard.Util.Rolls;
 
 import java.io.Serializable;
 
@@ -49,6 +51,11 @@ public class GameController implements Serializable{
     public boolean ladderOnStartingSpace(){ return gameData.EnemyTracker.ladder.onStartingSpace();}
     public boolean siegeTowerOnStartingSpace(){ return gameData.EnemyTracker.siegeTower.onStartingSpace();}
 
+    public boolean batteringRamOnCircleSpace(){ return gameData.EnemyTracker.batteringRam.onCircleSpace();}
+    public boolean ladderOnCircleSpace(){ return gameData.EnemyTracker.ladder.onCircleSpace();}
+    public boolean siegeTowerOnCircleSpace(){ return gameData.EnemyTracker.siegeTower.onCircleSpace();}
+
+
     public int batteringRamStrength(){ return gameData.EnemyTracker.batteringRam.getStrength();}
     public int ladderStrength(){ return gameData.EnemyTracker.ladder.getStrength();}
     public int siegeTowerStrength(){ return gameData.EnemyTracker.siegeTower.getStrength();}
@@ -81,11 +88,11 @@ public class GameController implements Serializable{
     public void Coupure(){setState(getState().ActionCoupure());}
     public void Adicional(){setState(getState().GetAdicionalPoints());}
     public void Tunel(){setState(getState().ActionTunnelMovement());}
-    public void MoveInTunnel(int target){setState(getState().moveInTunnel(target));}
+    public void MoveInTunnel(Constants target){setState(getState().moveInTunnel(target));}
     public void MoveIntoTunnel(){setState(getState().moveIntoTunnel());}
 
-    public void ApplyRules(int target){setState(getState().ApplyRules(target));}
-
+    public void ApplyRules(Rolls target){setState(getState().ApplyRules(target));}
+    public void ApplyRules(Constants target){setState(getState().ApplyRules(target));}
 
     public void StartTurn(){setState(getState().StartTurn());}
     public void EndTurn(){setState(getState().EndTurn());}

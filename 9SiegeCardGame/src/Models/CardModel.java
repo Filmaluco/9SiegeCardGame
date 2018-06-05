@@ -1,12 +1,12 @@
 package Models;
 
-import SiegeCard.Util.constants;
+import SiegeCard.Util.Constants;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CardModel implements constants, Serializable {
+public class CardModel implements Serializable {
 
     private static int ID = 0;
 

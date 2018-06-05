@@ -1,5 +1,8 @@
 package Controllers.states;
 
+import SiegeCard.Util.Constants;
+import SiegeCard.Util.Rolls;
+
 public interface IState {
     IState GameStart();
 
@@ -25,10 +28,11 @@ public interface IState {
     IState GetAdicionalPoints();                        // [ActionPhase] -> [ActionPhase]
 
     IState moveIntoTunnel();                            // [Tunnel] -> [Tunnel]
-    IState moveInTunnel(int TARGET);                    // [Tunnel] -> [Tunnel]
+    IState moveInTunnel(Constants TARGET);                    // [Tunnel] -> [Tunnel]
 
 
-    IState ApplyRules(int TARGET);                      // [ActionPhase] <- [Action]
+    IState ApplyRules(Rolls TARGET);                      // [ActionPhase] <- [Action]
+    IState ApplyRules(Constants TARGET);                  // [ActionPhase] <- [Action]
 
     IState getState();
 }

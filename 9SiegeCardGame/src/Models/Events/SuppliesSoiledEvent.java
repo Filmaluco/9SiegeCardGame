@@ -3,10 +3,10 @@ package Models.Events;
 import Models.DiceModel;
 import Models.EventModel;
 import Models.GameDataModel;
-import SiegeCard.Util.rolls;
-import SiegeCard.Util.rules;
 
-public class SuppliesSoiledEvent extends EventModel implements rules, rolls {
+import static SiegeCard.Util.Rules.SUPPLIES_SPOILED;
+
+public class SuppliesSoiledEvent extends EventModel{
 
     public SuppliesSoiledEvent(){
         eventID             = SUPPLIES_SPOILED;

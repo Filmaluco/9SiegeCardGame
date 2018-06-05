@@ -3,10 +3,12 @@ package Models.Events;
 import Models.DiceModel;
 import Models.EventModel;
 import Models.GameDataModel;
-import SiegeCard.Util.rolls;
-import SiegeCard.Util.rules;
+import SiegeCard.Util.Rolls;
+import SiegeCard.Util.Rules;
 
-public class DeterminedEnemyEvent extends EventModel implements rules, rolls {
+import static SiegeCard.Util.Rules.DETERMINED_ENEMY;
+
+public class DeterminedEnemyEvent extends EventModel{
 
     public DeterminedEnemyEvent() {
         eventID             = DETERMINED_ENEMY;

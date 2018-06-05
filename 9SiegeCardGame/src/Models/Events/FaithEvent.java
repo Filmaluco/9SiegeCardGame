@@ -3,10 +3,12 @@ package Models.Events;
 import Models.DiceModel;
 import Models.EventModel;
 import Models.GameDataModel;
-import SiegeCard.Util.rolls;
-import SiegeCard.Util.rules;
+import SiegeCard.Util.Rolls;
+import SiegeCard.Util.Rules;
 
-public class FaithEvent extends EventModel implements rules, rolls {
+import static SiegeCard.Util.Rules.FAITH;
+
+public class FaithEvent extends EventModel{
 
     public FaithEvent() {
         eventID             = FAITH;
