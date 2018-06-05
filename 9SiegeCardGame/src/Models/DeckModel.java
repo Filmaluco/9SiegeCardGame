@@ -38,12 +38,13 @@ public class DeckModel implements Serializable{
     public EventModel draw(){
         lastCard = currentCard;
         return cards.get(currentCard++).getEvent(currentDay);
+        //TODO throw expection maybe?
     }
 
     public void reShuffle(){
         shuffle(cards);
         currentCard = 0;
-        currentDay++;
+        currentDay = currentDay+1 > 3 ? currentDay : currentDay+1;
     }
 
     public String getLastCardName(){

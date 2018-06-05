@@ -147,7 +147,7 @@ public class DiceModel implements rolls, rules, Serializable {
         }
 
         rolled = rolled > 6 ? 6 : rolled;
-        rolled = rolled < 0 ? 0 : rolled;
+        rolled = rolled < 1 ? 1 : rolled;
         lastRoll = rolled;
         return rolled;
     }

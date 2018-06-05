@@ -66,7 +66,7 @@ public class GameDataModel implements constants, rolls , Serializable{
 
 
     public  boolean needsToCloseCombat(){
-        if(EnemyTracker.getCloseCombatEnemies() > 1) {
+        if(EnemyTracker.CountCloseCombatEnemies() > 1) {
             return true;
         }
         return false;
@@ -154,12 +154,12 @@ public class GameDataModel implements constants, rolls , Serializable{
 
     public boolean isGameWon(){ return currentDay == 3 && currentTurn > 7; }
     public boolean isGameOver(){
-        if(EnemyTracker.getCloseCombatEnemies() >= 3){ return true; }
+        if(EnemyTracker.CountCloseCombatEnemies() >= 3){ return true; }
         if(Player.tracker.getLostAttributes() >= 2){return true;}
         return false;
     }
     public boolean lostTurn(){
-        if(EnemyTracker.getCloseCombatEnemies() >= 2){ return true; }
+        if(EnemyTracker.CountCloseCombatEnemies() >= 2){ return true; }
         if(Player.tracker.getLostAttributes() > 0){return true;}
         return false;
     }

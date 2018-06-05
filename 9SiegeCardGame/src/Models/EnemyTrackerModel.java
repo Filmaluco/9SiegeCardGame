@@ -47,7 +47,7 @@ public class EnemyTrackerModel implements Serializable{
         if(slowest[i]){siegeTower.advance();}
     }
 
-    public int getCloseCombatEnemies(){
+    public int CountCloseCombatEnemies(){
         return (batteringRam.onCloseCombat() ? 1 : 0) + (ladder.onCloseCombat() ? 1 : 0) + (siegeTower.onCloseCombat() ? 1 : 0);
     }
 
