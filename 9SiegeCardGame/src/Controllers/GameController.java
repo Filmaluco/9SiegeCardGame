@@ -36,6 +36,8 @@ public class GameController implements Serializable{
     public String getPlayerName(){ return gameData.Player.getName();}
 
     public int getMorale(){ return gameData.Player.tracker.getMorale();}
+    public int getSupplies(){ return gameData.Player.tracker.getSupplies();}
+    public int getWallStrenght(){ return gameData.Player.tracker.getWallStrength();}
 
     public boolean canArchersAttack() { return gameData.canArchersAttack(); }
     public boolean canBoilAttack()  { return  gameData.canBoilAttack(); }
