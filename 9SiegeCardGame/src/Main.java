@@ -1,11 +1,11 @@
 import Controllers.GameController;
-import UI.Text.Text;
+import UI.Text.SiegeCardUI;
 
 public class Main {
 
     public static void main(String[] args) {
         GameController game = new GameController();
-        Text text = new Text(game);
+        SiegeCardUI text = new SiegeCardUI(game);
         text.start();
     }
 }

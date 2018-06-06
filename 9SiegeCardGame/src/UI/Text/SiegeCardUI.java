@@ -4,7 +4,7 @@ import Controllers.GameController;
 import Controllers.states.*;
 import SiegeCard.Util.str_values;
 
-public class Text implements str_values{
+public class SiegeCardUI implements str_values{
 
     private GameController game;
     private MainMenu mainMenu;
@@ -17,7 +17,7 @@ public class Text implements str_values{
     private TunelMovementMenu tunelMovementMenu;
     private GameMenus gameMenus;
 
-    public Text(GameController gameController){
+    public SiegeCardUI(GameController gameController){
         this.game=gameController;
         mainMenu = new MainMenu(this.game);
         playMenu = new PlayMenu();
