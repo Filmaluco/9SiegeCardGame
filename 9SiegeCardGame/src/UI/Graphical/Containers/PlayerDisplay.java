@@ -1,4 +1,6 @@
 package UI.Graphical.Containers;
 
-public class PlayerDisplay {
+import javax.swing.*;
+
+public class PlayerDisplay extends JPanel{
 }

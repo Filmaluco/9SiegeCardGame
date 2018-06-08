@@ -1,4 +1,6 @@
 package UI.Graphical.Containers;
 
-public class TunnelDisplay {
+import javax.swing.*;
+
+public class TunnelDisplay extends JPanel{
 }

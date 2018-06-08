@@ -1,4 +1,6 @@
 package UI.Graphical.Containers;
 
-public class DeckDisplay {
+import javax.swing.*;
+
+public class DeckDisplay extends JPanel{
 }

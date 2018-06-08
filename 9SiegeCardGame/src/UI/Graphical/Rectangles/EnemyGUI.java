@@ -1,4 +1,7 @@
 package UI.Graphical.Rectangles;
 
-public class EnemyGUI {
+import javax.swing.*;
+
+public class EnemyGUI extends JPanel{
+
 }

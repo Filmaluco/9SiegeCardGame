@@ -1,4 +1,6 @@
 package UI.Graphical.Containers;
 
-public class SuppliesDisplay {
+import javax.swing.*;
+
+public class SuppliesDisplay extends JPanel{
 }

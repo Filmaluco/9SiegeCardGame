@@ -21,10 +21,11 @@ public class SiegeCardGUI extends JFrame implements Observer, Constants{
         Container cp = getContentPane();
 
         siegeCardPanel = new SiegeCardPanel(game);
-        cp.add(siegeCardPanel, BorderLayout.CENTER);
+        cp.add(siegeCardPanel);
 
         setSize(DIM_X_FRAME,DIM_Y_FRAME);
-        setMinimumSize(new Dimension(DIM_X_FRAME, DIM_Y_FRAME));
+        setResizable(false);
+        //setMinimumSize(new Dimension(DIM_X_FRAME, DIM_Y_FRAME));
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         validate();

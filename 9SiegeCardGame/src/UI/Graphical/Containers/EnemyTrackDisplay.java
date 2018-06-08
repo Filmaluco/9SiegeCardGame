@@ -1,4 +1,29 @@
 package UI.Graphical.Containers;
 
-public class EnemyTrackDisplay {
+import Controllers.ObservableGame;
+import Controllers.states.ActionPhase;
+
+
+import javax.swing.*;
+import java.awt.*;
+import java.util.Observable;
+import java.util.Observer;
+
+public class EnemyTrackDisplay extends JPanel implements Observer{
+    ObservableGame game;
+
+    public EnemyTrackDisplay(ObservableGame game) {
+        this.game = game;
+        this.game.addObserver(this);
+
+        setSize(new Dimension(100,100));
+
+        setBackground(Color.green);
+
+    }
+
+    @Override
+    public void update(Observable o, Object arg) {
+        setVisible(game.getState() instanceof ActionPhase);
+    }
 }

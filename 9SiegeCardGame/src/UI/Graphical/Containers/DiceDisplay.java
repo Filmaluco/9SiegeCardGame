@@ -1,4 +1,6 @@
 package UI.Graphical.Containers;
 
-public class DiceDisplay {
+import javax.swing.*;
+
+public class DiceDisplay extends JPanel{
 }

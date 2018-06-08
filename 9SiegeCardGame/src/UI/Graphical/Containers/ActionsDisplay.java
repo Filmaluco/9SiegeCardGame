@@ -1,4 +1,7 @@
 package UI.Graphical.Containers;
 
-public class ActionsDisplay {
+import javax.swing.*;
+
+
+public class ActionsDisplay extends JPanel {
 }

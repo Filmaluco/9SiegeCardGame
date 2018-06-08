@@ -1,4 +1,7 @@
 package UI.Graphical.Rectangles;
 
-public class CardGUI {
+import javax.swing.*;
+
+public class CardGUI extends JPanel{
+
 }
