@@ -7,15 +7,15 @@ import UI.Graphical.Constants;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Observable;
 import java.util.Observer;
 
 public class MenuGUI extends JPanel implements Constants {
     ObservableGame game;
     MenuButton play;
-    MenuButton options;
     MenuButton loadGame;
-    MenuButton exit;
 
     public MenuGUI(ObservableGame game) {
         this.game = game;
@@ -33,22 +33,14 @@ public class MenuGUI extends JPanel implements Constants {
 
     private void setupComponents(){
         play = new MenuButton("Play Game");
-        options = new MenuButton("Options");
         loadGame = new MenuButton("Load Game");
-        exit = new MenuButton("Exit");
     }
 
     private void layoutComponents() {
         add(play);
-        add(options);
-        add(loadGame);
-        add(exit);
         play.addActionListener(new PlayMenuListener(game));
-
-
+        add(loadGame);
 
     }
-
-
 
 }

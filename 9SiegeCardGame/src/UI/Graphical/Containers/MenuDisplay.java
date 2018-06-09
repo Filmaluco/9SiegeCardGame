@@ -15,14 +15,13 @@ import java.util.Observer;
 public class MenuDisplay extends JPanel implements Observer, Constants{
     ObservableGame game;
     MenuGUI menu;
-    Container cp;
 
     public MenuDisplay(ObservableGame game) {
         this.game = game;
         this.game.addObserver(this);
 
         setSize(new Dimension(DIM_X_FRAME, DIM_Y_FRAME));
-
+        //this.setVisible(game.getState() instanceof GameSetup);
         setupComponents();
         layoutComponents();
 

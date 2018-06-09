@@ -63,23 +63,87 @@ public class ObservableGame extends Observable {
 
     //--------------------- Methods that trigger events/actions in the finite state machine  -----------------------
 
-    public void Start() { gameData.Start(); }
-    public void Exit() { gameData.Exit(); }
-    public void Menu() { gameData.Menu(); }
+    public void Start() {
+        gameData.Start();
+        setChanged();
+        notifyObservers();
+    }
+    public void Exit() {
+        gameData.Exit();
+        setChanged();
+        notifyObservers();
+    }
+    public void Menu() {
+        gameData.Menu();
+        setChanged();
+        notifyObservers();
+    }
 
-    public void ArchersAttack() { gameData.ArchersAttack(); }
-    public void BoilingAttack() { gameData.BoilingAttack(); }
-    public void CloseCombat() { gameData.CloseCombat(); }
-    public void RallyTroops() { gameData.RallyTroops(); }
-    public void Coupure() { gameData.Coupure(); }
-    public void Adicional() { gameData.Adicional(); }
-    public void Tunel() { gameData.Tunel(); }
-    public void MoveInTunnel(Constants target) { gameData.MoveInTunnel(target); }
-    public void MoveIntoTunnel() { gameData.MoveIntoTunnel(); }
+    public void ArchersAttack() {
+        gameData.ArchersAttack();
+        setChanged();
+        notifyObservers();
+    }
+    public void BoilingAttack() {
+        gameData.BoilingAttack();
+        setChanged();
+        notifyObservers();
+    }
+    public void CloseCombat() {
+        gameData.CloseCombat();
+        setChanged();
+        notifyObservers();
+    }
+    public void RallyTroops() {
+        gameData.RallyTroops();
+        setChanged();
+        notifyObservers();
+    }
+    public void Coupure() {
+        gameData.Coupure();
+        setChanged();
+        notifyObservers();
+    }
+    public void Adicional() {
+        gameData.Adicional();
+        setChanged();
+        notifyObservers();
+    }
+    public void Tunel() {
+        gameData.Tunel();
+        setChanged();
+        notifyObservers();
+    }
+    public void MoveInTunnel(Constants target) {
+        gameData.MoveInTunnel(target);
+        setChanged();
+        notifyObservers();
+    }
+    public void MoveIntoTunnel() {
+        gameData.MoveIntoTunnel();
+        setChanged();
+        notifyObservers();
+    }
 
-    public void ApplyRules(Rolls target) { gameData.ApplyRules(target); }
-    public void ApplyRules(Constants target) { gameData.ApplyRules(target); }
+    public void ApplyRules(Rolls target) {
+        gameData.ApplyRules(target);
+        setChanged();
+        notifyObservers();
+    }
+    public void ApplyRules(Constants target) {
+        gameData.ApplyRules(target);
+        setChanged();
+        notifyObservers();
+    }
 
-    public void StartTurn() { gameData.StartTurn(); }
-    public void EndTurn() { gameData.EndTurn(); }
+    public void StartTurn() {
+        gameData.StartTurn();
+        setChanged();
+        notifyObservers();
+    }
+    public void EndTurn() {
+        gameData.EndTurn();
+        setChanged();
+        notifyObservers();
+    }
 }
