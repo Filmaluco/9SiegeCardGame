@@ -6,6 +6,7 @@ import UI.Graphical.Buttons.MenuButton;
 import UI.Graphical.Constants;
 
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -25,6 +26,8 @@ public class MenuGUI extends JPanel implements Constants {
         setMaximumSize(d);
         setMinimumSize(d);
 
+        setLayout(new GridBagLayout());
+
         setupComponents();
         layoutComponents();
 
@@ -37,10 +40,15 @@ public class MenuGUI extends JPanel implements Constants {
     }
 
     private void layoutComponents() {
-        add(play);
-        play.addActionListener(new PlayMenuListener(game));
-        add(loadGame);
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.gridwidth = GridBagConstraints.REMAINDER;
+        gbc.anchor = GridBagConstraints.CENTER;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        gbc.insets = new Insets(15,15,15,15);
 
+        add(play, gbc);
+        play.addActionListener(new PlayMenuListener(game));
+        add(loadGame, gbc);
     }
 
 }
