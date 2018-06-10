@@ -19,6 +19,7 @@ public class MenuButton extends JButton implements Constants{
     static {
         try {
             menuButtonImage = ImageIO.read(Resources.getResourceFile("Buttons/CSG_Normal_Button.png"));
+        } catch (IOException e) {
             System.out.println("Error loading Main Background Image");
         }
     }
