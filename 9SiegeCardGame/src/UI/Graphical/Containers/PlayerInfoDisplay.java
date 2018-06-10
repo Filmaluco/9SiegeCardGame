@@ -20,6 +20,8 @@ public class PlayerInfoDisplay extends JPanel implements Observer{
         this.game.addObserver(this);
 
         playerInfo = new PlayerInfoLabel(this.game);
+
+        this.setVisible(!(game.getState() instanceof GameSetup));
     }
 
     @Override

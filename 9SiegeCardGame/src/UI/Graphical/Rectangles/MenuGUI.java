@@ -30,16 +30,15 @@ public class MenuGUI extends JPanel implements Constants {
 
         setupComponents();
         layoutComponents();
-
-        setBackground(Color.lightGray);
     }
 
     private void setupComponents(){
-        play = new MenuButton("Play Game");
-        loadGame = new MenuButton("Load Game");
+        play = new MenuButton("PLAY GAME ");
+        loadGame = new MenuButton("LOAD GAME");
     }
 
     private void layoutComponents() {
+        setOpaque(false);
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.gridwidth = GridBagConstraints.REMAINDER;
         gbc.anchor = GridBagConstraints.CENTER;

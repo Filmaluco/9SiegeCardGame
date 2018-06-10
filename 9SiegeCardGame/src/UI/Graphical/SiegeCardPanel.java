@@ -37,7 +37,7 @@ public class SiegeCardPanel extends JPanel implements Observer {
 
     private void setupLayout() {
         setLayout(new BorderLayout());
-        add(menuDisplay, BorderLayout.PAGE_END);
+        add(menuDisplay, BorderLayout.CENTER);
         add(enemyTrackDisplay, BorderLayout.CENTER);
         add(playerInfoDisplay, BorderLayout.PAGE_START);
     }
