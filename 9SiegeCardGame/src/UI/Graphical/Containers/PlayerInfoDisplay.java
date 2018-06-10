@@ -31,7 +31,6 @@ public class PlayerInfoDisplay extends JPanel implements Observer, Constants{
 
     ObservableGame game;
     PlayerInfoLabel playerInfo;
-    //Todo: Criar a label e fazer update dela
 
     public PlayerInfoDisplay(ObservableGame game) {
         this.game = game;

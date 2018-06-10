@@ -31,6 +31,7 @@ public class MenuButton extends JButton implements Constants{
         d = new Dimension(DIM_X_MENU_BUTTON,DIM_Y_MENU_BUTTON);
         super.setMinimumSize(d);
         super.setPreferredSize(d);
+        super.setMaximumSize(d);
         super.setForeground(Color.ORANGE);
         super.setBorderPainted(false);
         setFont(new Font("Arial", Font.PLAIN, 40));

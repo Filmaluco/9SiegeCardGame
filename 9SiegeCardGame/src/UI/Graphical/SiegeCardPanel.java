@@ -5,6 +5,7 @@ import Controllers.ObservableGame;
 import UI.Graphical.Containers.EnemyTrackDisplay;
 import UI.Graphical.Containers.MenuDisplay;
 import UI.Graphical.Containers.PlayerInfoDisplay;
+import UI.Graphical.Containers.SuppliesDisplay;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -31,8 +32,9 @@ public class SiegeCardPanel extends JPanel implements Observer, Constants {
     private ObservableGame game;
 
     private MenuDisplay menuDisplay;
-    private EnemyTrackDisplay enemyTrackDisplay;
     private PlayerInfoDisplay playerInfoDisplay;
+    private SuppliesDisplay suppliesDisplay;
+    private EnemyTrackDisplay enemyTrackDisplay;
 
     public SiegeCardPanel(ObservableGame game) {
         this.game = game;
@@ -49,8 +51,9 @@ public class SiegeCardPanel extends JPanel implements Observer, Constants {
     private void setupComponents() {
         menuDisplay = new MenuDisplay(game);
 
-        enemyTrackDisplay = new EnemyTrackDisplay(game);
         playerInfoDisplay = new PlayerInfoDisplay(game);
+        suppliesDisplay = new SuppliesDisplay(game);
+        enemyTrackDisplay = new EnemyTrackDisplay(game);
     }
 
     private void setupLayout() {
@@ -58,6 +61,7 @@ public class SiegeCardPanel extends JPanel implements Observer, Constants {
         add(menuDisplay, BorderLayout.CENTER);
         //add(enemyTrackDisplay, BorderLayout.CENTER);
         add(playerInfoDisplay, BorderLayout.PAGE_START);
+        add(suppliesDisplay, BorderLayout.WEST);
     }
 
     @Override

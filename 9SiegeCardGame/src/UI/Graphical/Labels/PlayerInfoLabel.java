@@ -31,7 +31,6 @@ public class PlayerInfoLabel extends JLabel implements Constants{
         this.actionPoints = actionPoints;
         this.day = day;
         this.turn = turn;
-        //setText(playerName + "ACTION POINTS: " + actionPoints + "DAY: " + day + "TURN " + turn);
     }
 
     @Override
