@@ -12,6 +12,10 @@ public class PlayMenuListener implements ActionListener{
     public PlayMenuListener(ObservableGame game) { this.game = game; }
 
     @Override
-    public void actionPerformed(ActionEvent e) { game.Start(); }
+    public void actionPerformed(ActionEvent e) {
+        //TODO: Check Initial Condition and change name with a popup
+        game.setInitialConfig("Ricardo");
+        game.Start();
+    }
 
 }

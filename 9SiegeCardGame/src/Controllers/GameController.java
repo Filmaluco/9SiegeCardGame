@@ -35,6 +35,10 @@ public class GameController implements Serializable{
 
     public String getPlayerName(){ return gameData.Player.getName();}
 
+    public int getActionPoints(){ return gameData.Player.getActionPoints(); }
+    public int getCurrentTurn(){ return gameData.getCurrentTurn(); }
+    public int getCurrentDay(){ return gameData.getCurrentTurn(); }
+
     public int getMorale(){ return gameData.Player.tracker.getMorale();}
     public int getSupplies(){ return gameData.Player.tracker.getSupplies();}
     public int getWallStrenght(){ return gameData.Player.tracker.getWallStrength();}

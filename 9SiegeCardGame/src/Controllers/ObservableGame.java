@@ -23,6 +23,10 @@ public class ObservableGame extends Observable {
     public void setInitialConfig(String player_name) { gameData.setInitialConfig(player_name); }
     public String getPlayerName() { return gameData.getPlayerName(); }
 
+    public int getActionPoints() { return gameData.getActionPoints(); }
+    public int getCurrentTurn() { return gameData.getCurrentTurn(); }
+    public int getCurrentDay() { return gameData.getCurrentDay(); }
+
     //Can menu options methods
     public boolean canArchersAttack() { return gameData.canArchersAttack(); }
     public boolean canBoilAttack() { return gameData.canBoilAttack(); }

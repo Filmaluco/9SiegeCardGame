@@ -18,7 +18,7 @@ public class EnemyTrackDisplay extends JPanel implements Observer{
 
         setSize(new Dimension(100,100));
         this.setVisible(game.getState() instanceof ActionPhase);
-        setBackground(Color.green);
+        //setBackground(Color.green);
 
     }
 
