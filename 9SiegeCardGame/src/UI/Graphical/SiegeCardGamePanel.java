@@ -3,13 +3,8 @@ package UI.Graphical;
 import Assets.Resources;
 import Controllers.ObservableGame;
 import UI.Graphical.Buttons.Listeners.NextTurnListener;
-import UI.Graphical.Buttons.Listeners.PlayMenuListener;
 import UI.Graphical.Buttons.NextTurnButton;
-import UI.Graphical.Constants;
-import UI.Graphical.Containers.EnemyTrackDisplay;
-import UI.Graphical.Containers.MenuDisplay;
-import UI.Graphical.Containers.PlayerInfoDisplay;
-import UI.Graphical.Containers.SuppliesDisplay;
+import UI.Graphical.Containers.*;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -38,6 +33,8 @@ public class SiegeCardGamePanel extends JPanel implements Observer, Constants {
     private PlayerInfoDisplay playerInfoDisplay;
     private SuppliesDisplay suppliesDisplay;
     private EnemyTrackDisplay enemyTrackDisplay;
+    private ActionsDisplay actionsDisplay;
+    private DeckDisplay deckDisplay;
 
     private NextTurnButton nextTurnButton;
 
@@ -51,12 +48,12 @@ public class SiegeCardGamePanel extends JPanel implements Observer, Constants {
         update(game, null);
     }
 
-
-
     private void setupComponents() {
         playerInfoDisplay = new PlayerInfoDisplay(game);
         suppliesDisplay = new SuppliesDisplay(game);
         enemyTrackDisplay = new EnemyTrackDisplay(game);
+        actionsDisplay = new ActionsDisplay(game);
+        deckDisplay = new DeckDisplay(game);
 
         nextTurnButton = new NextTurnButton();
         nextTurnButton.addActionListener(new NextTurnListener(game));
@@ -75,31 +72,50 @@ public class SiegeCardGamePanel extends JPanel implements Observer, Constants {
         gbc.gridy = 0;
         add(playerInfoDisplay, gbc);
 
-        //Display Section
+        //Status Display Section
         gbc = new GridBagConstraints();
+        gbc.anchor = GridBagConstraints.CENTER;
         gbc.gridx = 0;
-        gbc.gridy = 0;
-        gbc.gridheight = 3;
+        gbc.gridy = 1;
+        gbc.weightx = 0.7;
+        gbc.weighty = 0.7;
         add(suppliesDisplay, gbc);
 
         //Enemy tracker //TODO: CardLayout switch with tunel
         gbc = new GridBagConstraints();
+        gbc.anchor = GridBagConstraints.CENTER;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
         gbc.gridx = 1;
-        gbc.gridy = 0;
+        gbc.gridy = 1;
+        gbc.weightx = 0.3;
+        gbc.weighty = 0.3;
         gbc.gridwidth = 7;
-        gbc.gridheight = 3;
+
         add(enemyTrackDisplay, gbc);
 
         //TODO:Menu section
-
+        gbc = new GridBagConstraints();
+        //gbc.anchor = GridBagConstraints.CENTER;
+        gbc.weightx = 0.5;
+        gbc.weighty = 0.5;
+        gbc.gridx = 0;
+        gbc.gridy = 2;
+        gbc.gridwidth = 7;
+        add(actionsDisplay, gbc);
 
         //TODO:Card section
+        gbc = new GridBagConstraints();
+        gbc.gridx = 1;
+        gbc.gridy = 3;
+        add(deckDisplay, gbc);
 
         //Next Turn
         gbc = new GridBagConstraints();
-        gbc.anchor = GridBagConstraints.LINE_END;
-        gbc.gridx = 7;
-        gbc.gridy = 1;
+        //gbc.anchor = GridBagConstraints.LINE_END;
+        gbc.weightx = 0.5;
+        gbc.weighty = 0.5;
+        gbc.gridx = 6;
+        gbc.gridy = 3;
         add(nextTurnButton, gbc);
 
     }

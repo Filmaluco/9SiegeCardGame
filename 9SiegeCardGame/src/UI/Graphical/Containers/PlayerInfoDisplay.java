@@ -36,7 +36,11 @@ public class PlayerInfoDisplay extends JPanel implements Observer, Constants{
         this.game = game;
         this.game.addObserver(this);
 
-        setSize(new Dimension(DIM_X_PLAYERINFO, DIM_Y_PLAYERINFO));
+        Dimension d = new Dimension(DIM_X_PLAYERINFO, DIM_Y_PLAYERINFO);
+        setSize(d);
+        setMinimumSize(d);
+        setMaximumSize(d);
+
 
         playerInfo = new PlayerInfoLabel(this.game);
         add(playerInfo, BorderLayout.CENTER);

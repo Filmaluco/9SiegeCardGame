@@ -1,7 +1,6 @@
 package UI.Graphical;
 
 import Controllers.ObservableGame;
-import UI.Graphical.Containers.MenuDisplay;
 
 import javax.swing.*;
 import java.util.Observable;

@@ -3,7 +3,7 @@ package UI.Graphical.Containers;
 import Controllers.ObservableGame;
 import Controllers.states.GameSetup;
 import UI.Graphical.Constants;
-import UI.Graphical.Rectangles.MenuGUI;
+import UI.Graphical.Rectangles.MainMenuGUI;
 import Assets.Resources;
 
 import javax.imageio.ImageIO;
@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.util.Observable;
 import java.util.Observer;
 
-public class MenuDisplay extends JPanel implements Observer, Constants{
+public class MainMenuDisplay extends JPanel implements Observer, Constants{
 
     static private BufferedImage mainMenuBackgroundImage = null;
 
@@ -29,9 +29,9 @@ public class MenuDisplay extends JPanel implements Observer, Constants{
     }
 
     ObservableGame game;
-    MenuGUI menu;
+    MainMenuGUI menu;
 
-    public MenuDisplay(ObservableGame game) {
+    public MainMenuDisplay(ObservableGame game) {
         this.game = game;
         this.game.addObserver(this);
 
@@ -42,7 +42,7 @@ public class MenuDisplay extends JPanel implements Observer, Constants{
     }
 
     private void setupComponents() {
-        menu = new MenuGUI(game);
+        menu = new MainMenuGUI(game);
     }
 
     private void layoutComponents() {

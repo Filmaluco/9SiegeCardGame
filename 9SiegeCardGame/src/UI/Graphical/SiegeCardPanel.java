@@ -2,7 +2,7 @@ package UI.Graphical;
 
 import Controllers.ObservableGame;
 import Controllers.states.GameSetup;
-import UI.Graphical.Containers.MenuDisplay;
+import UI.Graphical.Containers.MainMenuDisplay;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,7 +12,7 @@ import java.util.Observer;
 public class SiegeCardPanel extends JPanel implements Observer, Constants{
     private ObservableGame game;
 
-    private MenuDisplay menuDisplay;
+    private MainMenuDisplay mainMenuDisplay;
     private SiegeCardGamePanel siegeCardGamePanel;
 
     public SiegeCardPanel(ObservableGame game) {
@@ -28,8 +28,8 @@ public class SiegeCardPanel extends JPanel implements Observer, Constants{
 
     private void setupComponents() {
         siegeCardGamePanel = new SiegeCardGamePanel(game);
-        menuDisplay = new MenuDisplay(game);
-        add(menuDisplay, MAIN_MENU);
+        mainMenuDisplay = new MainMenuDisplay(game);
+        add(mainMenuDisplay, MAIN_MENU);
         add(siegeCardGamePanel, GAME);
     }
 

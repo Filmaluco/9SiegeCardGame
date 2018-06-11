@@ -9,7 +9,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
-public class NextTurnButton extends JButton implements Constants{
+public class NextTurnButton extends ActionBaseButton implements Constants{
     static private BufferedImage nextTurnButtonImage = null;
 
     public static BufferedImage getNextTurnButtonImage() { return nextTurnButtonImage; }
@@ -24,10 +24,6 @@ public class NextTurnButton extends JButton implements Constants{
 
     public NextTurnButton() {
         super.setToolTipText("Next Turn");
-        Dimension d = new Dimension(DIM_X_ICONS,DIM_Y_ICONS);
-        super.setMinimumSize(d);
-        super.setPreferredSize(d);
-        super.setMaximumSize(d);
     }
 
     @Override

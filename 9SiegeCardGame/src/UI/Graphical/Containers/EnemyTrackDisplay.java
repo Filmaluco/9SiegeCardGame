@@ -21,7 +21,7 @@ public class EnemyTrackDisplay extends JPanel implements Observer{
         this.game = game;
         this.game.addObserver(this);
 
-        Dimension d = new Dimension(600,300);
+        Dimension d = new Dimension(600,350);
 
         setSize(d);
         setPreferredSize(d);

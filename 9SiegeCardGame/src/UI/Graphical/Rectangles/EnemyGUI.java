@@ -20,7 +20,7 @@ public class EnemyGUI extends JPanel implements Observer, Constants{
     public EnemyGUI(ObservableGame game) {
         this.game = game;
 
-        Dimension d = new Dimension(500, 300);
+        Dimension d = new Dimension(500, 325);
         setPreferredSize(d);
         setMaximumSize(d);
         setMinimumSize(d);
