@@ -9,9 +9,9 @@ import java.awt.*;
 public class PlayerInfoLabel extends JLabel implements Constants{
     ObservableGame game;
     String playerName;
-    int actionPoints;
-    int day;
-    int turn;
+    private int actionPoints;
+    private int day;
+    private int turn;
 
     public PlayerInfoLabel(ObservableGame game) {
         this.game = game;
@@ -31,7 +31,6 @@ public class PlayerInfoLabel extends JLabel implements Constants{
         this.actionPoints = actionPoints;
         this.day = day;
         this.turn = turn;
-        //setText(playerName + "ACTION POINTS: " + actionPoints + "DAY: " + day + "TURN " + turn);
     }
 
     @Override

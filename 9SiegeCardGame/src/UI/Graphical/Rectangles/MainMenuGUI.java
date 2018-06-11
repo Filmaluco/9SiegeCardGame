@@ -13,12 +13,12 @@ import java.awt.event.ActionListener;
 import java.util.Observable;
 import java.util.Observer;
 
-public class MenuGUI extends JPanel implements Constants {
+public class MainMenuGUI extends JPanel implements Constants {
     ObservableGame game;
     MenuButton play;
     MenuButton loadGame;
 
-    public MenuGUI(ObservableGame game) {
+    public MainMenuGUI(ObservableGame game) {
         this.game = game;
 
         Dimension d = new Dimension(DIM_X_MENU, DIM_Y_MENU);

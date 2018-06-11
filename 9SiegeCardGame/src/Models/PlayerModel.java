@@ -8,7 +8,7 @@ public class PlayerModel implements Serializable{
     private String name;
     public PlayerTackerModel tracker;
 
-    //Player action points set by the event
+    //PlayerTracker action points set by the event
     private int actionPoints;
 
     public PlayerModel(){

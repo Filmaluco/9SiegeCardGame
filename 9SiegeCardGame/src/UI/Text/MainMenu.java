@@ -44,7 +44,7 @@ public class MainMenu {
                 break;
 
             case 3:
-                System.out.println("What was your Player name?");
+                System.out.println("What was your PlayerTracker name?");
                 String name = read.line();
                 try {
                      game = savesGame.loadGame(name);

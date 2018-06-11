@@ -24,17 +24,16 @@ public class MenuButton extends JButton implements Constants{
         }
     }
 
-    Dimension d;
     public MenuButton(String text) {
         super(text);
         super.setToolTipText(text);
-        d = new Dimension(DIM_X_MENU_BUTTON,DIM_Y_MENU_BUTTON);
+        Dimension d = new Dimension(DIM_X_MENU_BUTTON,DIM_Y_MENU_BUTTON);
         super.setMinimumSize(d);
         super.setPreferredSize(d);
+        super.setMaximumSize(d);
         super.setForeground(Color.ORANGE);
         super.setBorderPainted(false);
         setFont(new Font("Arial", Font.PLAIN, 40));
-
     }
 
     @Override

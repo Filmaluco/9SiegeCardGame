@@ -37,7 +37,12 @@ public class GameController implements Serializable{
 
     public int getActionPoints(){ return gameData.Player.getActionPoints(); }
     public int getCurrentTurn(){ return gameData.getCurrentTurn(); }
-    public int getCurrentDay(){ return gameData.getCurrentTurn(); }
+    public int getCurrentDay(){ return gameData.getCurrentDay(); }
+
+    public int getTrebuchetCount() { return gameData.EnemyTracker.getTrebuchets();}
+    public int getLadderPosition() { return gameData.EnemyTracker.ladder.getPosition();}
+    public int getBatteringRamPosition() { return gameData.EnemyTracker.batteringRam.getPosition();}
+    public int getSiegeTowerPosition() { return gameData.EnemyTracker.siegeTower.getPosition();}
 
     public int getMorale(){ return gameData.Player.tracker.getMorale();}
     public int getSupplies(){ return gameData.Player.tracker.getSupplies();}

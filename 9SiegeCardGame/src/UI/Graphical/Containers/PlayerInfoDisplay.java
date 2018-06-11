@@ -31,13 +31,16 @@ public class PlayerInfoDisplay extends JPanel implements Observer, Constants{
 
     ObservableGame game;
     PlayerInfoLabel playerInfo;
-    //Todo: Criar a label e fazer update dela
 
     public PlayerInfoDisplay(ObservableGame game) {
         this.game = game;
         this.game.addObserver(this);
 
-        setSize(new Dimension(DIM_X_PLAYERINFO, DIM_Y_PLAYERINFO));
+        Dimension d = new Dimension(DIM_X_PLAYERINFO, DIM_Y_PLAYERINFO);
+        setSize(d);
+        setMinimumSize(d);
+        setMaximumSize(d);
+
 
         playerInfo = new PlayerInfoLabel(this.game);
         add(playerInfo, BorderLayout.CENTER);
