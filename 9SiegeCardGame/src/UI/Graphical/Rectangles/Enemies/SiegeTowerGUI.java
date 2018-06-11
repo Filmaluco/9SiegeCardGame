@@ -5,6 +5,7 @@ import UI.Graphical.Constants;
 import UI.Graphical.Labels.Enemies.BatteringRam.BatteringRamCircleCombatLabel;
 import UI.Graphical.Labels.Enemies.BatteringRam.BatteringRamCombatLabel;
 import UI.Graphical.Labels.Enemies.SiegeTower.SiegeTowerCircleCombatLabel;
+import UI.Graphical.Labels.Enemies.SiegeTower.SiegeTowerCloseCombatLabel;
 import UI.Graphical.Labels.Enemies.SiegeTower.SiegeTowerCombatLabel;
 
 import javax.swing.*;
@@ -21,7 +22,7 @@ public class SiegeTowerGUI extends JPanel implements Observer, Constants{
         this.game = game;
         this.game.addObserver(this);
 
-        Dimension d = new Dimension(500,100);
+        Dimension d = new Dimension(600,100);
 
         setSize(d);
         setPreferredSize(d);
@@ -32,16 +33,16 @@ public class SiegeTowerGUI extends JPanel implements Observer, Constants{
 
         setupComponents();
 
-        setLayout(new GridLayout(0,4,5,10));
+        //setLayout(new GridLayout(0,4,5,10));
+        setLayout(new FlowLayout(FlowLayout.LEFT,30,0));
     }
 
     //See if repaint works on components
     private void setupComponents() {
-        for (int i = 1; i <= MAX_ENEMY_TRACK_SLOTS ; i++) {
-            if (i==1)
-                add(new SiegeTowerCircleCombatLabel(game,i));
-            else
-                add(new SiegeTowerCombatLabel(game,i));
+        add(new SiegeTowerCloseCombatLabel(game,0));
+        add(new SiegeTowerCircleCombatLabel(game,1));
+        for (int i = 2; i <= MAX_ENEMY_TRACK_SLOTS ; i++) {
+            add(new SiegeTowerCombatLabel(game,i));
         }
     }
 

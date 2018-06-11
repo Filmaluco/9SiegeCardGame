@@ -77,8 +77,8 @@ public class SiegeCardGamePanel extends JPanel implements Observer, Constants {
         gbc.anchor = GridBagConstraints.CENTER;
         gbc.gridx = 0;
         gbc.gridy = 1;
-        gbc.weightx = 0.7;
-        gbc.weighty = 0.7;
+        gbc.weightx = 0.3;
+        gbc.weighty = 1;
         add(suppliesDisplay, gbc);
 
         //Enemy tracker //TODO: CardLayout switch with tunel
@@ -87,8 +87,8 @@ public class SiegeCardGamePanel extends JPanel implements Observer, Constants {
         gbc.fill = GridBagConstraints.HORIZONTAL;
         gbc.gridx = 1;
         gbc.gridy = 1;
-        gbc.weightx = 0.3;
-        gbc.weighty = 0.3;
+        gbc.weightx = 0.7;
+        gbc.weighty = 0.7;
         gbc.gridwidth = 7;
 
         add(enemyTrackDisplay, gbc);

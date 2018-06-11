@@ -5,6 +5,7 @@ import Controllers.ObservableGame;
 import UI.Graphical.Constants;
 import UI.Graphical.Labels.CircleCombatLabel;
 import UI.Graphical.Labels.Enemies.Ladder.LadderCircleCombatLabel;
+import UI.Graphical.Labels.Enemies.Ladder.LadderCloseCombatLabel;
 import UI.Graphical.Labels.Enemies.Ladder.LadderCombatLabel;
 
 import javax.imageio.ImageIO;
@@ -27,7 +28,7 @@ public class LadderGUI extends JPanel implements Observer, Constants{
         this.game = game;
         this.game.addObserver(this);
 
-        Dimension d = new Dimension(500,100);
+        Dimension d = new Dimension(600,100);
 
         setSize(d);
         setPreferredSize(d);
@@ -38,16 +39,16 @@ public class LadderGUI extends JPanel implements Observer, Constants{
 
         setupComponents();
 
-        setLayout(new GridLayout(0,4,5,10));
+        //setLayout(new GridLayout(0,4,5,10));
+        setLayout(new FlowLayout(FlowLayout.LEFT,30,0));
     }
 
     //See if repaint works on components
     private void setupComponents() {
-        for (int i = 1; i <= MAX_ENEMY_TRACK_SLOTS ; i++) {
-            if (i==1)
-                add(new LadderCircleCombatLabel(game,i));
-            else
-                add(new LadderCombatLabel(game,i));
+        add(new LadderCloseCombatLabel(game,0));
+        add(new LadderCircleCombatLabel(game,1));
+        for (int i = 2; i <= MAX_ENEMY_TRACK_SLOTS ; i++) {
+            add(new LadderCombatLabel(game,i));
         }
     }
 

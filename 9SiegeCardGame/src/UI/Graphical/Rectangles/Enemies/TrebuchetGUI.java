@@ -22,7 +22,7 @@ public class TrebuchetGUI extends JPanel implements Observer ,Constants{
         this.game.addObserver(this);
         this.trebuchetCount = game.getTrebuchetCount();
 
-        Dimension d = new Dimension(DIM_X_TREBUCHET_GUI,DIM_Y_TREBUCHET_GUI);
+        Dimension d = new Dimension(DIM_X_TREBUCHET_GUI, 300);
 
         setSize(d);
         setPreferredSize(d);

@@ -3,11 +3,13 @@ package UI.Graphical.Rectangles.Enemies;
 import Controllers.ObservableGame;
 import UI.Graphical.Constants;
 import UI.Graphical.Labels.Enemies.BatteringRam.BatteringRamCircleCombatLabel;
+import UI.Graphical.Labels.Enemies.BatteringRam.BatteringRamCloseCombatLabel;
 import UI.Graphical.Labels.Enemies.BatteringRam.BatteringRamCombatLabel;
 import UI.Graphical.Labels.Enemies.Ladder.LadderCircleCombatLabel;
 import UI.Graphical.Labels.Enemies.Ladder.LadderCombatLabel;
 
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.util.Observable;
 import java.util.Observer;
@@ -21,7 +23,7 @@ public class BatteringRamGUI extends JPanel implements Observer, Constants{
         this.game = game;
         this.game.addObserver(this);
 
-        Dimension d = new Dimension(500,100);
+        Dimension d = new Dimension(600,100);
 
         setSize(d);
         setPreferredSize(d);
@@ -32,16 +34,17 @@ public class BatteringRamGUI extends JPanel implements Observer, Constants{
 
         setupComponents();
 
-        setLayout(new GridLayout(0,4,5,10));
+        //setLayout(new GridLayout(0,5,5,10));
+        setLayout(new FlowLayout(FlowLayout.LEFT,30,0));
+
     }
 
     //See if repaint works on components
     private void setupComponents() {
-        for (int i = 1; i <= MAX_ENEMY_TRACK_SLOTS ; i++) {
-            if (i==1)
-                add(new BatteringRamCircleCombatLabel(game,i));
-            else
-                add(new BatteringRamCombatLabel(game,i));
+        add(new BatteringRamCloseCombatLabel(game, 0));
+        add(new BatteringRamCircleCombatLabel(game,1));
+        for (int i = 2; i <= MAX_ENEMY_TRACK_SLOTS ; i++) {
+            add(new BatteringRamCombatLabel(game,i));
         }
     }
 

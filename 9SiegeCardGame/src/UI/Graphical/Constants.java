@@ -46,6 +46,9 @@ public interface Constants {
     int DIM_X_CIRCLE_COMBAT_LABEL = 83;
     int DIM_Y_CIRCLE_COMBAT_LABEL = 83;
 
+    int DIM_X_CLOSE_COMBAT_LABEL = 66;
+    int DIM_Y_CLOSE_COMBAT_LABEL = 66;
+
     int DIM_X_TREBUCHET_LABEL = 88;
     int DIM_Y_TREBUCHET_LABEL = 87;
 
