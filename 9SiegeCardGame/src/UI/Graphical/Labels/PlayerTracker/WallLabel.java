@@ -1,4 +1,4 @@
-package UI.Graphical.Labels;
+package UI.Graphical.Labels.PlayerTracker;
 
 import Assets.Resources;
 import Controllers.ObservableGame;
@@ -11,15 +11,15 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
-public class SuppliesLabel extends JLabel implements Constants{
+public class WallLabel extends JLabel implements Constants{
 
-    static private BufferedImage suppliesImage = null;
+    static private BufferedImage wallImage = null;
 
-    public static BufferedImage getSuppliesImage() { return suppliesImage; }
+    public static BufferedImage getWallImage() { return wallImage; }
 
     static {
         try {
-            suppliesImage = ImageIO.read(Resources.getResourceFile("Icons/SuppliesIcon.jpg"));
+            wallImage = ImageIO.read(Resources.getResourceFile("Icons/WallIcon.jpg"));
         } catch (IOException e) {
             System.out.println("Error loading Main Background Image");
         }
@@ -28,7 +28,7 @@ public class SuppliesLabel extends JLabel implements Constants{
     ObservableGame game;
     private int amount;
 
-    public SuppliesLabel(ObservableGame game, int amount) {
+    public WallLabel(ObservableGame game, int amount) {
         this.game = game;
         this.amount = amount;
         Dimension d = new Dimension(150,86);
@@ -51,6 +51,6 @@ public class SuppliesLabel extends JLabel implements Constants{
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         setText(Integer.toString(amount));
-        g.drawImage(getSuppliesImage(),DIM_X_STATUS_TRACK_BORDER,0,this);
+        g.drawImage(getWallImage(),DIM_X_STATUS_TRACK_BORDER,0,this);
     }
 }

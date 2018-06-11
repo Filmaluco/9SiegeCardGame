@@ -1,16 +1,16 @@
 package UI.Graphical;
 
 import Controllers.ObservableGame;
+import UI.Graphical.Containers.MenuDisplay;
 
 import javax.swing.*;
-import java.awt.*;
 import java.util.Observable;
 import java.util.Observer;
 
 public class SiegeCardGUI extends JFrame implements Observer, Constants{
 
     ObservableGame game;
-    SiegeCardPanel siegeCardPanel;
+    private SiegeCardPanel siegeCardPanel;
 
     public SiegeCardGUI(ObservableGame game) {
         super("9SiegeCardGame");
@@ -18,10 +18,8 @@ public class SiegeCardGUI extends JFrame implements Observer, Constants{
         this.game = game;
         game.addObserver(this);
 
-        Container cp = getContentPane();
-
         siegeCardPanel = new SiegeCardPanel(game);
-        cp.add(siegeCardPanel, BorderLayout.CENTER);
+        add(siegeCardPanel);
 
         setSize(DIM_X_FRAME,DIM_Y_FRAME);
         setResizable(false);
@@ -31,6 +29,10 @@ public class SiegeCardGUI extends JFrame implements Observer, Constants{
         validate();
     }
 
+
+
     @Override
-    public void update(Observable o, Object arg) { repaint(); }
+    public void update(Observable o, Object arg) {
+        repaint();
+    }
 }

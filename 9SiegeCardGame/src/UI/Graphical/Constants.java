@@ -2,9 +2,14 @@ package UI.Graphical;
 
 import java.awt.*;
 
+import static Models.EnemyTrackerModel.MAX_TREBUCHET;
+
 public interface Constants {
 
     Font SUPPLIES_FONT = new Font("Arial", Font.PLAIN, 65);
+
+    String MAIN_MENU = "MAIN MENU";
+    String GAME = "GAME";
 
     int DIM_X_FRAME = 1024;
     int DIM_Y_FRAME = 768;
@@ -29,12 +34,28 @@ public interface Constants {
     int DIM_X_STATUS_TRACK_BORDER = 50;
     int DIM_Y_STATUS_TRACK_BORDER = 25;
 
-    int DIM_X_ENEMY_GUI = DIM_X_FRAME / 4;
-    int DIM_Y_ENEMY_GUI = DIM_Y_FRAME / 2;
+//    int DIM_X_ENEMY_GUI = ;
+//    int DIM_Y_ENEMY_GUI = ;
 
-    int DIM_X_ENEMY = DIM_X_ENEMY_GUI;
-    int DIM_Y_ENEMY = DIM_Y_ENEMY_GUI / 3;
+    int DIM_ENEMY_X_BORDER = 20;
+    int DIM_ENEMY_Y_BORDER = 10;
 
+    int DIM_X_COMBAT_LABEL = 95;
+    int DIM_Y_COMBAT_LABEL = 96;
 
+    int DIM_X_CIRCLE_COMBAT_LABEL = 83;
+    int DIM_Y_CIRCLE_COMBAT_LABEL = 83;
+
+    int DIM_X_TREBUCHET_LABEL = 88;
+    int DIM_Y_TREBUCHET_LABEL = 87;
+
+    int DIM_X_TREBUCHET_GUI = DIM_X_TREBUCHET_LABEL + DIM_ENEMY_X_BORDER;
+    int DIM_Y_TREBUCHET_GUI = DIM_Y_TREBUCHET_LABEL * MAX_TREBUCHET + DIM_ENEMY_Y_BORDER * MAX_TREBUCHET;
+
+    int DIM_X_ENEMY_TRACK = DIM_X_TREBUCHET_GUI;
+    int DIM_Y_ENEMY_TRACK = DIM_Y_TREBUCHET_GUI;
+
+    int DIM_X_ICONS = 87;
+    int DIM_Y_ICONS = 86;
 
 }

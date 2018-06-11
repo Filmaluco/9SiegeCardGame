@@ -14,7 +14,7 @@ public class PlayerTackerModel implements Serializable{
     public static final int STATUS_TRACKS = 3;
 
     /**
-     * Initial Player Tracker Values
+     * Initial PlayerTracker Tracker Values
      */
     public PlayerTackerModel() {
         //Initial Status Tracker values

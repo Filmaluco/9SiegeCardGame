@@ -12,7 +12,7 @@ public interface str_values {
     };
 
     String[] configsOptions={
-            "Player name",
+            "PlayerTracker name",
             "Return to Main Menu"
     };
 

@@ -18,7 +18,7 @@ public class ObservableGame extends Observable {
 
     //------------------------------ Methods that enable accessing the data/status of the game ----------------------------
 
-    //Player methods
+    //PlayerTracker methods
     public boolean hasInitialConfig() { return gameData.hasInitialConfig(); }
     public void setInitialConfig(String player_name) { gameData.setInitialConfig(player_name); }
     public String getPlayerName() { return gameData.getPlayerName(); }
@@ -57,10 +57,15 @@ public class ObservableGame extends Observable {
     public int ladderStrength() { return gameData.ladderStrength(); }
     public int siegeTowerStrength() { return gameData.siegeTowerStrength(); }
 
+    public int getTrebuchetCount() { return gameData.getTrebuchetCount(); }
+    public int getLadderPosition() { return gameData.getLadderPosition(); }
+    public int getBatteringRamPosition() { return gameData.getBatteringRamPosition(); }
+    public int getSiegeTowerPosition() { return gameData.getSiegeTowerPosition(); }
+
     //Dice methods
     public int getLastRoll() { return gameData.getLastRoll(); }
 
-    //Player tracker methods
+    //PlayerTracker tracker methods
     public int getMorale() { return gameData.getMorale(); }
     public int getSupplies() { return gameData.getSupplies(); }
     public int getWallStrenght() { return gameData.getWallStrenght(); }
