@@ -2,7 +2,7 @@ package UI.Graphical.Containers;
 
 import Controllers.ObservableGame;
 import Controllers.states.GameSetup;
-import UI.Graphical.Constants;
+import UI.Graphical.Util.Constants;
 import UI.Graphical.Labels.PlayerTracker.MoraleLabel;
 import UI.Graphical.Labels.PlayerTracker.SuppliesLabel;
 import UI.Graphical.Labels.PlayerTracker.WallLabel;
@@ -41,8 +41,8 @@ public class SuppliesDisplay extends JPanel implements Observer,Constants{
 
     private void layoutComponents() {
         setOpaque(false);
-        //setLayout(new FlowLayout(FlowLayout.LEFT, 0,DIM_Y_STATUS_TRACK_BORDER));
-        setLayout(new GridLayout(3,0));
+        setLayout(new FlowLayout(FlowLayout.LEFT,0,2));
+        //setLayout(new GridLayout(3,0));
         add(moraleLabel);
         add(wallLabel);
         add(suppliesLabel);

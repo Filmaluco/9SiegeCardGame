@@ -1,14 +1,17 @@
-package UI.Graphical.Buttons;
+package UI.Graphical.Buttons.Actions;
 
 import Assets.Resources;
 import Controllers.ObservableGame;
+import UI.Graphical.Buttons.IconsBaseButton;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
-public class RallyTroopsActionButton extends ActionBaseButton {
+import static UI.Graphical.Util.Miscellaneous.RALLY_TROOPS_ACTION;
+
+public class RallyTroopsIconsButton extends IconsBaseButton {
     static private BufferedImage rallyTroopsActionButtonImage = null, disableRallyTroopsActionButtonImage = null;
 
     public static BufferedImage getRallyTroopsActionButtonImage() { return rallyTroopsActionButtonImage; }
@@ -25,9 +28,9 @@ public class RallyTroopsActionButton extends ActionBaseButton {
 
     ObservableGame game;
 
-    public RallyTroopsActionButton(ObservableGame game) {
+    public RallyTroopsIconsButton(ObservableGame game) {
         this.game = game;
-        setToolTipText("Rally Troops Action");
+        setToolTipText(RALLY_TROOPS_ACTION);
     }
 
     @Override

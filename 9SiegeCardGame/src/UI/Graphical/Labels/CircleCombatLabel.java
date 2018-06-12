@@ -2,7 +2,7 @@ package UI.Graphical.Labels;
 
 import Assets.Resources;
 import Controllers.ObservableGame;
-import UI.Graphical.Constants;
+import UI.Graphical.Util.Constants;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;

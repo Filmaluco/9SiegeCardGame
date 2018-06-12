@@ -1,15 +1,17 @@
-package UI.Graphical.Buttons;
+package UI.Graphical.Buttons.Actions;
 
 import Assets.Resources;
-import UI.Graphical.Constants;
+import Controllers.ObservableGame;
+import UI.Graphical.Buttons.IconsBaseButton;
+import UI.Graphical.Buttons.Listeners.NextTurnListener;
+import UI.Graphical.Util.Constants;
 
 import javax.imageio.ImageIO;
-import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
-public class NextTurnButton extends ActionBaseButton implements Constants{
+public class NextTurnButton extends IconsBaseButton implements Constants{
     static private BufferedImage nextTurnButtonImage = null;
 
     public static BufferedImage getNextTurnButtonImage() { return nextTurnButtonImage; }
@@ -22,8 +24,12 @@ public class NextTurnButton extends ActionBaseButton implements Constants{
         }
     }
 
-    public NextTurnButton() {
+    ObservableGame game;
+
+    public NextTurnButton(ObservableGame game) {
+        this.game = game;
         super.setToolTipText("Next Turn");
+        addActionListener(new NextTurnListener(game));
     }
 
     @Override

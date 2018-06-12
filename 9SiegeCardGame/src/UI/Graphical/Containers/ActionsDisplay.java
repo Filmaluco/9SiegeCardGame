@@ -2,10 +2,9 @@ package UI.Graphical.Containers;
 
 import Controllers.ObservableGame;
 import Controllers.states.ActionPhase;
-import UI.Graphical.Buttons.*;
-import UI.Graphical.Buttons.TunelMovement.TunelMovementButton;
-import UI.Graphical.Constants;
-import UI.Graphical.Labels.CloseCombatLabel;
+import UI.Graphical.Buttons.Actions.*;
+import UI.Graphical.Buttons.Actions.TunelMovement.TunelMovementButton;
+import UI.Graphical.Util.Constants;
 
 import javax.swing.*;
 import java.awt.*;
@@ -19,11 +18,11 @@ public class ActionsDisplay extends JPanel implements Observer, Constants{
     private ArchersAttackButton archersAttackButton;
     private BoilAttackButton boilAttackButton;
     private CloseCombatAttackButton closeCombatAttackButton;
-    private CoupureActionButton coupureActionButton;
-    private RallyTroopsActionButton rallyTroopsActionButton;
+    private CoupureIconsButton coupureActionButton;
+    private RallyTroopsIconsButton rallyTroopsActionButton;
     private TunelMovementButton tunelMovementButton;
-    private SabotageActionIconButton sabotageActionIconButton;
-    private AdditionalPointActionButton additionalPointActionButton;
+    private SabotageIconsIconButton sabotageActionIconButton;
+    private AdditionalPointIconsButton additionalPointActionButton;
 
     public ActionsDisplay(ObservableGame game) {
         this.game = game;
@@ -48,11 +47,11 @@ public class ActionsDisplay extends JPanel implements Observer, Constants{
         archersAttackButton = new ArchersAttackButton(game);
         boilAttackButton = new BoilAttackButton(game);
         closeCombatAttackButton = new CloseCombatAttackButton(game);
-        coupureActionButton = new CoupureActionButton(game);
-        rallyTroopsActionButton = new RallyTroopsActionButton(game);
+        coupureActionButton = new CoupureIconsButton(game);
+        rallyTroopsActionButton = new RallyTroopsIconsButton(game);
         tunelMovementButton = new TunelMovementButton(game);
-        sabotageActionIconButton = new SabotageActionIconButton(game);
-        additionalPointActionButton = new AdditionalPointActionButton(game);
+        sabotageActionIconButton = new SabotageIconsIconButton(game);
+        additionalPointActionButton = new AdditionalPointIconsButton(game);
     }
 
     private void layoutComponents() {

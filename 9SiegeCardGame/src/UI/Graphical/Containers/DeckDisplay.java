@@ -2,7 +2,7 @@ package UI.Graphical.Containers;
 
 import Controllers.ObservableGame;
 import Controllers.states.ActionPhase;
-import UI.Graphical.Constants;
+import UI.Graphical.Util.Constants;
 
 import javax.swing.*;
 import java.awt.*;
@@ -17,7 +17,7 @@ public class DeckDisplay extends JPanel implements Observer, Constants{
         this.game = game;
         this.game.addObserver(this);
 
-        Dimension d = new Dimension(700,250);
+        Dimension d = new Dimension(DIM_X_DECK_DISPLAY,DIM_Y_DECK_DISPLAY);
 
         setSize(d);
         setPreferredSize(d);

@@ -1,9 +1,7 @@
 package UI.Graphical.Rectangles.Enemies;
 
 import Controllers.ObservableGame;
-import UI.Graphical.Constants;
-import UI.Graphical.Labels.Enemies.BatteringRam.BatteringRamCircleCombatLabel;
-import UI.Graphical.Labels.Enemies.BatteringRam.BatteringRamCombatLabel;
+import UI.Graphical.Util.Constants;
 import UI.Graphical.Labels.Enemies.SiegeTower.SiegeTowerCircleCombatLabel;
 import UI.Graphical.Labels.Enemies.SiegeTower.SiegeTowerCloseCombatLabel;
 import UI.Graphical.Labels.Enemies.SiegeTower.SiegeTowerCombatLabel;
@@ -22,7 +20,7 @@ public class SiegeTowerGUI extends JPanel implements Observer, Constants{
         this.game = game;
         this.game.addObserver(this);
 
-        Dimension d = new Dimension(600,100);
+        Dimension d = new Dimension(DIM_X_ENEMY,DIM_Y_ENEMY);
 
         setSize(d);
         setPreferredSize(d);
@@ -34,7 +32,7 @@ public class SiegeTowerGUI extends JPanel implements Observer, Constants{
         setupComponents();
 
         //setLayout(new GridLayout(0,4,5,10));
-        setLayout(new FlowLayout(FlowLayout.LEFT,30,0));
+        setLayout(new FlowLayout(FlowLayout.CENTER,30,0));
     }
 
     //See if repaint works on components

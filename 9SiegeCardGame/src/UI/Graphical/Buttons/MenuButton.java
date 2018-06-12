@@ -1,14 +1,15 @@
 package UI.Graphical.Buttons;
 
 import Assets.Resources;
-import UI.Graphical.Constants;
-import org.w3c.dom.events.MouseEvent;
+import UI.Graphical.Util.Constants;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+
+import static UI.Graphical.Util.Miscellaneous.MAIN_MENU_FONT;
 
 public class MenuButton extends JButton implements Constants{
 
@@ -33,7 +34,7 @@ public class MenuButton extends JButton implements Constants{
         super.setMaximumSize(d);
         super.setForeground(Color.ORANGE);
         super.setBorderPainted(false);
-        setFont(new Font("Arial", Font.PLAIN, 40));
+        setFont(MAIN_MENU_FONT);
     }
 
     @Override

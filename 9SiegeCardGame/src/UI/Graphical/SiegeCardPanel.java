@@ -3,13 +3,15 @@ package UI.Graphical;
 import Controllers.ObservableGame;
 import Controllers.states.GameSetup;
 import UI.Graphical.Containers.MainMenuDisplay;
+import UI.Graphical.Util.Constants;
+import UI.Graphical.Util.Miscellaneous;
 
 import javax.swing.*;
 import java.awt.*;
 import java.util.Observable;
 import java.util.Observer;
 
-public class SiegeCardPanel extends JPanel implements Observer, Constants{
+public class SiegeCardPanel extends JPanel implements Observer, Constants, Miscellaneous {
     private ObservableGame game;
 
     private MainMenuDisplay mainMenuDisplay;

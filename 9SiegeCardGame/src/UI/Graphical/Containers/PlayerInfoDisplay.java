@@ -4,7 +4,7 @@ import Assets.Resources;
 import Controllers.ObservableGame;
 import Controllers.states.CardPhase;
 import Controllers.states.GameSetup;
-import UI.Graphical.Constants;
+import UI.Graphical.Util.Constants;
 import UI.Graphical.Labels.PlayerInfoLabel;
 
 import javax.imageio.ImageIO;

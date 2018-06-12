@@ -2,8 +2,10 @@ package UI.Graphical.Containers;
 
 import Controllers.ObservableGame;
 import Controllers.states.ActionPhase;
+import UI.Graphical.Buttons.TunnelViewButton;
 import UI.Graphical.Rectangles.Enemies.TrebuchetGUI;
 import UI.Graphical.Rectangles.EnemyGUI;
+import UI.Graphical.Util.Constants;
 
 
 import javax.swing.*;
@@ -11,17 +13,18 @@ import java.awt.*;
 import java.util.Observable;
 import java.util.Observer;
 
-public class EnemyTrackDisplay extends JPanel implements Observer{
+public class EnemyTrackDisplay extends JPanel implements Observer, Constants{
     //TODO: CardLayout switch with panel if active
     ObservableGame game;
     private TrebuchetGUI trebuchetTracker;
     private EnemyGUI enemyGUI;
+    private TunnelViewButton tunnelViewButton;
 
     public EnemyTrackDisplay(ObservableGame game) {
         this.game = game;
         this.game.addObserver(this);
 
-        Dimension d = new Dimension(600,350);
+        Dimension d = new Dimension(DIM_X_ENEMY_GUI,DIM_Y_ENEMY_GUI);
 
         setSize(d);
         setPreferredSize(d);
@@ -40,6 +43,7 @@ public class EnemyTrackDisplay extends JPanel implements Observer{
         setLayout(new GridBagLayout());
         enemyGUI = new EnemyGUI(game);
         trebuchetTracker = new TrebuchetGUI(game);
+        tunnelViewButton = new TunnelViewButton();
     }
 
     private void layoutComponents() {
@@ -51,6 +55,10 @@ public class EnemyTrackDisplay extends JPanel implements Observer{
         gbc.gridx=1;
         gbc.gridy=0;
         add(trebuchetTracker, gbc);
+
+        gbc.gridx=3;
+        gbc.gridy=0;
+        add(tunnelViewButton, gbc);
     }
 
     @Override

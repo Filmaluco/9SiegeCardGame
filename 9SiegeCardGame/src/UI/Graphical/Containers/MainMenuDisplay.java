@@ -2,7 +2,7 @@ package UI.Graphical.Containers;
 
 import Controllers.ObservableGame;
 import Controllers.states.GameSetup;
-import UI.Graphical.Constants;
+import UI.Graphical.Util.Constants;
 import UI.Graphical.Rectangles.MainMenuGUI;
 import Assets.Resources;
 

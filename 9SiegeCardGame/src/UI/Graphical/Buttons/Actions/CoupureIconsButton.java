@@ -1,14 +1,15 @@
-package UI.Graphical.Buttons;
+package UI.Graphical.Buttons.Actions;
 
 import Assets.Resources;
 import Controllers.ObservableGame;
+import UI.Graphical.Buttons.IconsBaseButton;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
-public class CoupureActionButton extends ActionBaseButton {
+public class CoupureIconsButton extends IconsBaseButton {
     static private BufferedImage coupureActionButtonImage = null, disableCoupureActionButtonImage = null;
 
     public static BufferedImage getCoupureActionButtonImage() { return coupureActionButtonImage; }
@@ -25,7 +26,7 @@ public class CoupureActionButton extends ActionBaseButton {
 
     ObservableGame game;
 
-    public CoupureActionButton(ObservableGame game) {
+    public CoupureIconsButton(ObservableGame game) {
         this.game = game;
         setToolTipText("Coupure Action");
     }

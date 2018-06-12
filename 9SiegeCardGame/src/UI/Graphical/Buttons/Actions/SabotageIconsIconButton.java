@@ -1,14 +1,17 @@
-package UI.Graphical.Buttons;
+package UI.Graphical.Buttons.Actions;
 
 import Assets.Resources;
 import Controllers.ObservableGame;
+import UI.Graphical.Buttons.IconsBaseButton;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
-public class SabotageActionIconButton extends ActionBaseButton{
+import static UI.Graphical.Util.Miscellaneous.SABOTAGE_ACTION;
+
+public class SabotageIconsIconButton extends IconsBaseButton {
     static private BufferedImage sabotageActionButtonImage = null, disableSabotageActionButtonImage = null;
 
     public static BufferedImage getSabotageActionButtonImage() { return sabotageActionButtonImage; }
@@ -25,9 +28,9 @@ public class SabotageActionIconButton extends ActionBaseButton{
 
     ObservableGame game;
 
-    public SabotageActionIconButton(ObservableGame game) {
+    public SabotageIconsIconButton(ObservableGame game) {
         this.game = game;
-        setToolTipText("Sabotage Action");
+        setToolTipText(SABOTAGE_ACTION);
     }
 
     @Override

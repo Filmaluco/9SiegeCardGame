@@ -1,15 +1,15 @@
-package UI.Graphical.Buttons.TunelMovement;
+package UI.Graphical.Buttons.Actions.TunelMovement;
 
 import Assets.Resources;
 import Controllers.ObservableGame;
-import UI.Graphical.Buttons.ActionBaseButton;
+import UI.Graphical.Buttons.IconsBaseButton;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
-public class TunelMovementButton extends ActionBaseButton{
+public class TunelMovementButton extends IconsBaseButton {
     static private BufferedImage tunelMovementButtonImage = null, disableTunelMovementButtonImage = null;
 
     public static BufferedImage getTunelMovementButtonImage() { return tunelMovementButtonImage; }

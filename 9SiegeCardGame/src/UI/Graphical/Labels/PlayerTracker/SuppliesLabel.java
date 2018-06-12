@@ -2,7 +2,7 @@ package UI.Graphical.Labels.PlayerTracker;
 
 import Assets.Resources;
 import Controllers.ObservableGame;
-import UI.Graphical.Constants;
+import UI.Graphical.Util.Constants;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -10,6 +10,8 @@ import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+
+import static UI.Graphical.Util.Miscellaneous.SUPPLIES_FONT;
 
 public class SuppliesLabel extends JLabel implements Constants{
 
@@ -31,7 +33,7 @@ public class SuppliesLabel extends JLabel implements Constants{
     public SuppliesLabel(ObservableGame game, int amount) {
         this.game = game;
         this.amount = amount;
-        Dimension d = new Dimension(150,86);
+        Dimension d = new Dimension(DIM_X_STATUS_TRACK,DIM_Y_STATUS_TRACK);
 
         setSize(d);
         setPreferredSize(d);
@@ -51,6 +53,6 @@ public class SuppliesLabel extends JLabel implements Constants{
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         setText(Integer.toString(amount));
-        g.drawImage(getSuppliesImage(),DIM_X_STATUS_TRACK_BORDER,0,this);
+        g.drawImage(getSuppliesImage(),DIM_X_STATUS_TRACK_BORDER,DIM_Y_STATUS_TRACK_BORDER,this);
     }
 }

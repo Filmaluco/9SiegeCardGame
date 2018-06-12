@@ -1,10 +1,12 @@
 package UI.Graphical.Labels;
 
 import Controllers.ObservableGame;
-import UI.Graphical.Constants;
+import UI.Graphical.Util.Constants;
 
 import javax.swing.*;
 import java.awt.*;
+
+import static UI.Graphical.Util.Miscellaneous.PLAYER_INFO_FONT;
 
 public class PlayerInfoLabel extends JLabel implements Constants{
     ObservableGame game;
@@ -23,7 +25,7 @@ public class PlayerInfoLabel extends JLabel implements Constants{
         setMinimumSize(d);
 
         setForeground(Color.ORANGE);
-        setFont(new Font("Arial", Font.PLAIN, 25));
+        setFont(PLAYER_INFO_FONT);
     }
 
     public void setInfo(String playerName, int actionPoints, int day, int turn){

@@ -1,14 +1,15 @@
-package UI.Graphical.Buttons;
+package UI.Graphical.Buttons.Actions;
 
 import Assets.Resources;
 import Controllers.ObservableGame;
+import UI.Graphical.Buttons.IconsBaseButton;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
-public class AdditionalPointActionButton extends ActionBaseButton{
+public class AdditionalPointIconsButton extends IconsBaseButton {
     static private BufferedImage additionalPointActionButtonImage = null, disableAdditionalPointActionButtonImage = null;
 
     public static BufferedImage getAdditionalPointActionButtonImage() { return additionalPointActionButtonImage; }
@@ -25,7 +26,7 @@ public class AdditionalPointActionButton extends ActionBaseButton{
 
     ObservableGame game;
 
-    public AdditionalPointActionButton(ObservableGame game) {
+    public AdditionalPointIconsButton(ObservableGame game) {
         this.game = game;
         setToolTipText("Get Additional Point Action");
     }

@@ -1,7 +1,7 @@
 package UI.Graphical.Rectangles.Enemies;
 
 import Controllers.ObservableGame;
-import UI.Graphical.Constants;
+import UI.Graphical.Util.Constants;
 import UI.Graphical.Labels.Enemies.TrebuchetLabel;
 
 import javax.swing.*;
@@ -22,7 +22,7 @@ public class TrebuchetGUI extends JPanel implements Observer ,Constants{
         this.game.addObserver(this);
         this.trebuchetCount = game.getTrebuchetCount();
 
-        Dimension d = new Dimension(DIM_X_TREBUCHET_GUI, 300);
+        Dimension d = new Dimension(DIM_X_TREBUCHET_GUI, DIM_Y_TREBUCHET_GUI);
 
         setSize(d);
         setPreferredSize(d);
@@ -33,7 +33,8 @@ public class TrebuchetGUI extends JPanel implements Observer ,Constants{
 
         setupComponents();
 
-        setLayout(new GridLayout(3,0,5,10));
+        //setLayout(new GridLayout(3,0,5,20));
+        setLayout(new FlowLayout(FlowLayout.CENTER,DIM_X_TREBUCHET_BORDER,DIM_Y_TREBUCHET_BORDER));
     }
 
     //See if repaint works on components

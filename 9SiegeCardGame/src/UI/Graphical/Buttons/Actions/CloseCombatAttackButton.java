@@ -1,14 +1,15 @@
-package UI.Graphical.Buttons;
+package UI.Graphical.Buttons.Actions;
 
 import Assets.Resources;
 import Controllers.ObservableGame;
+import UI.Graphical.Buttons.IconsBaseButton;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
-public class CloseCombatAttackButton extends ActionBaseButton {
+public class CloseCombatAttackButton extends IconsBaseButton {
     static private BufferedImage closeCombatAttackButtonImage = null, disableCloseCombatAttackButtonImage = null;
 
     public static BufferedImage getCloseCombatAttackButtonImage() { return closeCombatAttackButtonImage; }

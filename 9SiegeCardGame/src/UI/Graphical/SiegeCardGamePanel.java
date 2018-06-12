@@ -2,9 +2,9 @@ package UI.Graphical;
 
 import Assets.Resources;
 import Controllers.ObservableGame;
-import UI.Graphical.Buttons.Listeners.NextTurnListener;
-import UI.Graphical.Buttons.NextTurnButton;
+import UI.Graphical.Buttons.Actions.NextTurnButton;
 import UI.Graphical.Containers.*;
+import UI.Graphical.Util.Constants;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -55,8 +55,8 @@ public class SiegeCardGamePanel extends JPanel implements Observer, Constants {
         actionsDisplay = new ActionsDisplay(game);
         deckDisplay = new DeckDisplay(game);
 
-        nextTurnButton = new NextTurnButton();
-        nextTurnButton.addActionListener(new NextTurnListener(game));
+        nextTurnButton = new NextTurnButton(game);
+//        nextTurnButton.addActionListener(new NextTurnListener(game));
     }
 
     private void setupLayout() {
@@ -105,16 +105,20 @@ public class SiegeCardGamePanel extends JPanel implements Observer, Constants {
 
         //TODO:Card section
         gbc = new GridBagConstraints();
+        gbc.anchor = GridBagConstraints.PAGE_END;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
         gbc.gridx = 1;
         gbc.gridy = 3;
+        gbc.weightx = 0.5;
+        gbc.weighty = 1;
         add(deckDisplay, gbc);
 
         //Next Turn
         gbc = new GridBagConstraints();
-        //gbc.anchor = GridBagConstraints.LINE_END;
-        gbc.weightx = 0.5;
-        gbc.weighty = 0.5;
-        gbc.gridx = 6;
+        gbc.anchor = GridBagConstraints.CENTER;
+        gbc.weightx = 1;
+        gbc.weighty = 1;
+        gbc.gridx = 2;
         gbc.gridy = 3;
         add(nextTurnButton, gbc);
 

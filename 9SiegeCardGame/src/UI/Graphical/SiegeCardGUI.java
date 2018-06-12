@@ -1,12 +1,13 @@
 package UI.Graphical;
 
 import Controllers.ObservableGame;
+import UI.Graphical.Util.Constants;
 
 import javax.swing.*;
 import java.util.Observable;
 import java.util.Observer;
 
-public class SiegeCardGUI extends JFrame implements Observer, Constants{
+public class SiegeCardGUI extends JFrame implements Observer, Constants {
 
     ObservableGame game;
     private SiegeCardPanel siegeCardPanel;

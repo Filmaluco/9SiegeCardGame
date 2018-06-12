@@ -1,7 +1,7 @@
 package UI.Graphical.Rectangles;
 
 import Controllers.ObservableGame;
-import UI.Graphical.Constants;
+import UI.Graphical.Util.Constants;
 import UI.Graphical.Rectangles.Enemies.BatteringRamGUI;
 import UI.Graphical.Rectangles.Enemies.LadderGUI;
 import UI.Graphical.Rectangles.Enemies.SiegeTowerGUI;
@@ -20,7 +20,7 @@ public class EnemyGUI extends JPanel implements Observer, Constants{
     public EnemyGUI(ObservableGame game) {
         this.game = game;
 
-        Dimension d = new Dimension(600, 325);
+        Dimension d = new Dimension(DIM_X_ENEMY_GUI, DIM_Y_ENEMY_GUI);
         setPreferredSize(d);
         setMaximumSize(d);
         setMinimumSize(d);
@@ -29,6 +29,8 @@ public class EnemyGUI extends JPanel implements Observer, Constants{
 
         setupComponents();
         layoutComponents();
+
+        setLayout(new FlowLayout(FlowLayout.CENTER));
     }
 
     private void setupComponents() {

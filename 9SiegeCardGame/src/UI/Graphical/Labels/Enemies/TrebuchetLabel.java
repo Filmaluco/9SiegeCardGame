@@ -2,16 +2,13 @@ package UI.Graphical.Labels.Enemies;
 
 import Assets.Resources;
 import Controllers.ObservableGame;
-import UI.Graphical.Constants;
+import UI.Graphical.Util.Constants;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
-import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
-
-import static UI.Graphical.Labels.CombatLabel.getCombatImage;
 
 public class TrebuchetLabel extends JLabel implements Constants{
     ObservableGame game;
