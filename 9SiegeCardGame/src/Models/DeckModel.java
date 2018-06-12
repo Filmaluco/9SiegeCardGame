@@ -55,6 +55,18 @@ public class DeckModel implements Serializable{
         return cards.get(lastCard).getEvent(currentDay).getDescription();
     }
 
+    public int getLastCardID(){ return cards.get(lastCard).getCardID(); }
+
+    public int[] getCardIDS(){
+        int[] cardIDS = new int[getNumberCards()];
+        //Gets all the card ids
+        for (int i = 0; i < numberCards; i++)
+            cardIDS[i]=cards.get(i).getCardID();
+        return cardIDS;
+    }
+
+    public int getNumberCards(){ return numberCards; }
+
     @Override
     public String toString() {
         String s = "";

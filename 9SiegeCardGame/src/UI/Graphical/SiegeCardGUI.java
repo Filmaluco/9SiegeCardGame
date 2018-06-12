@@ -29,8 +29,6 @@ public class SiegeCardGUI extends JFrame implements Observer, Constants {
         validate();
     }
 
-
-
     @Override
     public void update(Observable o, Object arg) {
         repaint();

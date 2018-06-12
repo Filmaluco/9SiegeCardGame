@@ -65,6 +65,11 @@ public class ObservableGame extends Observable {
     //Dice methods
     public int getLastRoll() { return gameData.getLastRoll(); }
 
+    //Deck methods
+    public int getLastCardID() { return gameData.getLastCardID(); }
+    public int getNumberCards() { return gameData.getNumberCards(); }
+    public int[] getCardIDS() { return gameData.getCardIDS(); }
+
     //PlayerTracker tracker methods
     public int getMorale() { return gameData.getMorale(); }
     public int getSupplies() { return gameData.getSupplies(); }

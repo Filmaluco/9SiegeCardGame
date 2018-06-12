@@ -3,6 +3,8 @@ package UI.Graphical.Util;
 import static Models.EnemyTrackerModel.MAX_TREBUCHET;
 
 public interface Constants {
+    int NUMBER_OF_CARDS = 7;
+
     int DIM_X_FRAME = 1024;
     int DIM_Y_FRAME = 768;
 
@@ -69,6 +71,9 @@ public interface Constants {
     int DIM_Y_TREBUCHET_GUI = DIM_Y_ENEMY_GUI;
 
     //Deck
-    int DIM_X_DECK_DISPLAY = DIM_X_8 * 5 ;
+    int DIM_X_DECK_DISPLAY = DIM_X_8 * 5 + DIM_Y_7/2;
     int DIM_Y_DECK_DISPLAY = DIM_Y_7 * 2;
+
+    int DIM_X_CARD_SIZE = 158;
+    int DIM_Y_CARD_SIZE = 220;
 }

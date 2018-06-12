@@ -73,6 +73,10 @@ public class GameController implements Serializable{
 
     public int getLastRoll(){ return gameData.Dice.getLastRoll(); }
 
+    public int getLastCardID() { return gameData.Deck.getLastCardID(); }
+    public int getNumberCards() { return gameData.Deck.getNumberCards(); }
+    public int[] getCardIDS() { return gameData.Deck.getCardIDS(); }
+
     public boolean canMoveInTunnel(){ return gameData.canUseTunnelMovemnt() && gameData.Player.tracker.inTunnel(); }
     public boolean canMoveIntoTunnel(){ return gameData.canUseTunnelMovemnt() && !gameData.Player.tracker.inTunnel(); }
 
