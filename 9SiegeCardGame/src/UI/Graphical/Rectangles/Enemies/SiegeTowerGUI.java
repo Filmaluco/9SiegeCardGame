@@ -1,6 +1,8 @@
 package UI.Graphical.Rectangles.Enemies;
 
 import Controllers.ObservableGame;
+import SiegeCard.Util.Rolls;
+import UI.Graphical.Rectangles.Enemies.MouseListeners.EnemySelect;
 import UI.Graphical.Util.Constants;
 import UI.Graphical.Labels.Enemies.SiegeTower.SiegeTowerCircleCombatLabel;
 import UI.Graphical.Labels.Enemies.SiegeTower.SiegeTowerCloseCombatLabel;
@@ -37,6 +39,8 @@ public class SiegeTowerGUI extends JPanel implements Observer, Constants{
 
     //See if repaint works on components
     private void setupComponents() {
+        addMouseListener(new EnemySelect(this,game, Rolls.SIEGE_TOWER));
+
         add(new SiegeTowerCloseCombatLabel(game,0));
         add(new SiegeTowerCircleCombatLabel(game,1));
         for (int i = 2; i <= MAX_ENEMY_TRACK_SLOTS ; i++) {

@@ -1,6 +1,8 @@
 package UI.Graphical.Rectangles.Enemies;
 
 import Controllers.ObservableGame;
+import SiegeCard.Util.Rolls;
+import UI.Graphical.Rectangles.Enemies.MouseListeners.EnemySelect;
 import UI.Graphical.Util.Constants;
 import UI.Graphical.Labels.Enemies.BatteringRam.BatteringRamCircleCombatLabel;
 import UI.Graphical.Labels.Enemies.BatteringRam.BatteringRamCloseCombatLabel;
@@ -33,11 +35,12 @@ public class BatteringRamGUI extends JPanel implements Observer, Constants{
 
         //setLayout(new GridLayout(0,5,5,10));
         setLayout(new FlowLayout(FlowLayout.CENTER,30,0));
-
     }
 
     //See if repaint works on components
     private void setupComponents() {
+        addMouseListener(new EnemySelect(this,game,Rolls.BATTERING_RAM));
+
         add(new BatteringRamCloseCombatLabel(game, 0));
         add(new BatteringRamCircleCombatLabel(game,1));
         for (int i = 2; i <= MAX_ENEMY_TRACK_SLOTS ; i++) {
@@ -54,6 +57,6 @@ public class BatteringRamGUI extends JPanel implements Observer, Constants{
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
 
-        //g.drawImage(getLadderImage(),DIM_X_COMBAT_LABEL * ladderPosition,0,this);
     }
+
 }

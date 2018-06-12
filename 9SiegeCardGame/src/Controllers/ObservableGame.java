@@ -138,6 +138,11 @@ public class ObservableGame extends Observable {
         setChanged();
         notifyObservers();
     }
+    public void Sabotage() {
+        gameData.Sabotage();
+        setChanged();
+        notifyObservers();
+    }
 
     public void ApplyRules(Rolls target) {
         gameData.ApplyRules(target);

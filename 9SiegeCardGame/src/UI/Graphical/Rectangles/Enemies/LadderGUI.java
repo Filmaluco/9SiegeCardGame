@@ -1,6 +1,8 @@
 package UI.Graphical.Rectangles.Enemies;
 
 import Controllers.ObservableGame;
+import SiegeCard.Util.Rolls;
+import UI.Graphical.Rectangles.Enemies.MouseListeners.EnemySelect;
 import UI.Graphical.Util.Constants;
 import UI.Graphical.Labels.Enemies.Ladder.LadderCircleCombatLabel;
 import UI.Graphical.Labels.Enemies.Ladder.LadderCloseCombatLabel;
@@ -40,6 +42,8 @@ public class LadderGUI extends JPanel implements Observer, Constants{
 
     //See if repaint works on components
     private void setupComponents() {
+        addMouseListener(new EnemySelect(this,game, Rolls.LADDER));
+
         add(new LadderCloseCombatLabel(game,0));
         add(new LadderCircleCombatLabel(game,1));
         for (int i = 2; i <= MAX_ENEMY_TRACK_SLOTS ; i++) {

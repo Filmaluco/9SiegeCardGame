@@ -2,14 +2,19 @@ package UI.Graphical.Buttons.Actions;
 
 import Assets.Resources;
 import Controllers.ObservableGame;
+import Controllers.states.ActionArchersAttack;
+import Controllers.states.ActionPhase;
 import UI.Graphical.Buttons.IconsBaseButton;
+import UI.Graphical.Buttons.Listeners.ActionArchersAttackListener;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.Observable;
+import java.util.Observer;
 
-public class ArchersAttackButton extends IconsBaseButton {
+public class ArchersAttackButton extends IconsBaseButton{
     static private BufferedImage archersAttackButtonImage = null, disableArchersAttackButtonImage = null;
 
     public static BufferedImage getArchersAttackButtonImage() { return archersAttackButtonImage; }
@@ -28,6 +33,7 @@ public class ArchersAttackButton extends IconsBaseButton {
 
     public ArchersAttackButton(ObservableGame game) {
         this.game = game;
+        addActionListener(new ActionArchersAttackListener(game));
         setToolTipText("Archers Attack");
     }
 
@@ -36,9 +42,11 @@ public class ArchersAttackButton extends IconsBaseButton {
         super.paintComponent(g);
         if (game.canArchersAttack() && game.getActionPoints()>0) {
             g.drawImage(getArchersAttackButtonImage(), 0,0, this);
+            setEnabled(true);
         } else {
             g.drawImage(getDisableArchersAttackButtonImage(),0,0,this);
+            setEnabled(false);
         }
-
     }
+
 }

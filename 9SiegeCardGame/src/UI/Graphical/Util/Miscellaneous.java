@@ -14,6 +14,7 @@ public interface Miscellaneous {
     String GAME = "GAME";
 
     //Tooltip Constants
+    //TODO: Complete
     String TUNNEL_VIEW = "Tunnel View";
     String SABOTAGE_ACTION = "Sabotage Action";
     String RALLY_TROOPS_ACTION = "Rally Troops Action";

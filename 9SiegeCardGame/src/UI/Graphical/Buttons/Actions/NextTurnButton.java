@@ -2,6 +2,8 @@ package UI.Graphical.Buttons.Actions;
 
 import Assets.Resources;
 import Controllers.ObservableGame;
+import Controllers.states.ActionArchersAttack;
+import Controllers.states.ActionPhase;
 import UI.Graphical.Buttons.IconsBaseButton;
 import UI.Graphical.Buttons.Listeners.NextTurnListener;
 import UI.Graphical.Util.Constants;
@@ -10,15 +12,19 @@ import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.Observable;
+import java.util.Observer;
 
 public class NextTurnButton extends IconsBaseButton implements Constants{
-    static private BufferedImage nextTurnButtonImage = null;
+    static private BufferedImage nextTurnButtonImage = null, disableNextTurnButtonImage;
 
     public static BufferedImage getNextTurnButtonImage() { return nextTurnButtonImage; }
+    public static BufferedImage getDisableNextTurnButtonImage() { return disableNextTurnButtonImage; }
 
     static {
         try {
             nextTurnButtonImage = ImageIO.read(Resources.getResourceFile("Icons/NextTurnIcon.jpg"));
+            disableNextTurnButtonImage = ImageIO.read(Resources.getResourceFile("Icons/DisableNextTurnIcon.jpg"));
         } catch (IOException e) {
             System.out.println("Error loading Main Background Image");
         }
@@ -35,6 +41,12 @@ public class NextTurnButton extends IconsBaseButton implements Constants{
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        g.drawImage(getNextTurnButtonImage(), 0,0, this);
+        //TODO: Cant change when other actions are in play
+        if (game.getState()instanceof ActionPhase) {
+            g.drawImage(getNextTurnButtonImage(), 0, 0, this);
+        } else {
+            g.drawImage(getDisableNextTurnButtonImage(), 0, 0, this);
+        }
     }
+
 }

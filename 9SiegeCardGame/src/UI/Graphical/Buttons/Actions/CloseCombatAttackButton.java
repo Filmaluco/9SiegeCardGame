@@ -2,14 +2,19 @@ package UI.Graphical.Buttons.Actions;
 
 import Assets.Resources;
 import Controllers.ObservableGame;
+import Controllers.states.ActionArchersAttack;
+import Controllers.states.ActionPhase;
 import UI.Graphical.Buttons.IconsBaseButton;
+import UI.Graphical.Buttons.Listeners.ActionCloseCombatAttackListener;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.Observable;
+import java.util.Observer;
 
-public class CloseCombatAttackButton extends IconsBaseButton {
+public class CloseCombatAttackButton extends IconsBaseButton{
     static private BufferedImage closeCombatAttackButtonImage = null, disableCloseCombatAttackButtonImage = null;
 
     public static BufferedImage getCloseCombatAttackButtonImage() { return closeCombatAttackButtonImage; }
@@ -28,6 +33,7 @@ public class CloseCombatAttackButton extends IconsBaseButton {
 
     public CloseCombatAttackButton(ObservableGame game) {
         this.game = game;
+        addActionListener(new ActionCloseCombatAttackListener(game));
         setToolTipText("Close Combat Attack");
     }
 
@@ -36,8 +42,11 @@ public class CloseCombatAttackButton extends IconsBaseButton {
         super.paintComponent(g);
         if (game.canCloseCombat() && game.getActionPoints()>0) {
             g.drawImage(getCloseCombatAttackButtonImage(), 0,0, this);
+            setEnabled(true);
         } else {
             g.drawImage(getDisableCloseCombatAttackButtonImage(),0,0,this);
+            setEnabled(false);
         }
     }
+
 }

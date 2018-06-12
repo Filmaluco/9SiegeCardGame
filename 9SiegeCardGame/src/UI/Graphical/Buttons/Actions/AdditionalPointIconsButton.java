@@ -36,8 +36,10 @@ public class AdditionalPointIconsButton extends IconsBaseButton {
         super.paintComponent(g);
         if (game.canGetAdicionalPoint() && game.getActionPoints()>0) {
             g.drawImage(getAdditionalPointActionButtonImage(), 0,0, this);
+            setEnabled(true);
         } else {
             g.drawImage(getDisableAdditionalPointActionButtonImage(),0,0,this);
+            setEnabled(false);
         }
     }
 }

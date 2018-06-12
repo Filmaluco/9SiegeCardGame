@@ -56,7 +56,6 @@ public class SiegeCardGamePanel extends JPanel implements Observer, Constants {
         deckDisplay = new DeckDisplay(game);
 
         nextTurnButton = new NextTurnButton(game);
-//        nextTurnButton.addActionListener(new NextTurnListener(game));
     }
 
     private void setupLayout() {

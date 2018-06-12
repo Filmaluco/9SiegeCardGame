@@ -3,6 +3,7 @@ package UI.Graphical.Buttons.Actions;
 import Assets.Resources;
 import Controllers.ObservableGame;
 import UI.Graphical.Buttons.IconsBaseButton;
+import UI.Graphical.Buttons.Listeners.ActionSabotageListener;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -11,7 +12,7 @@ import java.io.IOException;
 
 import static UI.Graphical.Util.Miscellaneous.SABOTAGE_ACTION;
 
-public class SabotageIconsIconButton extends IconsBaseButton {
+public class SabotageActionButton extends IconsBaseButton {
     static private BufferedImage sabotageActionButtonImage = null, disableSabotageActionButtonImage = null;
 
     public static BufferedImage getSabotageActionButtonImage() { return sabotageActionButtonImage; }
@@ -28,8 +29,9 @@ public class SabotageIconsIconButton extends IconsBaseButton {
 
     ObservableGame game;
 
-    public SabotageIconsIconButton(ObservableGame game) {
+    public SabotageActionButton(ObservableGame game) {
         this.game = game;
+        addActionListener(new ActionSabotageListener(game));
         setToolTipText(SABOTAGE_ACTION);
     }
 
@@ -38,8 +40,10 @@ public class SabotageIconsIconButton extends IconsBaseButton {
         super.paintComponent(g);
         if (game.canSabotage() && game.getActionPoints()>0) {
             g.drawImage(getSabotageActionButtonImage(), 0,0, this);
+            setEnabled(true);
         } else {
             g.drawImage(getDisableSabotageActionButtonImage(),0,0,this);
+            setEnabled(false);
         }
     }
 }

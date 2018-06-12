@@ -2,6 +2,7 @@ package UI.Graphical.Containers;
 
 import Controllers.ObservableGame;
 import Controllers.states.ActionPhase;
+import Controllers.states.GameSetup;
 import UI.Graphical.Buttons.Actions.*;
 import UI.Graphical.Buttons.Actions.TunelMovement.TunelMovementButton;
 import UI.Graphical.Util.Constants;
@@ -18,10 +19,10 @@ public class ActionsDisplay extends JPanel implements Observer, Constants{
     private ArchersAttackButton archersAttackButton;
     private BoilAttackButton boilAttackButton;
     private CloseCombatAttackButton closeCombatAttackButton;
-    private CoupureIconsButton coupureActionButton;
-    private RallyTroopsIconsButton rallyTroopsActionButton;
+    private CoupureActionButton coupureActionButton;
+    private RallyTroopsActionButton rallyTroopsActionButton;
     private TunelMovementButton tunelMovementButton;
-    private SabotageIconsIconButton sabotageActionIconButton;
+    private SabotageActionButton sabotageActionIconButton;
     private AdditionalPointIconsButton additionalPointActionButton;
 
     public ActionsDisplay(ObservableGame game) {
@@ -47,10 +48,10 @@ public class ActionsDisplay extends JPanel implements Observer, Constants{
         archersAttackButton = new ArchersAttackButton(game);
         boilAttackButton = new BoilAttackButton(game);
         closeCombatAttackButton = new CloseCombatAttackButton(game);
-        coupureActionButton = new CoupureIconsButton(game);
-        rallyTroopsActionButton = new RallyTroopsIconsButton(game);
+        coupureActionButton = new CoupureActionButton(game);
+        rallyTroopsActionButton = new RallyTroopsActionButton(game);
         tunelMovementButton = new TunelMovementButton(game);
-        sabotageActionIconButton = new SabotageIconsIconButton(game);
+        sabotageActionIconButton = new SabotageActionButton(game);
         additionalPointActionButton = new AdditionalPointIconsButton(game);
     }
 
@@ -80,6 +81,6 @@ public class ActionsDisplay extends JPanel implements Observer, Constants{
 
     @Override
     public void update(Observable o, Object arg) {
-        setVisible(game.getState() instanceof ActionPhase);
+        setVisible(!(game.getState() instanceof GameSetup));
     }
 }

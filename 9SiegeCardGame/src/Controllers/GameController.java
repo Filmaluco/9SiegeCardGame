@@ -105,6 +105,8 @@ public class GameController implements Serializable{
     public void Tunel(){setState(getState().ActionTunnelMovement());}
     public void MoveInTunnel(Constants target){setState(getState().moveInTunnel(target));}
     public void MoveIntoTunnel(){setState(getState().moveIntoTunnel());}
+    //TODO: IMPLEMENT
+    public void Sabotage(){setState(getState().ActionSabotage());}
 
     public void ApplyRules(Rolls target){setState(getState().ApplyRules(target));}
     public void ApplyRules(Constants target){setState(getState().ApplyRules(target));}

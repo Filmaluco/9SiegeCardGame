@@ -2,6 +2,7 @@ package UI.Graphical.Containers;
 
 import Controllers.ObservableGame;
 import Controllers.states.ActionPhase;
+import Controllers.states.GameSetup;
 import UI.Graphical.Rectangles.CardGUI;
 import UI.Graphical.Util.Constants;
 
@@ -54,6 +55,6 @@ public class DeckDisplay extends JPanel implements Observer, Constants{
             deck=game.getCardIDS();
             repaint();
         }
-        setVisible(game.getState() instanceof ActionPhase);
+        setVisible(!(game.getState() instanceof GameSetup));
     }
 }

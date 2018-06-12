@@ -2,6 +2,7 @@ package UI.Graphical.Containers;
 
 import Controllers.ObservableGame;
 import Controllers.states.ActionPhase;
+import Controllers.states.GameSetup;
 import UI.Graphical.Buttons.TunnelViewButton;
 import UI.Graphical.Rectangles.Enemies.TrebuchetGUI;
 import UI.Graphical.Rectangles.EnemyGUI;
@@ -63,6 +64,6 @@ public class EnemyTrackDisplay extends JPanel implements Observer, Constants{
 
     @Override
     public void update(Observable o, Object arg) {
-        setVisible(game.getState() instanceof ActionPhase);
+        setVisible(!(game.getState() instanceof GameSetup));
     }
 }

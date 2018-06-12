@@ -3,13 +3,14 @@ package UI.Graphical.Buttons.Actions;
 import Assets.Resources;
 import Controllers.ObservableGame;
 import UI.Graphical.Buttons.IconsBaseButton;
+import UI.Graphical.Buttons.Listeners.ActionCoupureListener;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
-public class CoupureIconsButton extends IconsBaseButton {
+public class CoupureActionButton extends IconsBaseButton {
     static private BufferedImage coupureActionButtonImage = null, disableCoupureActionButtonImage = null;
 
     public static BufferedImage getCoupureActionButtonImage() { return coupureActionButtonImage; }
@@ -26,8 +27,9 @@ public class CoupureIconsButton extends IconsBaseButton {
 
     ObservableGame game;
 
-    public CoupureIconsButton(ObservableGame game) {
+    public CoupureActionButton(ObservableGame game) {
         this.game = game;
+        addActionListener(new ActionCoupureListener(game));
         setToolTipText("Coupure Action");
     }
 
@@ -36,8 +38,10 @@ public class CoupureIconsButton extends IconsBaseButton {
         super.paintComponent(g);
         if (game.canCoupure() && game.getActionPoints()>0) {
             g.drawImage(getCoupureActionButtonImage(), 0,0, this);
+            setEnabled(true);
         } else {
             g.drawImage(getDisableCoupureActionAttackButtonImage(),0,0,this);
+            setEnabled(false);
         }
     }
 }
