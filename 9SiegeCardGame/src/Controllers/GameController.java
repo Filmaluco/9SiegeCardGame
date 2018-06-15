@@ -47,6 +47,7 @@ public class GameController implements Serializable{
     public int getMorale(){ return gameData.Player.tracker.getMorale();}
     public int getSupplies(){ return gameData.Player.tracker.getSupplies();}
     public int getWallStrenght(){ return gameData.Player.tracker.getWallStrength();}
+    public int getRaidedSupplies() { return gameData.Player.tracker.getRaidedSupplies(); }
 
     public boolean canArchersAttack() { return gameData.canArchersAttack(); }
     public boolean canBoilAttack()  { return  gameData.canBoilAttack(); }
@@ -80,6 +81,11 @@ public class GameController implements Serializable{
     public int getNumberCards() { return gameData.Deck.getNumberCards(); }
     public int[] getCardIDS() { return gameData.Deck.getCardIDS(); }
 
+
+    public int getTunnelPosition() { return gameData.Player.tracker.getTunnelPosition(); }
+    public boolean isOnEnemyLines() { return gameData.Player.tracker.inEnemyLine(); }
+    public boolean isOnCastle() { return gameData.Player.tracker.inCastle(); }
+
     public boolean canMoveInTunnel(){ return gameData.canUseTunnelMovemnt() && gameData.Player.tracker.inTunnel(); }
     public boolean canMoveIntoTunnel(){ return gameData.canUseTunnelMovemnt() && !gameData.Player.tracker.inTunnel(); }
 
@@ -110,6 +116,7 @@ public class GameController implements Serializable{
     public void MoveIntoTunnel(){setState(getState().moveIntoTunnel());}
     //TODO: IMPLEMENT
     public void Sabotage(){setState(getState().ActionSabotage());}
+    public void SupplyRaid() {setState(getState().ActionSupplyRaid());}
 
     public void ApplyRules(Rolls target){setState(getState().ApplyRules(target));}
     public void ApplyRules(Constants target){setState(getState().ApplyRules(target));}

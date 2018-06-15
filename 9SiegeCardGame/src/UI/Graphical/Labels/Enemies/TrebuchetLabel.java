@@ -48,6 +48,5 @@ public class TrebuchetLabel extends JLabel implements Constants{
         } else {
             g.drawImage(getEmptyTrebuchetImage(),0,0,this);
         }
-
     }
 }

@@ -14,9 +14,13 @@ public interface Miscellaneous {
     String MAIN_MENU = "MAIN MENU";
     String GAME = "GAME";
 
+    String ENEMY_TRACKER = "ENEMY TRACKER";
+    String TUNNEL_TRACKER = "TUNNEL TRACKER";
+
     //Tooltip Constants
     //TODO: Complete
     String TUNNEL_VIEW = "Tunnel View";
+    String ENEMY_TRACKER_VIEW = "Enemy Tracker View";
     String SABOTAGE_ACTION = "Sabotage Action";
     String RALLY_TROOPS_ACTION = "Rally Troops Action";
 

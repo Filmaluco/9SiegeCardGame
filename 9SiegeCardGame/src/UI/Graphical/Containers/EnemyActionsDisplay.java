@@ -2,9 +2,8 @@ package UI.Graphical.Containers;
 
 import Controllers.ObservableGame;
 import Controllers.states.ActionPhase;
-import Controllers.states.GameSetup;
 import UI.Graphical.Buttons.Actions.*;
-import UI.Graphical.Buttons.Actions.TunelMovement.TunelMovementButton;
+import UI.Graphical.Buttons.Actions.TunnelMovement.TunnelMovementButton;
 import UI.Graphical.Util.Constants;
 
 import javax.swing.*;
@@ -13,7 +12,7 @@ import java.util.Observable;
 import java.util.Observer;
 
 
-public class ActionsDisplay extends JPanel implements Observer, Constants{
+public class EnemyActionsDisplay extends JPanel implements Observer, Constants{
 
     ObservableGame game;
     private ArchersAttackButton archersAttackButton;
@@ -21,15 +20,16 @@ public class ActionsDisplay extends JPanel implements Observer, Constants{
     private CloseCombatAttackButton closeCombatAttackButton;
     private CoupureActionButton coupureActionButton;
     private RallyTroopsActionButton rallyTroopsActionButton;
-    private TunelMovementButton tunelMovementButton;
+    private TunnelMovementButton tunnelMovementButton;
     private SabotageActionButton sabotageActionIconButton;
+    private SupplyRaidActionButton supplyRaidActionButton;
     private AdditionalPointIconsButton additionalPointActionButton;
 
-    public ActionsDisplay(ObservableGame game) {
+    public EnemyActionsDisplay(ObservableGame game) {
         this.game = game;
         this.game.addObserver(this);
 
-        Dimension d = new Dimension(800,DIM_Y_ICONS);
+        Dimension d = new Dimension(DIM_X_FRAME,DIM_Y_ICONS);
 
         setSize(d);
         setPreferredSize(d);
@@ -50,8 +50,9 @@ public class ActionsDisplay extends JPanel implements Observer, Constants{
         closeCombatAttackButton = new CloseCombatAttackButton(game);
         coupureActionButton = new CoupureActionButton(game);
         rallyTroopsActionButton = new RallyTroopsActionButton(game);
-        tunelMovementButton = new TunelMovementButton(game);
+        tunnelMovementButton = new TunnelMovementButton(game);
         sabotageActionIconButton = new SabotageActionButton(game);
+        supplyRaidActionButton = new SupplyRaidActionButton(game);
         additionalPointActionButton = new AdditionalPointIconsButton(game);
     }
 
@@ -72,15 +73,15 @@ public class ActionsDisplay extends JPanel implements Observer, Constants{
         gbc.gridx = 4;
         add(rallyTroopsActionButton, gbc);
         gbc.gridx = 5;
-        add(tunelMovementButton, gbc);
+        add(tunnelMovementButton, gbc);
         gbc.gridx = 6;
         add(sabotageActionIconButton, gbc);
         gbc.gridx = 7;
+        add(supplyRaidActionButton, gbc);
+        gbc.gridx = 8;
         add(additionalPointActionButton, gbc);
     }
 
     @Override
-    public void update(Observable o, Object arg) {
-        setVisible(!(game.getState() instanceof GameSetup));
-    }
+    public void update(Observable o, Object arg) { }
 }

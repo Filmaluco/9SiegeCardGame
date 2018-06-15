@@ -7,7 +7,7 @@ import UI.Text.Util.Read;
 
 import java.io.IOException;
 
-import static SiegeCard.Util.str_values.*;
+import static SiegeCard.Util.Str_Values.*;
 
 public class MainMenu {
 

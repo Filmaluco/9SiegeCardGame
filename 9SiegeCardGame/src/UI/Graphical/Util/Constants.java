@@ -42,6 +42,10 @@ public interface Constants {
     int DIM_X_STATUS_TRACK_BORDER = DIM_Y_7/2;
     int DIM_Y_STATUS_TRACK_BORDER = 0;
 
+    //Tunnel Constants
+    int DIM_X_TUNNEL_ICON = 83;
+    int DIM_Y_TUNNEL_ICON = 83;
+
     //Enemy Tracker
     int DIM_X_ENEMY_GUI = DIM_X_8 * 4 + DIM_X_8/2;
     int DIM_Y_ENEMY_GUI = DIM_Y_7*3;

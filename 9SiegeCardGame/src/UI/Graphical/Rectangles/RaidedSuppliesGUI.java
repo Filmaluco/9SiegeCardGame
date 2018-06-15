@@ -1,8 +1,9 @@
-package UI.Graphical.Rectangles.Enemies;
+package UI.Graphical.Rectangles;
 
 import Controllers.ObservableGame;
-import UI.Graphical.Util.Constants;
 import UI.Graphical.Labels.Enemies.TrebuchetLabel;
+import UI.Graphical.Labels.PlayerTracker.RaidedSuppliesLabel;
+import UI.Graphical.Util.Constants;
 
 import javax.swing.*;
 import java.awt.*;
@@ -10,16 +11,17 @@ import java.util.Observable;
 import java.util.Observer;
 
 import static Models.EnemyTrackerModel.MAX_TREBUCHET;
+import static Models.TunnelModel.MAX_RAIDED_SUPPLIES;
 
-public class TrebuchetGUI extends JPanel implements Observer ,Constants{
+public class RaidedSuppliesGUI extends JPanel implements Observer, Constants {
 
     ObservableGame game;
 
-    public TrebuchetGUI(ObservableGame game) {
+    public RaidedSuppliesGUI(ObservableGame game) {
         this.game = game;
         this.game.addObserver(this);
 
-        Dimension d = new Dimension(DIM_X_TREBUCHET_GUI, DIM_Y_TREBUCHET_GUI);
+        Dimension d = new Dimension(DIM_X_ICONS+50, 200);
 
         setSize(d);
         setPreferredSize(d);
@@ -30,15 +32,13 @@ public class TrebuchetGUI extends JPanel implements Observer ,Constants{
 
         setupComponents();
 
-        //setLayout(new GridLayout(3,0,5,20));
-        setLayout(new FlowLayout(FlowLayout.CENTER,DIM_X_TREBUCHET_BORDER,DIM_Y_TREBUCHET_BORDER));
+        setLayout(new FlowLayout(FlowLayout.CENTER,20,DIM_Y_TREBUCHET_BORDER));
     }
 
     //See if repaint works on components
     private void setupComponents() {
-        for (int i = MAX_TREBUCHET; i > 0 ; i--)
-            add(new TrebuchetLabel(game, i));
-
+        for (int i = MAX_RAIDED_SUPPLIES; i > 0 ; i--)
+            add(new RaidedSuppliesLabel(game, i));
     }
 
     @Override

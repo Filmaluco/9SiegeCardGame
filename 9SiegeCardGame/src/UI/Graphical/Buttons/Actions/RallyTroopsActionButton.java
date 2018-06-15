@@ -2,11 +2,10 @@ package UI.Graphical.Buttons.Actions;
 
 import Assets.Resources;
 import Controllers.ObservableGame;
-import Controllers.states.ActionArchersAttack;
 import Controllers.states.ActionPhase;
 import Controllers.states.ActionRallyTroops;
 import UI.Graphical.Buttons.IconsBaseButton;
-import UI.Graphical.Buttons.Listeners.ActionRallyTroopsListener;
+import UI.Graphical.Buttons.Listeners.Actions.ActionRallyTroopsListener;
 
 import javax.imageio.ImageIO;
 import java.awt.*;

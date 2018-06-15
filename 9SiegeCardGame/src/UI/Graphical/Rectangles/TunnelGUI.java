@@ -1,12 +1,15 @@
-package UI.Graphical.Rectangles.Enemies;
+package UI.Graphical.Rectangles;
 
 import Controllers.ObservableGame;
 import SiegeCard.Util.Rolls;
-import UI.Graphical.Rectangles.Enemies.MouseListeners.EnemySelect;
-import UI.Graphical.Util.Constants;
 import UI.Graphical.Labels.Enemies.BatteringRam.BatteringRamCircleCombatLabel;
 import UI.Graphical.Labels.Enemies.BatteringRam.BatteringRamCloseCombatLabel;
 import UI.Graphical.Labels.Enemies.BatteringRam.BatteringRamCombatLabel;
+import UI.Graphical.Labels.PlayerTracker.Tunnel.CastleLabel;
+import UI.Graphical.Labels.PlayerTracker.Tunnel.EnemyLabel;
+import UI.Graphical.Labels.PlayerTracker.Tunnel.TunnelLabel;
+import UI.Graphical.Rectangles.Enemies.MouseListeners.EnemySelect;
+import UI.Graphical.Util.Constants;
 
 import javax.swing.*;
 import java.awt.*;
@@ -14,15 +17,16 @@ import java.util.Observable;
 import java.util.Observer;
 
 import static Models.EnemyModel.MAX_ENEMY_TRACK_SLOTS;
+import static Models.TunnelModel.TUNEL_SIZE;
 
-public class BatteringRamGUI extends JPanel implements Observer, Constants{
+public class TunnelGUI extends JPanel implements Observer, Constants {
     ObservableGame game;
 
-    public BatteringRamGUI(ObservableGame game) {
+    public TunnelGUI(ObservableGame game) {
         this.game = game;
         this.game.addObserver(this);
 
-        Dimension d = new Dimension(DIM_X_ENEMY,DIM_Y_ENEMY);
+        Dimension d = new Dimension(DIM_X_ICONS * 6,DIM_Y_ENEMY);
 
         setSize(d);
         setPreferredSize(d);
@@ -39,21 +43,16 @@ public class BatteringRamGUI extends JPanel implements Observer, Constants{
 
     //See if repaint works on components
     private void setupComponents() {
-        addMouseListener(new EnemySelect(this,game,Rolls.BATTERING_RAM));
-
-        add(new BatteringRamCloseCombatLabel(game, 0));
-        add(new BatteringRamCircleCombatLabel(game,1));
-        for (int i = 2; i <= MAX_ENEMY_TRACK_SLOTS ; i++) {
-            add(new BatteringRamCombatLabel(game,i));
+        add(new CastleLabel(game));
+        for (int i = 1; i <= TUNEL_SIZE ; i++) {
+            add(new TunnelLabel(game,i));
         }
+        add(new EnemyLabel(game));
     }
+
 
     @Override
     public void update(Observable o, Object arg) {
-        if (!(game.batteringRamInGame()))
-            setVisible(false);
+
     }
-
-
-
 }

@@ -2,9 +2,14 @@ package UI.Graphical;
 
 import Assets.Resources;
 import Controllers.ObservableGame;
-import Controllers.states.GameOver;
 import UI.Graphical.Buttons.Actions.NextTurnButton;
+import UI.Graphical.Buttons.EnemyTrackerViewButton;
+import UI.Graphical.Buttons.Listeners.EnemySwitchListener;
+import UI.Graphical.Buttons.Listeners.TunnelSwitchListener;
+import UI.Graphical.Buttons.TunnelViewButton;
 import UI.Graphical.Containers.*;
+import UI.Graphical.Containers.Switch.ActionsSwitchDisplay;
+import UI.Graphical.Containers.Switch.TrackSwitchDisplay;
 import UI.Graphical.Util.Constants;
 
 import javax.imageio.ImageIO;
@@ -33,11 +38,15 @@ public class SiegeCardGamePanel extends JPanel implements Observer, Constants {
 
     private PlayerInfoDisplay playerInfoDisplay;
     private SuppliesDisplay suppliesDisplay;
-    private EnemyTrackDisplay enemyTrackDisplay;
-    private ActionsDisplay actionsDisplay;
+    private TrackSwitchDisplay trackSwitchDisplay;
+    private ActionsSwitchDisplay actionsSwitchDisplay;
     private DeckDisplay deckDisplay;
 
+    private TunnelViewButton tunnelViewButton;
+    private EnemyTrackerViewButton enemyTrackerViewButton;
+
     private NextTurnButton nextTurnButton;
+
 
     public SiegeCardGamePanel(ObservableGame game) {
         this.game = game;
@@ -52,9 +61,20 @@ public class SiegeCardGamePanel extends JPanel implements Observer, Constants {
     private void setupComponents() {
         playerInfoDisplay = new PlayerInfoDisplay(game);
         suppliesDisplay = new SuppliesDisplay(game);
-        enemyTrackDisplay = new EnemyTrackDisplay(game);
-        actionsDisplay = new ActionsDisplay(game);
+        trackSwitchDisplay = new TrackSwitchDisplay(game);
+        actionsSwitchDisplay = new ActionsSwitchDisplay(game);
         deckDisplay = new DeckDisplay(game);
+
+        //Setup Button that switches both displays
+        tunnelViewButton = new TunnelViewButton();
+        tunnelViewButton.addActionListener(new TunnelSwitchListener(trackSwitchDisplay.getTrackSwitchDisplayLayout(), actionsSwitchDisplay.getActionsSwitchDisplayLayout(),
+                                                                    trackSwitchDisplay, actionsSwitchDisplay));
+        trackSwitchDisplay.getEnemyTrackDisplay().add(tunnelViewButton);
+
+        enemyTrackerViewButton = new EnemyTrackerViewButton();
+        enemyTrackerViewButton.addActionListener(new EnemySwitchListener(trackSwitchDisplay.getTrackSwitchDisplayLayout(), actionsSwitchDisplay.getActionsSwitchDisplayLayout(),
+                                                                         trackSwitchDisplay, actionsSwitchDisplay));
+        trackSwitchDisplay.getTunnelDisplay().add(enemyTrackerViewButton);
 
         nextTurnButton = new NextTurnButton(game);
     }
@@ -81,7 +101,6 @@ public class SiegeCardGamePanel extends JPanel implements Observer, Constants {
         gbc.weighty = 1;
         add(suppliesDisplay, gbc);
 
-        //Enemy tracker //TODO: CardLayout switch with tunel
         gbc = new GridBagConstraints();
         gbc.anchor = GridBagConstraints.CENTER;
         gbc.fill = GridBagConstraints.HORIZONTAL;
@@ -90,8 +109,7 @@ public class SiegeCardGamePanel extends JPanel implements Observer, Constants {
         gbc.weightx = 0.7;
         gbc.weighty = 0.7;
         gbc.gridwidth = 7;
-
-        add(enemyTrackDisplay, gbc);
+        add(trackSwitchDisplay, gbc);
 
         //TODO:Menu section
         gbc = new GridBagConstraints();
@@ -101,7 +119,7 @@ public class SiegeCardGamePanel extends JPanel implements Observer, Constants {
         gbc.gridx = 0;
         gbc.gridy = 2;
         gbc.gridwidth = 7;
-        add(actionsDisplay, gbc);
+        add(actionsSwitchDisplay, gbc);
 
         //TODO:Card section
         gbc = new GridBagConstraints();

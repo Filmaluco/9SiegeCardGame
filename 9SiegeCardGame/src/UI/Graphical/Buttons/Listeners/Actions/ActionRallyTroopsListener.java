@@ -1,4 +1,4 @@
-package UI.Graphical.Buttons.Listeners;
+package UI.Graphical.Buttons.Listeners.Actions;
 
 import Controllers.ObservableGame;
 import SiegeCard.Util.Rolls;

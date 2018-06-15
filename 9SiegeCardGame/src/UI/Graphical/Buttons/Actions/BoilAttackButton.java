@@ -2,19 +2,13 @@ package UI.Graphical.Buttons.Actions;
 
 import Assets.Resources;
 import Controllers.ObservableGame;
-import Controllers.states.ActionArchersAttack;
-import Controllers.states.ActionBoilingAttack;
-import Controllers.states.ActionPhase;
 import UI.Graphical.Buttons.IconsBaseButton;
-import UI.Graphical.Buttons.Listeners.ActionBoilAttackListener;
-import UI.Graphical.Buttons.Listeners.NextTurnListener;
+import UI.Graphical.Buttons.Listeners.Actions.ActionBoilAttackListener;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
-import java.util.Observable;
-import java.util.Observer;
 
 public class BoilAttackButton extends IconsBaseButton {
     static private BufferedImage boilAttackButtonImage = null, disableBoilAttackButtonImage = null;

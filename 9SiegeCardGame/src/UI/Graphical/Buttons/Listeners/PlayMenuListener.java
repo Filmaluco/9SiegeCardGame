@@ -25,7 +25,7 @@ public class PlayMenuListener implements ActionListener, Miscellaneous{
                     DIALOG_BOX_PLAYER_NAME_TEXT,
                     DIALOG_BOX_PLAYER_NAME_MENU,
                     JOptionPane.PLAIN_MESSAGE);
-        } while (playerName.length()>18);
+        } while (playerName.length()<1 || playerName.length()>18);
         game.setInitialConfig(playerName);
         game.Start();
     }

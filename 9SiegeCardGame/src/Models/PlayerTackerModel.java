@@ -44,6 +44,8 @@ public class PlayerTackerModel implements Serializable{
         tunnel.capture();
     }
 
+    public int getTunnelPosition() { return tunnel.inTunnel();}
+
     public boolean inEnemyLine(){
         return tunnel.inEnemyLine();
     }
@@ -51,6 +53,8 @@ public class PlayerTackerModel implements Serializable{
     public boolean inCastle(){ return tunnel.inCastle(); }
 
     public boolean inTunnel(){return tunnel.inTunnel() != 0;}
+
+
 
     //Setters
     public void reduceWallStrength() { wallStrength = wallStrength >= 1 ? wallStrength-1:  wallStrength; }
@@ -69,7 +73,7 @@ public class PlayerTackerModel implements Serializable{
     public int getWallStrength() { return wallStrength; }
     public int getMorale() { return morale; }
     public int getSupplies() { return supplies; }
-
+    public int getRaidedSupplies() { return tunnel.getRaidedSupplies(); }
 
     public int getLostAttributes(){
         return (getWallStrength() == 0 ? 1 : 0) + (getMorale() == 0 ? 1 : 0) + (getSupplies() == 0 ? 1 : 0);

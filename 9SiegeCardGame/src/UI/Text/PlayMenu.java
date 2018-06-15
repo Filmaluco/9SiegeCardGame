@@ -5,7 +5,7 @@ import Controllers.SavesController;
 import UI.Text.Util.Print;
 import UI.Text.Util.Read;
 
-import static SiegeCard.Util.str_values.*;
+import static SiegeCard.Util.Str_Values.*;
 
 public class PlayMenu {
 

@@ -3,7 +3,7 @@ package UI.Graphical.Buttons.Actions;
 import Assets.Resources;
 import Controllers.ObservableGame;
 import UI.Graphical.Buttons.IconsBaseButton;
-import UI.Graphical.Buttons.Listeners.ActionSabotageListener;
+import UI.Graphical.Buttons.Listeners.Actions.ActionSabotageListener;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
