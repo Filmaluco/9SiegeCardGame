@@ -37,7 +37,6 @@ public class EnemyTrackDisplay extends JPanel implements Observer, Constants{
         setupComponents();
         layoutComponents();
 
-        this.setVisible(game.getState() instanceof ActionPhase);
     }
 
     private void setupComponents() {

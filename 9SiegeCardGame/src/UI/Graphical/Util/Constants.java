@@ -76,4 +76,11 @@ public interface Constants {
 
     int DIM_X_CARD_SIZE = 158;
     int DIM_Y_CARD_SIZE = 220;
+
+    //Dialog Box
+    int DIM_X_DIALOG_BOX = 450;
+    int DIM_Y_DIALOG_BOX = 275;
+
+    int DIM_X_DIALOG_BOX_BUTTON = 154;
+    int DIM_Y_DIALOG_BOX_BUTTON = 52;
 }

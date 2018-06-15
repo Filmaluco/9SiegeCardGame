@@ -62,6 +62,10 @@ public class ObservableGame extends Observable {
     public int getBatteringRamPosition() { return gameData.getBatteringRamPosition(); }
     public int getSiegeTowerPosition() { return gameData.getSiegeTowerPosition(); }
 
+    public boolean batteringRamInGame() { return gameData.batteringRamInGame(); }
+    public boolean ladderInGame() { return gameData.ladderInGame(); }
+    public boolean siegeTowerInGame() { return gameData.siegeTowerInGame(); }
+
     //Dice methods
     public int getLastRoll() { return gameData.getLastRoll(); }
 

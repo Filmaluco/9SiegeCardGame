@@ -11,5 +11,8 @@ public class ActionBoilAttackListener implements ActionListener{
     public ActionBoilAttackListener(ObservableGame game) { this.game = game; }
 
     @Override
-    public void actionPerformed(ActionEvent e) { game.BoilingAttack(); }
+    public void actionPerformed(ActionEvent e) {
+        if (game.getActionPoints()>0)
+            game.BoilingAttack();
+    }
 }

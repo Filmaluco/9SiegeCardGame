@@ -66,10 +66,13 @@ public class GameController implements Serializable{
     public boolean ladderOnCircleSpace(){ return gameData.EnemyTracker.ladder.onCircleSpace();}
     public boolean siegeTowerOnCircleSpace(){ return gameData.EnemyTracker.siegeTower.onCircleSpace();}
 
-
     public int batteringRamStrength(){ return gameData.EnemyTracker.batteringRam.getStrength();}
     public int ladderStrength(){ return gameData.EnemyTracker.ladder.getStrength();}
     public int siegeTowerStrength(){ return gameData.EnemyTracker.siegeTower.getStrength();}
+
+    public boolean batteringRamInGame(){ return gameData.EnemyTracker.batteringRam.inGame();}
+    public boolean ladderInGame(){ return gameData.EnemyTracker.ladder.inGame();}
+    public boolean siegeTowerInGame(){ return gameData.EnemyTracker.siegeTower.inGame();}
 
     public int getLastRoll(){ return gameData.Dice.getLastRoll(); }
 

@@ -2,6 +2,7 @@ package UI.Graphical;
 
 import Assets.Resources;
 import Controllers.ObservableGame;
+import Controllers.states.GameOver;
 import UI.Graphical.Buttons.Actions.NextTurnButton;
 import UI.Graphical.Containers.*;
 import UI.Graphical.Util.Constants;

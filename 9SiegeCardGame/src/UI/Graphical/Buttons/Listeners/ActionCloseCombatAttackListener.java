@@ -11,5 +11,8 @@ public class ActionCloseCombatAttackListener implements ActionListener{
     public ActionCloseCombatAttackListener(ObservableGame game) { this.game = game; }
 
     @Override
-    public void actionPerformed(ActionEvent e) { game.CloseCombat(); }
+    public void actionPerformed(ActionEvent e) {
+        if (game.getActionPoints()>0)
+            game.CloseCombat();
+    }
 }

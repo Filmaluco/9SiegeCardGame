@@ -11,5 +11,8 @@ public class ActionSabotageListener implements ActionListener {
     public ActionSabotageListener(ObservableGame game) { this.game = game; }
 
     @Override
-    public void actionPerformed(ActionEvent e) { game.Sabotage(); }
+    public void actionPerformed(ActionEvent e) {
+        if (game.getActionPoints()>0)
+            game.Sabotage();
+    }
 }
