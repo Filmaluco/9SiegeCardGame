@@ -83,6 +83,8 @@ public class DiceDisplay extends JDialog implements Constants {
             case RALLY_TROOPS: rollNeeded = 4; break;
             case BOOST_RALLY_TROOPS: rollNeeded = 3; break;
             case COUPURE_ROLL: rollNeeded = 4; break;
+            case SUPPLY_RAID_ROLL: rollNeeded = 2; break;
+            case SABOTAGE_ROLL: rollNeeded = 4; break;
             default: return;
         }
     }
