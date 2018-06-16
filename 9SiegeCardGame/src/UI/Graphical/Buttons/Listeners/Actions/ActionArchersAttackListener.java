@@ -1,4 +1,4 @@
-package UI.Graphical.Buttons.Listeners;
+package UI.Graphical.Buttons.Listeners.Actions;
 
 import Controllers.ObservableGame;
 
@@ -11,5 +11,8 @@ public class ActionArchersAttackListener implements ActionListener{
     public ActionArchersAttackListener(ObservableGame game) { this.game = game; }
 
     @Override
-    public void actionPerformed(ActionEvent e) { game.ArchersAttack(); }
+    public void actionPerformed(ActionEvent e) {
+        if (game.getActionPoints()>0)
+            game.ArchersAttack();
+    }
 }

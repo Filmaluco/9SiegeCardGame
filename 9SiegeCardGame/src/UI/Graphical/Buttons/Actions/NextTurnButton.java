@@ -2,18 +2,15 @@ package UI.Graphical.Buttons.Actions;
 
 import Assets.Resources;
 import Controllers.ObservableGame;
-import Controllers.states.ActionArchersAttack;
 import Controllers.states.ActionPhase;
 import UI.Graphical.Buttons.IconsBaseButton;
-import UI.Graphical.Buttons.Listeners.NextTurnListener;
+import UI.Graphical.Buttons.Listeners.Actions.NextTurnListener;
 import UI.Graphical.Util.Constants;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
-import java.util.Observable;
-import java.util.Observer;
 
 public class NextTurnButton extends IconsBaseButton implements Constants{
     static private BufferedImage nextTurnButtonImage = null, disableNextTurnButtonImage;
@@ -41,11 +38,12 @@ public class NextTurnButton extends IconsBaseButton implements Constants{
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        //TODO: Cant change when other actions are in play
         if (game.getState()instanceof ActionPhase) {
             g.drawImage(getNextTurnButtonImage(), 0, 0, this);
+            setEnabled(true);
         } else {
             g.drawImage(getDisableNextTurnButtonImage(), 0, 0, this);
+            setEnabled(false);
         }
     }
 

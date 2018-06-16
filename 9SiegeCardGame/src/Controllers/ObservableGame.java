@@ -62,6 +62,10 @@ public class ObservableGame extends Observable {
     public int getBatteringRamPosition() { return gameData.getBatteringRamPosition(); }
     public int getSiegeTowerPosition() { return gameData.getSiegeTowerPosition(); }
 
+    public boolean batteringRamInGame() { return gameData.batteringRamInGame(); }
+    public boolean ladderInGame() { return gameData.ladderInGame(); }
+    public boolean siegeTowerInGame() { return gameData.siegeTowerInGame(); }
+
     //Dice methods
     public int getLastRoll() { return gameData.getLastRoll(); }
 
@@ -74,6 +78,11 @@ public class ObservableGame extends Observable {
     public int getMorale() { return gameData.getMorale(); }
     public int getSupplies() { return gameData.getSupplies(); }
     public int getWallStrenght() { return gameData.getWallStrenght(); }
+    public int getRaidedSupplies() { return gameData.getRaidedSupplies(); }
+
+    public int getTunnelPosition() { return gameData.getTunnelPosition(); }
+    public boolean isOnEnemyLines() { return gameData.isOnEnemyLines(); }
+    public boolean isOnCastle() { return gameData.isOnCastle(); }
 
     //--------------------- Methods that trigger events/actions in the finite state machine  -----------------------
 
@@ -140,6 +149,11 @@ public class ObservableGame extends Observable {
     }
     public void Sabotage() {
         gameData.Sabotage();
+        setChanged();
+        notifyObservers();
+    }
+    public void SupplyRaid() {
+        gameData.SupplyRaid();
         setChanged();
         notifyObservers();
     }

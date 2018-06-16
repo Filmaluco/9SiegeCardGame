@@ -7,7 +7,7 @@ import UI.Text.Util.Read;
 
 import java.io.IOException;
 
-import static SiegeCard.Util.str_values.*;
+import static SiegeCard.Util.Str_Values.*;
 
 public class MainMenu {
 
@@ -44,7 +44,7 @@ public class MainMenu {
                 break;
 
             case 3:
-                System.out.println("What was your PlayerTracker name?");
+                System.out.println("What was your Player name?");
                 String name = read.line();
                 try {
                      game = savesGame.loadGame(name);

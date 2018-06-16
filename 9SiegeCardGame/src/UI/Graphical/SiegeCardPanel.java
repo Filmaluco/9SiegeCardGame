@@ -38,6 +38,8 @@ public class SiegeCardPanel extends JPanel implements Observer, Constants, Misce
 
     @Override
     public void update(Observable o, Object arg) {
+        //Todo: Check if game is over/won
+        
         CardLayout cl = (CardLayout)(this.getLayout());
         if (game.getState() instanceof GameSetup){
             cl.show(this, MAIN_MENU);

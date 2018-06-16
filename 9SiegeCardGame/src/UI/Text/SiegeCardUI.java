@@ -2,9 +2,9 @@ package UI.Text;
 
 import Controllers.GameController;
 import Controllers.states.*;
-import SiegeCard.Util.str_values;
+import SiegeCard.Util.Str_Values;
 
-public class SiegeCardUI implements str_values{
+public class SiegeCardUI implements Str_Values {
 
     private GameController game;
     private MainMenu mainMenu;

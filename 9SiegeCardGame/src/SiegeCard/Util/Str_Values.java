@@ -1,6 +1,6 @@
 package SiegeCard.Util;
 
-public interface str_values {
+public interface Str_Values {
     String[] errorMessage={
             "Wrong Option!\n"
     };

@@ -50,13 +50,10 @@ public class BatteringRamGUI extends JPanel implements Observer, Constants{
 
     @Override
     public void update(Observable o, Object arg) {
-        //TODO: Test to check if it is necessary
+        if (!(game.batteringRamInGame()))
+            setVisible(false);
     }
 
-    @Override
-    protected void paintComponent(Graphics g) {
-        super.paintComponent(g);
 
-    }
 
 }

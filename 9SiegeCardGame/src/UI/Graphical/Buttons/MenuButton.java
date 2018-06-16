@@ -34,6 +34,7 @@ public class MenuButton extends JButton implements Constants{
         super.setMaximumSize(d);
         super.setForeground(Color.ORANGE);
         super.setBorderPainted(false);
+        super.setOpaque(false);
         setFont(MAIN_MENU_FONT);
     }
 

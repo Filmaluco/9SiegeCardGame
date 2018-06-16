@@ -47,6 +47,7 @@ public class GameController implements Serializable{
     public int getMorale(){ return gameData.Player.tracker.getMorale();}
     public int getSupplies(){ return gameData.Player.tracker.getSupplies();}
     public int getWallStrenght(){ return gameData.Player.tracker.getWallStrength();}
+    public int getRaidedSupplies() { return gameData.Player.tracker.getRaidedSupplies(); }
 
     public boolean canArchersAttack() { return gameData.canArchersAttack(); }
     public boolean canBoilAttack()  { return  gameData.canBoilAttack(); }
@@ -66,16 +67,24 @@ public class GameController implements Serializable{
     public boolean ladderOnCircleSpace(){ return gameData.EnemyTracker.ladder.onCircleSpace();}
     public boolean siegeTowerOnCircleSpace(){ return gameData.EnemyTracker.siegeTower.onCircleSpace();}
 
-
     public int batteringRamStrength(){ return gameData.EnemyTracker.batteringRam.getStrength();}
     public int ladderStrength(){ return gameData.EnemyTracker.ladder.getStrength();}
     public int siegeTowerStrength(){ return gameData.EnemyTracker.siegeTower.getStrength();}
+
+    public boolean batteringRamInGame(){ return gameData.EnemyTracker.batteringRam.inGame();}
+    public boolean ladderInGame(){ return gameData.EnemyTracker.ladder.inGame();}
+    public boolean siegeTowerInGame(){ return gameData.EnemyTracker.siegeTower.inGame();}
 
     public int getLastRoll(){ return gameData.Dice.getLastRoll(); }
 
     public int getLastCardID() { return gameData.Deck.getLastCardID(); }
     public int getNumberCards() { return gameData.Deck.getNumberCards(); }
     public int[] getCardIDS() { return gameData.Deck.getCardIDS(); }
+
+
+    public int getTunnelPosition() { return gameData.Player.tracker.getTunnelPosition(); }
+    public boolean isOnEnemyLines() { return gameData.Player.tracker.inEnemyLine(); }
+    public boolean isOnCastle() { return gameData.Player.tracker.inCastle(); }
 
     public boolean canMoveInTunnel(){ return gameData.canUseTunnelMovemnt() && gameData.Player.tracker.inTunnel(); }
     public boolean canMoveIntoTunnel(){ return gameData.canUseTunnelMovemnt() && !gameData.Player.tracker.inTunnel(); }
@@ -107,6 +116,7 @@ public class GameController implements Serializable{
     public void MoveIntoTunnel(){setState(getState().moveIntoTunnel());}
     //TODO: IMPLEMENT
     public void Sabotage(){setState(getState().ActionSabotage());}
+    public void SupplyRaid() {setState(getState().ActionSupplyRaid());}
 
     public void ApplyRules(Rolls target){setState(getState().ApplyRules(target));}
     public void ApplyRules(Constants target){setState(getState().ApplyRules(target));}

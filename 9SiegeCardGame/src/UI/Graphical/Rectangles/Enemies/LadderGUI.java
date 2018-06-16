@@ -53,7 +53,8 @@ public class LadderGUI extends JPanel implements Observer, Constants{
 
     @Override
     public void update(Observable o, Object arg) {
-        //TODO: Test to check if it is necessary
+        if (!(game.ladderInGame()))
+            setVisible(false);
     }
 
     @Override

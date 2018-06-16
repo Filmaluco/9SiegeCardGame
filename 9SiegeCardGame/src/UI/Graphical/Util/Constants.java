@@ -42,6 +42,10 @@ public interface Constants {
     int DIM_X_STATUS_TRACK_BORDER = DIM_Y_7/2;
     int DIM_Y_STATUS_TRACK_BORDER = 0;
 
+    //Tunnel Constants
+    int DIM_X_TUNNEL_ICON = 83;
+    int DIM_Y_TUNNEL_ICON = 83;
+
     //Enemy Tracker
     int DIM_X_ENEMY_GUI = DIM_X_8 * 4 + DIM_X_8/2;
     int DIM_Y_ENEMY_GUI = DIM_Y_7*3;
@@ -76,4 +80,11 @@ public interface Constants {
 
     int DIM_X_CARD_SIZE = 158;
     int DIM_Y_CARD_SIZE = 220;
+
+    //Dialog Box
+    int DIM_X_DIALOG_BOX = 450;
+    int DIM_Y_DIALOG_BOX = 275;
+
+    int DIM_X_DIALOG_BOX_BUTTON = 154;
+    int DIM_Y_DIALOG_BOX_BUTTON = 52;
 }

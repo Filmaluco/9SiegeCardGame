@@ -2,17 +2,13 @@ package UI.Graphical.Buttons.Actions;
 
 import Assets.Resources;
 import Controllers.ObservableGame;
-import Controllers.states.ActionArchersAttack;
-import Controllers.states.ActionPhase;
 import UI.Graphical.Buttons.IconsBaseButton;
-import UI.Graphical.Buttons.Listeners.ActionArchersAttackListener;
+import UI.Graphical.Buttons.Listeners.Actions.ActionArchersAttackListener;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
-import java.util.Observable;
-import java.util.Observer;
 
 public class ArchersAttackButton extends IconsBaseButton{
     static private BufferedImage archersAttackButtonImage = null, disableArchersAttackButtonImage = null;

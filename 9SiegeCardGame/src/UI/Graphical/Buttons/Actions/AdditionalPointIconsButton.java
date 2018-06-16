@@ -3,6 +3,7 @@ package UI.Graphical.Buttons.Actions;
 import Assets.Resources;
 import Controllers.ObservableGame;
 import UI.Graphical.Buttons.IconsBaseButton;
+import UI.Graphical.Buttons.Listeners.Actions.ActionAdditionalPointListener;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -28,6 +29,7 @@ public class AdditionalPointIconsButton extends IconsBaseButton {
 
     public AdditionalPointIconsButton(ObservableGame game) {
         this.game = game;
+        addActionListener(new ActionAdditionalPointListener(game));
         setToolTipText("Get Additional Point Action");
     }
 
