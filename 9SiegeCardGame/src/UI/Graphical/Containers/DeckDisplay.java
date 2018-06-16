@@ -33,7 +33,6 @@ public class DeckDisplay extends JPanel implements Observer, Constants{
         setMaximumSize(d);
         setMinimumSize(d);
 
-        //setBackground(Color.lightGray);
         setOpaque(false);
 
         this.setVisible(game.getState() instanceof ActionPhase);

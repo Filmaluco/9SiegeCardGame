@@ -12,8 +12,6 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import static UI.Graphical.Util.Miscellaneous.DICE_CONTINUE;
-
 public class DiceDisplay extends JDialog implements Constants {
     ObservableGame game;
     Rolls target;
@@ -67,6 +65,7 @@ public class DiceDisplay extends JDialog implements Constants {
     }
 
     private void layoutComponents() {
+        setBackground(Color.lightGray);
         setVisible(true);
         setLayout(new GridLayout(3,0));
         add(rollNeededLabel);

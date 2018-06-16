@@ -48,4 +48,10 @@ public interface Miscellaneous {
     String DICE_LOST_ROLL = "Ups! You Lost the roll, better luck next time!";
     String DICE_CONTINUE = "Continue!";
 
+    //Menu Bar Constants
+    String MENU_GAME = "Game Menu";
+    String MENU_SAVE_GAME = "Save Game";
+    String MENU_LOAD_GAME = "Load Game";
+    String MENU_EXIT = "Exit Game";
+
 }

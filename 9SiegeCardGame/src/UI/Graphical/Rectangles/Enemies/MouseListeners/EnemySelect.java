@@ -32,10 +32,11 @@ public class EnemySelect implements MouseListener {
 
     @Override
     public void mousePressed(MouseEvent e) {
-        if (game.getState() instanceof ActionArchersAttack || game.getState() instanceof ActionBoilingAttack)
+        if (game.getState() instanceof ActionArchersAttack || game.getState() instanceof ActionBoilingAttack){
             game.ApplyRules(roll);
+            new DiceDisplay(game, roll);
+        }
         panel.setBorder(BorderFactory.createEmptyBorder());
-        new DiceDisplay(game, roll);
     }
 
     @Override

@@ -12,7 +12,14 @@ public class ObservableGame extends Observable {
 
     public ObservableGame() { gameData = new GameController(); }
 
-    public GameDataModel getGameData() { return gameData.getGameData(); }
+    public GameController getGameController() { return gameData; }
+
+    public void setGameController(GameController gameData) {
+        this.gameData = gameData;
+
+        setChanged();
+        notifyObservers();
+    }
 
     public IState getState() { return gameData.getState(); }
 

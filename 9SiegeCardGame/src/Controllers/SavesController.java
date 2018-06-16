@@ -59,11 +59,38 @@ public class SavesController {
         }
     }
 
+    public static void saveGameToFile(Object game,File file) throws IOException{
+
+        ObjectOutputStream out = null;
+
+        try {
+            out = new ObjectOutputStream(new FileOutputStream(file));
+            out.writeObject(game);
+        } finally {
+            if (out != null)
+                out.close();
+        }
+    }
+
+    public  static Object loadGameFromFile(File file) throws IOException, ClassNotFoundException {
+
+        ObjectInputStream in = null;
+
+        try{
+
+            in = new ObjectInputStream(new FileInputStream(file));
+            return in.readObject();
+
+        } finally{
+            if(in!=null){
+                in.close();
+            }
+        }
+    }
+
     public boolean checkFile(String file){
         //Todo: implement
         return false;
     }
-
-
 
 }

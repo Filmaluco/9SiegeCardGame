@@ -10,6 +10,7 @@ import UI.Graphical.Buttons.TunnelViewButton;
 import UI.Graphical.Containers.*;
 import UI.Graphical.Containers.Switch.ActionsSwitchDisplay;
 import UI.Graphical.Containers.Switch.TrackSwitchDisplay;
+import UI.Graphical.MenuBar.MainMenuBar;
 import UI.Graphical.Util.Constants;
 
 import javax.imageio.ImageIO;
@@ -101,6 +102,7 @@ public class SiegeCardGamePanel extends JPanel implements Observer, Constants {
         gbc.weighty = 1;
         add(suppliesDisplay, gbc);
 
+        //Enemy Track Display
         gbc = new GridBagConstraints();
         gbc.anchor = GridBagConstraints.CENTER;
         gbc.fill = GridBagConstraints.HORIZONTAL;
@@ -111,7 +113,7 @@ public class SiegeCardGamePanel extends JPanel implements Observer, Constants {
         gbc.gridwidth = 7;
         add(trackSwitchDisplay, gbc);
 
-        //TODO:Menu section
+        //Actions Display
         gbc = new GridBagConstraints();
         //gbc.anchor = GridBagConstraints.CENTER;
         gbc.weightx = 0.5;
@@ -121,7 +123,7 @@ public class SiegeCardGamePanel extends JPanel implements Observer, Constants {
         gbc.gridwidth = 7;
         add(actionsSwitchDisplay, gbc);
 
-        //TODO:Card section
+        //Deck Display
         gbc = new GridBagConstraints();
         gbc.anchor = GridBagConstraints.PAGE_END;
         gbc.fill = GridBagConstraints.HORIZONTAL;
