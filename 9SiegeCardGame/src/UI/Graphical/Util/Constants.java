@@ -87,4 +87,16 @@ public interface Constants {
 
     int DIM_X_DIALOG_BOX_BUTTON = 154;
     int DIM_Y_DIALOG_BOX_BUTTON = 52;
+
+    //Dice Dimensions
+    int DIM_X_DICE = DIM_X_FRAME/2;
+    int DIM_Y_DICE = DIM_X_FRAME/2;
+
+    int DIM_X_DICE_IMAGE = 85;
+    int DIM_Y_DICE_IMAGE = 86;
+
+    int DIM_DICE_BORDER = 20;
+
+    int DIM_X_DICE_LABEL = DIM_X_DICE/3;
+    int DIM_Y_DICE_LABEL = DIM_Y_DICE/3;
 }

@@ -4,6 +4,7 @@ import Controllers.ObservableGame;
 import Controllers.states.ActionArchersAttack;
 import Controllers.states.ActionBoilingAttack;
 import SiegeCard.Util.Rolls;
+import UI.Graphical.Dice.DiceDisplay;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -34,6 +35,7 @@ public class EnemySelect implements MouseListener {
         if (game.getState() instanceof ActionArchersAttack || game.getState() instanceof ActionBoilingAttack)
             game.ApplyRules(roll);
         panel.setBorder(BorderFactory.createEmptyBorder());
+        new DiceDisplay(game, roll);
     }
 
     @Override

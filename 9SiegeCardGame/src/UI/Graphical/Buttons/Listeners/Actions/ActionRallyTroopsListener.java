@@ -5,6 +5,7 @@ import SiegeCard.Util.Rolls;
 import UI.Graphical.DialogBox.DialogBox;
 import UI.Graphical.DialogBox.DialogBoxBackground;
 import UI.Graphical.DialogBox.DialogBoxFrame;
+import UI.Graphical.Dice.DiceDisplay;
 import UI.Graphical.SiegeCardGUI;
 import UI.Graphical.Util.Miscellaneous;
 
@@ -37,8 +38,14 @@ public class ActionRallyTroopsListener implements ActionListener, Miscellaneous{
                     DIALOG_BOX_RALLY_TROOPS_OPTIONS,
                     DIALOG_BOX_RALLY_TROOPS_OPTIONS[1]);
             //0 is yes, 1 is no
-            if (n==0) game.ApplyRules(Rolls.BOOST_RALLY_TROOPS);
-            else if (n==1) game.ApplyRules(Rolls.RALLY_TROOPS);
+            if (n==0) {
+                game.ApplyRules(Rolls.BOOST_RALLY_TROOPS);
+                new DiceDisplay(game,Rolls.BOOST_RALLY_TROOPS);
+            }
+            else if (n==1) {
+                game.ApplyRules(Rolls.RALLY_TROOPS);
+                new DiceDisplay(game,Rolls.RALLY_TROOPS);
+            }
         }
     }
 }

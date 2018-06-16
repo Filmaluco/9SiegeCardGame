@@ -36,7 +36,6 @@ public class DialogBox extends JDialog implements Constants{
 
         setModalityType(ModalityType.APPLICATION_MODAL);
 
-        //setTitle("About Notes");
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 
     }

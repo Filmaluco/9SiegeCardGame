@@ -9,6 +9,7 @@ public interface Miscellaneous {
     Font SUPPLIES_FONT = new Font("Arial", Font.PLAIN, 65);
     Font PLAYER_INFO_FONT = new Font("Arial", Font.PLAIN, 25);
     Font DIALOG_BOX_FONT = new Font("Arial", Font.PLAIN, 15);
+    Font DICE_FONT = new Font("Arial", Font.PLAIN, 20);
 
     //Card Layout Constants
     String MAIN_MENU = "MAIN MENU";
@@ -39,5 +40,12 @@ public interface Miscellaneous {
 
     String DIALOG_BOX_PLAYER_NAME_MENU = "Player Name";
     String DIALOG_BOX_PLAYER_NAME_TEXT = "Please enter your player name to start the game!";
+
+    //Dice Constants
+    String DICE_ROLL_NEEDED = "You need a roll greater than:";
+    String DICE_LAST_ROLL = "You got:";
+    String DICE_WON_ROLL = "Nice! You Won the roll, let's move on!";
+    String DICE_LOST_ROLL = "Ups! You Lost the roll, better luck next time!";
+    String DICE_CONTINUE = "Continue!";
 
 }
