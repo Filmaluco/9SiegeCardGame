@@ -84,7 +84,17 @@ public class ActionPhase extends StateAdapter {
     @Override
     public IState ActionSabotage(){
         if(getGame().canSabotage()){
+            getGame().Player.removeActionPoint();
             getGame().sabotage();
+        }
+        return this;
+    }
+
+    @Override
+    public IState ActionSupplyRaid(){
+        if(getGame().canSupplyRaid()){
+            getGame().Player.removeActionPoint();
+            getGame().SupplyRaid();
         }
         return this;
     }

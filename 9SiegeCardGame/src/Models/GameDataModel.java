@@ -303,9 +303,15 @@ public class GameDataModel implements Serializable{
     }
 
     public void sabotage() {
-        Player.removeActionPoint();
+
         Dice.roll(SABOTAGE_ROLL);
         if(Dice.getLastRoll() > 4)  EnemyTracker.reduceTrebuchet();
+        if(Dice.getLastRoll() == 1) capture();
+    }
+    public void SupplyRaid() {
+        Dice.roll(SUPPLY_RAID_ROLL);
+        if(Dice.getLastRoll() > 2 && Dice.getLastRoll() < 6)  Player.tracker.raidSupplies(1);
+        if(Dice.getLastRoll() == 6)  Player.tracker.raidSupplies(2);
         if(Dice.getLastRoll() == 1) capture();
     }
 
@@ -357,6 +363,7 @@ public class GameDataModel implements Serializable{
         s+=Deck.toString();
         return s;
     }
+
 
 
 }
