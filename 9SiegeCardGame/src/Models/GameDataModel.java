@@ -59,10 +59,10 @@ public class GameDataModel implements Serializable{
     public boolean hasUsedTunnelMovement(){return  usedTunnelMovement;}
     public void resetTunnelMovement(){usedTunnelMovement = false;}
 
-    public boolean canBoilAttack(){ canBoilAttack = EnemyTracker.batteringRam.onCircleSpace() ||
+    public boolean canBoilAttack(){ canBoilAttack = ((EnemyTracker.batteringRam.onCircleSpace() ||
             EnemyTracker.ladder.onCircleSpace() ||
-            EnemyTracker.siegeTower.onCircleSpace() &&
-            Player.getActionPoints() > 0 && canBoilAttack;
+            EnemyTracker.siegeTower.onCircleSpace()) &&
+            Player.getActionPoints() > 0 && canBoilAttack);
 
     return canBoilAttack;}
 
@@ -320,7 +320,6 @@ public class GameDataModel implements Serializable{
 
             useTunnelMovement();
             Player.removeActionPoint();
-            Player.tracker.moveToTunnel();
 
         }
     }
