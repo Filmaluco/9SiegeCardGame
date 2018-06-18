@@ -126,13 +126,10 @@ public class TunnelModel implements Serializable{
         return 0;
     }
 
-    public int autoMovement(){
+    public void autoMovement(){
         if(!inEnemyLine() && !castle){
            moveRight();
         }
-        int temp = raidedSupplies;
-        raidedSupplies = 0;
-        return temp;
     }
 
     public void capture(){

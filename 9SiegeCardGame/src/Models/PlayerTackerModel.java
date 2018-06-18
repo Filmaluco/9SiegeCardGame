@@ -40,7 +40,7 @@ public class PlayerTackerModel implements Serializable{
     }
 
     public void autoMovement(){
-        addSupplies(tunnel.autoMovement());
+        tunnel.autoMovement();
     }
 
     public void raidSupplies(int i){ for (int x = 0; x < i; x++ )tunnel.increaseRaidedSupplies();}
