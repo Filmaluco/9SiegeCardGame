@@ -63,8 +63,8 @@ public class TunnelModel implements Serializable{
             if(castle){
                 castle = false;
                 tunnel[0] = true;
-            }else if(tunnel[TUNEL_SIZE]){
-                tunnel[TUNEL_SIZE] = false;
+            }else if(tunnel[TUNEL_SIZE-1]){
+                tunnel[TUNEL_SIZE-1] = false;
                 enemy = true;
             }else{
                 for (int i = 0; i < TUNEL_SIZE-1 ; i++){
@@ -127,11 +127,8 @@ public class TunnelModel implements Serializable{
     }
 
     public int autoMovement(){
-        if(!inEnemyLine()){
-            directionCastleEnemy = true;
-            directionEnemyCastle = false;
-            castle = true;
-            tunnel[inTunnel()-1]=false;
+        if(!inEnemyLine() && !castle){
+           moveRight();
         }
         int temp = raidedSupplies;
         raidedSupplies = 0;

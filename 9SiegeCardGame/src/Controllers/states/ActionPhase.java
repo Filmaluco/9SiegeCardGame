@@ -24,6 +24,7 @@ public class ActionPhase extends StateAdapter {
             getGame().Deck.reShuffle();
         }else {
             getGame().Dice.roll(RANDOM);
+            getGame().Player.tracker.autoMovement();
            if(getGame().Dice.getLastRoll() == 1) getGame().Player.tracker.capture();
         }
 
