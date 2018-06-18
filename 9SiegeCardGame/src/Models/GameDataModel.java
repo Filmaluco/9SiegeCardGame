@@ -302,6 +302,13 @@ public class GameDataModel implements Serializable{
         return true;
     }
 
+    public void sabotage() {
+        Player.removeActionPoint();
+        Dice.roll(SABOTAGE_ROLL);
+        if(Dice.getLastRoll() > 4)  EnemyTracker.reduceTrebuchet();
+        if(Dice.getLastRoll() == 1) capture();
+    }
+
     public void moveToTunnel(){
         if(canUseTunnelMovemnt() && Player.getActionPoints() > 0){
 
@@ -350,4 +357,6 @@ public class GameDataModel implements Serializable{
         s+=Deck.toString();
         return s;
     }
+
+
 }

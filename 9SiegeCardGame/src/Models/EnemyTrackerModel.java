@@ -26,6 +26,7 @@ public class EnemyTrackerModel implements Serializable{
     public int getTrebuchets() { return currentTrebuchets; }
     public boolean hasTrebuchets(){ return currentTrebuchets > 0;}
     public int addTrebuchet(){ return currentTrebuchets = currentTrebuchets < 3 ? currentTrebuchets+1 : currentTrebuchets;}
+    public int reduceTrebuchet(){return currentTrebuchets = currentTrebuchets > 0 ? currentTrebuchets-1 : currentTrebuchets;}
 
     public void moveSlowest(){
         int nr_enemies = 3;

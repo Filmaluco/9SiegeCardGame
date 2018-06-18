@@ -82,5 +82,13 @@ public class ActionPhase extends StateAdapter {
     }
 
     @Override
+    public IState ActionSabotage(){
+        if(getGame().canSabotage()){
+            getGame().sabotage();
+        }
+        return this;
+    }
+
+    @Override
     public IState GameExit() { return new GameExit(getGame()); }
 }

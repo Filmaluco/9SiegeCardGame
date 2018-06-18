@@ -6,8 +6,10 @@ import UI.Text.SiegeCardUI;
 public class Main {
 
     public static void main(String[] args) {
-        GameController game = new GameController();
-        SiegeCardUI text = new SiegeCardUI(game);
-        text.start();
+        //GameController game = new GameController();
+        //SiegeCardUI text = new SiegeCardUI(game);
+        //text.start();
+        ObservableGame game = new ObservableGame();
+        new SiegeCardGUI(game);
     }
 }
