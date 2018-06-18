@@ -18,7 +18,6 @@ public class PlayMenuListener implements ActionListener, Miscellaneous{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        //TODO: Check Initial Condition and change name with a popup
         do {
             playerName = (String) JOptionPane.showInputDialog(
                     new DialogBoxFrame(),

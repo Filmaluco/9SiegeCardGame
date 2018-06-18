@@ -20,7 +20,6 @@ public class ActionAdditionalPointListener implements ActionListener, Miscellane
         if (game.getActionPoints()>0)
             game.Adicional();
 
-        //TODO: Change yes or no to morale or supply .
         int n = JOptionPane.showOptionDialog(
                 new DialogBoxFrame(),
                 DIALOG_BOX_ADDITIONAL_POINT_TEXT,
@@ -29,7 +28,7 @@ public class ActionAdditionalPointListener implements ActionListener, Miscellane
                 JOptionPane.QUESTION_MESSAGE, null,
                 DIALOG_BOX_ADDITIONAL_POINT_OPTIONS,
                 DIALOG_BOX_ADDITIONAL_POINT_OPTIONS[0]);
-        //0 is yes, 1 is no
+        //0 is Supply, 1 is Morale
         if (n==0) game.ApplyRules(Constants.SUPPLY);
         else if (n==1) game.ApplyRules(Constants.MORALE);
     }

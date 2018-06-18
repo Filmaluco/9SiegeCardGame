@@ -42,8 +42,5 @@ public class RaidedSuppliesGUI extends JPanel implements Observer, Constants {
     }
 
     @Override
-    public void update(Observable o, Object arg) {
-        //TODO: Test to check if it is necessary
-        repaint();
-    }
+    public void update(Observable o, Object arg) { }
 }
