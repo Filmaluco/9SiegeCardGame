@@ -113,7 +113,9 @@ public class TunnelModel implements Serializable{
             directionCastleEnemy = true;
             tunnel[inTunnel()-1] = false;
             castle = true;
-            return raidedSupplies;
+            int temp = raidedSupplies;
+            raidedSupplies = 0;
+            return temp;
         }
         if(directionCastleEnemy){
             directionEnemyCastle = true;
@@ -131,7 +133,9 @@ public class TunnelModel implements Serializable{
             castle = true;
             tunnel[inTunnel()-1]=false;
         }
-        return raidedSupplies;
+        int temp = raidedSupplies;
+        raidedSupplies = 0;
+        return temp;
     }
 
     public void capture(){

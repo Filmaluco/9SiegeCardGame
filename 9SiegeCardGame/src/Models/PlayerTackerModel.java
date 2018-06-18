@@ -68,7 +68,7 @@ public class PlayerTackerModel implements Serializable{
     public void reduceSupplies() { supplies = supplies >= 1 ? supplies-1:  supplies; }
     public void increaseSupplies() { supplies = supplies < 4 ? supplies+1:  supplies; }
     public void setSupplies(int nr){supplies = nr > 2 || nr < 0 ? supplies: nr;}
-    public void addSupplies(int nr){supplies = supplies+nr > 2 ? 2 : supplies+nr;}
+    public void addSupplies(int nr){supplies = supplies+nr > 4 ? 4 : supplies+nr;}
 
 
     //Getters
