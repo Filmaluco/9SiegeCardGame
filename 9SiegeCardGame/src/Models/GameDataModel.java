@@ -319,6 +319,7 @@ public class GameDataModel implements Serializable{
         if(canUseTunnelMovemnt() && Player.getActionPoints() > 0){
 
             useTunnelMovement();
+            Player.tracker.moveToTunnel();
             Player.removeActionPoint();
 
         }
