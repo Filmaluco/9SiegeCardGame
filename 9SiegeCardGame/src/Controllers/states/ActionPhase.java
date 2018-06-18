@@ -2,7 +2,7 @@ package Controllers.states;
 
 import Models.GameDataModel;
 
-import static SiegeCard.Util.Rolls.COUPURE_ROLL;
+import static SiegeCard.Util.Rolls.*;
 
 public class ActionPhase extends StateAdapter {
 
@@ -18,12 +18,13 @@ public class ActionPhase extends StateAdapter {
 
 
         if(getGame().hasToChangeDay()){
-            //TODO: check Tunnel and EnemyLine (different enemy line check change parameters this one does not require roll)
+            getGame().Player.tracker.setSupplies(getGame().Player.tracker.moveToCastle());
             getGame().Player.tracker.reduceSupplies();
             getGame().nextDay();
             getGame().Deck.reShuffle();
         }else {
-            //TODO: Check EnemyLine (different enemy line check change parameters this one requires roll)
+            getGame().Dice.roll(RANDOM);
+           if(getGame().Dice.getLastRoll() == 1) getGame().Player.tracker.capture();
         }
 
         //TODO: check if enemies can damage walL

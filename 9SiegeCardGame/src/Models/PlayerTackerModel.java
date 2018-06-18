@@ -28,6 +28,9 @@ public class PlayerTackerModel implements Serializable{
         return tunnel.moveToTunnel();
     }
 
+    public int moveToCastle() { return tunnel.moveToCastle();
+    }
+
     public boolean freeMovement(){
         return tunnel.freeMovement();
     }
@@ -111,6 +114,7 @@ public class PlayerTackerModel implements Serializable{
 
         return s;
     }
+
 
 
 }

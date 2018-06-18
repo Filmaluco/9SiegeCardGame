@@ -147,6 +147,17 @@ public class TunnelModel implements Serializable{
         directionEnemyCastle = false;
     }
 
+    public int moveToCastle() {
+        castle = true;
+        enemy = false;
+        tunnel = new boolean[TUNEL_SIZE];
+        directionCastleEnemy = true;
+        directionEnemyCastle = false;
+        int temp = raidedSupplies;
+        raidedSupplies = 0;
+        return temp;
+    }
+
     @Override
     public String toString() {
         String s="";
@@ -163,4 +174,6 @@ public class TunnelModel implements Serializable{
 
         return s;
     }
+
+
 }
