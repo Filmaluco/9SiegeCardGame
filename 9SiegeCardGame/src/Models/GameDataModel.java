@@ -244,7 +244,7 @@ public class GameDataModel implements Serializable{
     }
 
     public boolean BoilAttack(Rolls TARGET){
-        if(!canArchersAttack() || !canCloseCombat() || !canBoilAttack() || Player.getActionPoints() == 0){ return false;}
+        if(!canBoilAttack() || Player.getActionPoints() == 0){ return false;}
         lockBoilAttack();
 
         switch (TARGET){
