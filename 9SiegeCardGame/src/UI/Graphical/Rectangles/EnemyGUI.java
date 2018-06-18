@@ -40,7 +40,6 @@ public class EnemyGUI extends JPanel implements Observer, Constants{
     }
 
     private void layoutComponents() {
-        //TODO: Add Border to each individual panel if selected for Enemy attack
         add(ladderGUI);
         add(batteringRamGUI);
         add(siegeTowerGUI);

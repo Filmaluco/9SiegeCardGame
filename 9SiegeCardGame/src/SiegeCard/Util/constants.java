@@ -1,7 +1,6 @@
 package SiegeCard.Util;
 
 public enum Constants {
-
     LAST_DAY,
     LAST_TURN,
     DAY_ONE,

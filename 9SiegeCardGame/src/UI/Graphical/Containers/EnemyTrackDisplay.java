@@ -15,7 +15,6 @@ import java.util.Observable;
 import java.util.Observer;
 
 public class EnemyTrackDisplay extends JPanel implements Observer, Constants{
-    //TODO: CardLayout switch with panel if active
     ObservableGame game;
     private TrebuchetGUI trebuchetTracker;
     private EnemyGUI enemyGUI;

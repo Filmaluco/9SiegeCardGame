@@ -41,6 +41,15 @@ public interface Miscellaneous {
     String DIALOG_BOX_PLAYER_NAME_MENU = "Player Name";
     String DIALOG_BOX_PLAYER_NAME_TEXT = "Please enter your player name to start the game!";
 
+    String DIALOG_BOX_GAME_OVER_MENU = "Game Over";
+    String DIALOG_BOX_GAME_OVER_TEXT = "Ohhh You Lost! Review your tactics for the next siege!";
+    String DIALOG_BOX_GAME_OVER_YES = "Yes";
+    String DIALOG_BOX_GAME_OVER_NO = "No, exit";
+    Object[] DIALOG_BOX_GAME_OVER_OPTIONS = {DIALOG_BOX_GAME_OVER_YES, DIALOG_BOX_GAME_OVER_NO};
+
+    String DIALOG_BOX_GAME_WON_MENU = "Game Won";
+    String DIALOG_BOX_GAME_WON_TEXT = "Congratulations, you managed to survive the siege!";
+
     //Dice Constants
     String DICE_ROLL_NEEDED = "You need a roll greater than:";
     String DICE_LAST_ROLL = "You got:";

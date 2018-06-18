@@ -34,7 +34,12 @@ public class EnemySelect implements MouseListener {
     public void mousePressed(MouseEvent e) {
         if (game.getState() instanceof ActionArchersAttack || game.getState() instanceof ActionBoilingAttack){
             game.ApplyRules(roll);
-            new DiceDisplay(game, roll);
+            try {
+                new DiceDisplay(game, roll);
+            } catch (ArrayIndexOutOfBoundsException g){
+                System.out.println("Invalid Option!!");
+            }
+
         }
         panel.setBorder(BorderFactory.createEmptyBorder());
     }
