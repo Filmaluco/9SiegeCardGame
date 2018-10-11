@@ -9,7 +9,7 @@ import SiegeCard.Util.Rolls;
 import java.io.Serializable;
 
 public class GameController implements Serializable{
-
+    public final static long serialVersionUID = 1L;
     private GameDataModel gameData;
     private IState state;
 
