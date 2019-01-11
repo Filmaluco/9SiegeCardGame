@@ -7,7 +7,6 @@ import UI.Graphical.Containers.TunnelActionsDisplay;
 import UI.Graphical.Util.Constants;
 import UI.Graphical.Util.Miscellaneous;
 
-import javax.smartcardio.Card;
 import javax.swing.*;
 import java.awt.*;
 import java.util.Observable;
